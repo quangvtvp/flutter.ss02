@@ -1,0 +1,4 @@
+void main( ) {
+print(' Nguyen Ngoc Quynh');
+print('tôi thích đi chơi');
+}
