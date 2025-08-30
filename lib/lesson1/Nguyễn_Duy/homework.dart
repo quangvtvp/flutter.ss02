@@ -1,5 +1,6 @@
 void main() {
-  print('Nguyễn Duy');
-  print('cứu bé');
-  print('thầy ơi em buồn ngủ'); 
+  print('hello mọi người');
+  print('i love you');
+  print('i miss you');
+  print('i need you');
 }
