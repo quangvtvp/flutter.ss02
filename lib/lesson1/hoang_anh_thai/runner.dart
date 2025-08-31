@@ -4,7 +4,9 @@ import 'dart:io';
 void main() async {
   const String basePath = "lib/lesson1/hoang_anh_thai";
   Process? child;
-  String? currentFileLabel; // ví dụ: "bai2" (không có .dart)
+  String? currentFileLabel; // ví dụ: "bai2"
+  bool stoppedByUser = false; // cờ đánh dấu stop thủ công
+
   final lineStream = stdin
       .transform(utf8.decoder)
       .transform(const LineSplitter());
@@ -36,17 +38,24 @@ void main() async {
 
   await for (final raw in lineStream) {
     final input = raw.trim();
+    final lower = input.toLowerCase();
 
-    // Nếu chưa có tiến trình con -> chế độ lệnh của runner
+    // Khi không có tiến trình con
     if (child == null) {
       if (input.isEmpty) {
         prompt();
         continue;
       }
 
-      if (input.toLowerCase() == "exit") {
+      if (lower == "exit") {
         print("👋 Runner đã thoát.");
         break;
+      }
+
+      if (lower == "stop") {
+        print("⚠️ Không có tiến trình nào để dừng.\n");
+        prompt();
+        continue;
       }
 
       // chuẩn hóa tên file
@@ -62,25 +71,34 @@ void main() async {
       currentFileLabel = fileName.replaceAll(".dart", "");
       print("🚀 Đang chạy: $path ...\n");
 
-      // chạy tiến trình con; runner sẽ làm proxy I/O
+      // chạy tiến trình con
       final p = await Process.start("dart", [
         "run",
         path,
       ], mode: ProcessStartMode.normal);
       child = p;
 
-      // pipe stdout/stderr của con ra console, đồng thời gom lỗi
+      // pipe stdout/stderr
       final StringBuffer errBuf = StringBuffer();
-      p.stdout.transform(systemEncoding.decoder).listen((data) {
+      p.stdout.transform(utf8.decoder).listen((data) {
         stdout.write(data);
       });
-      p.stderr.transform(systemEncoding.decoder).listen((data) {
+      p.stderr.transform(utf8.decoder).listen((data) {
         stderr.write(data);
         errBuf.write(data);
       });
 
-      // khi con kết thúc -> in trạng thái + ghi log nếu lỗi
+      // khi con kết thúc
       p.exitCode.then((code) {
+        // Nếu do người dùng stop → không log
+        if (stoppedByUser) {
+          stoppedByUser = false;
+          child = null;
+          currentFileLabel = null;
+          prompt();
+          return;
+        }
+
         final label = currentFileLabel ?? "run";
         if (code == 0) {
           print(
@@ -103,29 +121,28 @@ void main() async {
         prompt();
       });
 
-      // lưu ý: KHÔNG prompt() ở đây, vì đang giao tiếp với file con
       continue;
     }
 
-    // Nếu đang có tiến trình con -> chế độ proxy input
-    final lower = input.toLowerCase();
+    // Nếu đang có tiến trình con
     if (lower == "stop") {
-      child?.kill(); // dừng ngay
+      stoppedByUser = true;
+      child?.kill(ProcessSignal.sigkill);
       print("⛔ File con đã bị dừng.\n");
-      child = null;
-      currentFileLabel = null;
-      prompt();
-      continue;
+      continue; // không reset child ở đây, để exitCode.then() xử lý
     }
+
     if (lower == "exit") {
-      // thoát runner: kill con (nếu còn), rồi break
       child?.kill();
       print("👋 Runner đã thoát.");
       break;
     }
 
-    // Forward input người dùng vào stdin của tiến trình con
+    // Forward input cho tiến trình con
     child?.stdin.writeln(raw);
-    // không prompt khi con đang chạy
   }
 }
+
+//code by NotTie
+//feat hatsune miku
+//gpt gánh còng lưng đoạn này

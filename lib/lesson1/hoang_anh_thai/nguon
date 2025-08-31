@@ -1,8 +1,6 @@
-
+import 'dart:io';
 //code by NotTie
 //feat hatsune miku
-
-
 
 //                                              {}
 //  [][][]  []  []    []    []  []      [][][]  []  []      [][][]
@@ -19,3 +17,6 @@
 //  []  []    []    []  []  []  []  [][][]  []  []
 
 // chạy file runner.dart để nhập liệu trong terminal
+
+
+
