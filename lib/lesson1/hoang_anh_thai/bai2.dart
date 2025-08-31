@@ -31,3 +31,4 @@ void main() {
 }
 //code by NotTie
 //feat hatsune miku
+//tự code, gpt 20%
