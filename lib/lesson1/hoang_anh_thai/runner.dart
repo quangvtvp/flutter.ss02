@@ -146,3 +146,4 @@ void main() async {
 //code by NotTie
 //feat hatsune miku
 //gpt gánh còng lưng đoạn này
+//quá cay cú vì không thể nhập liệu trong degug console
