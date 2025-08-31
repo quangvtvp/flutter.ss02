@@ -5,7 +5,7 @@ import 'dart:io';
 int inputscore() {
   print('Type score');
   print('team 1');
-  int a = stdin.readLineSync()! as int;
+  int a = int.parse(stdin.readLineSync()!);
   return a;
 }
 
