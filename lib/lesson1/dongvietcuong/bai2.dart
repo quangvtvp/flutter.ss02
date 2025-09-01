@@ -5,5 +5,5 @@ void main() {
   double hieu = number1 - number2;
   double tich = number1 * number2;
   double thuong = number1 / number2;
-  print("tong la: $tong, hieu la: $hieu, tich la: $tich, thuong la: $thuong");
+  print("tong la: $tong, hieu la: $hieu, tich  la: $tich, thuong la: $thuong");
 }
