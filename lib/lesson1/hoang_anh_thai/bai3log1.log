@@ -1,0 +1,12 @@
+=== LOG FILE ===
+File: bai3.dart
+Thời gian: 31/08/2025 17:18:39
+-----------------------------
+Unhandled exception:
+NoSuchMethodError: The method '[]=' was called on null.
+Receiver: null
+Tried calling: []=(0, "thai")
+#0      Object.noSuchMethod (dart:core-patch/object_patch.dart:38:5)
+#1      main (package:dart_basic/lesson1/hoang_anh_thai/bai3.dart:33:15)
+#2      _delayEntrypointInvocation.<anonymous closure> (dart:isolate-patch/isolate_patch.dart:314:19)
+#3      _RawReceivePort._handleMessage (dart:isolate-patch/isolate_patch.dart:193:12)
