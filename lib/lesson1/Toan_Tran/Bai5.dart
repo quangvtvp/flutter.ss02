@@ -1,5 +1,5 @@
-void main() {
 // Bài tập 5: GPA và Quy đổi điểm.//
+void main() {
   int diemToan = 10;
   int diemLy = 10;
   double diemHoa = 9.5;

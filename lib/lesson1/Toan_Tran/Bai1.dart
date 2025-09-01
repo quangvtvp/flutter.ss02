@@ -1,4 +1,4 @@
-// Bài tập 1: Viết chương trình in ra thông tin cá nhân của bạn.//
+// Bài tập 1 : Biến và kiểu dữ liệu.//
 void main() {
   int age = 16;
   String Myname = 'Trần Anh Toàn';

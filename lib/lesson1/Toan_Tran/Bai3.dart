@@ -1,5 +1,5 @@
-void main() {
 // Bài tập 3: Gom nhóm thông tin bằng record.//
+void main() {
   String name = 'Trần anh Toàn';
   int tuoi = 16;
   double score = 29.92;

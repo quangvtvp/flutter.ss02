@@ -3,11 +3,10 @@
 //In kết quả bằng interpolation.
 
 void main() {
-  double dai = 5;
-  double rong = 13.8;
+  double dai = 13.8;
+  double rong = 2.9;
   double S = dai * rong;
-  double C = 2 * (dai + rong);
-  print('hình chữ nhật có chiều dài: $dai (m) và chiều rộng: $rong (m) có:');
-  print('diện tích: $S (m vuông)');
-  print('chu vi: $C (m)');
+  double C = (dai + rong) * 2;
+  print(
+      'hình chữ nhật có chiều dài: $dai và chiều rộng: $rong thì có diện tích S = $S và chu vi C = $C');
 }

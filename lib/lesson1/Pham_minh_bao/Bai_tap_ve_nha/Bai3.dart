@@ -17,7 +17,9 @@ void main() {
 
 //Cách 2: Gom nhóm bằng Record.
 void main1() {
-  (String, int, double, String, String) thongtin = ("Phạm Minh bảo", 16, 8.5, "Nam", "ABC12345");
+  (String, int, double, String, String) thongtin =
+      ("Phạm Minh bảo", 16, 8.5, "Nam", "ABC12345");
   print('thông tin học sinh:');
-  print('tên: ${thongtin.$1}, tuổi: ${thongtin.$2}, điểm trung bình: ${thongtin.$3}, giới tính: ${thongtin.$4}, Mã số sinh viên: ${thongtin.$5}');
+  print(
+      'tên: ${thongtin.$1}, tuổi: ${thongtin.$2}, điểm trung bình: ${thongtin.$3}, giới tính: ${thongtin.$4}, Mã số sinh viên: ${thongtin.$5}');
 }
