@@ -1,6 +1,6 @@
 void main() {
   int age = 15;
-  var name = "Ngoc Quynh";
-  double height = 1.55;
-  print('xin chào, tôi tên là $name, tôi $age tuổi và cao $height mét');
+  String name = 'Nguyễn Ngọc Quỳnh';
+  double heigh = 1.55;
+  print('Xin chào, tôi là $name, năm nay tôi $age tuổi, tôi cao $heigh mét');
 }
