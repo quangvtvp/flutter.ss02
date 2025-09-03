@@ -1,0 +1,12 @@
+=== LOG FILE ===
+File: bai3_fixed.dart
+Thời gian: 31/08/2025 18:39:24
+-----------------------------
+Unhandled exception:
+NoSuchMethodError: The method 'add' was called on null.
+Receiver: null
+Tried calling: add("thai")
+#0      Object.noSuchMethod (dart:core-patch/object_patch.dart:38:5)
+#1      main (package:dart_basic/lesson1/hoang_anh_thai/bai3_fixed.dart:34:16)
+#2      _delayEntrypointInvocation.<anonymous closure> (dart:isolate-patch/isolate_patch.dart:314:19)
+#3      _RawReceivePort._handleMessage (dart:isolate-patch/isolate_patch.dart:193:12)
