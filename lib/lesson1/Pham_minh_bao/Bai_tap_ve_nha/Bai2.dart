@@ -4,15 +4,11 @@
 //In kết quả bằng interpolation.
 
 void main() {
-  int number1 = 13;
-  int number2 = 8;
-  int tong = number1 + number2;
-  int hieu = number1 - number2;
-  int tich = number1 * number2;
+  double number1 = 13;
+  double number2 = 8.2;
+  double tong = number1 + number2;
+  double hieu = number1 - number2;
+  double tich = number1 * number2;
   double thuong = number1 / number2;
-  print('hai số $number1 và $number2 có:');
-  print('tổng = $tong');
-  print('hiệu = $hieu');
-  print('tích = $tich');
-  print('thương = $thuong');
+  print(' hai số $number1 và $number2 có: Tổng = $tong, hiệu = $hieu, tích = $tich, thương = $thuong.');
 }
