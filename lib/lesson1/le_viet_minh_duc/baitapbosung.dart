@@ -13,3 +13,4 @@ void main() {
   double TB = tong / diem.length;
   print('Điểm trung bình là: $TB');
 }
+// Bài tập bổ sung(dùng List và vòng lặp for để lưu trữ và tính điểm trung bình)
