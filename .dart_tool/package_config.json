@@ -299,12 +299,13 @@
       "name": "dart_basic",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "3.6"
+      "languageVersion": "3.0"
     }
   ],
+  "generated": "2025-09-04T15:19:29.527338Z",
   "generator": "pub",
   "generatorVersion": "3.6.1",
-  "flutterRoot": "file:///C:/Users/ADMIN/flutter2/flutter",
+  "flutterRoot": "file:///C:/flutter",
   "flutterVersion": "3.27.2",
   "pubCache": "file:///C:/Users/ADMIN/AppData/Local/Pub/Cache"
 }
