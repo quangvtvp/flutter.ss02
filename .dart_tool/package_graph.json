@@ -227,7 +227,7 @@
     },
     {
       "name": "js",
-      "version": "0.7.1",
+      "version": "0.7.2",
       "dependencies": []
     },
     {
@@ -286,7 +286,7 @@
     },
     {
       "name": "analyzer",
-      "version": "7.7.1",
+      "version": "8.1.1",
       "dependencies": [
         "_fe_analyzer_shared",
         "collection",
@@ -435,7 +435,7 @@
     },
     {
       "name": "_fe_analyzer_shared",
-      "version": "85.0.0",
+      "version": "88.0.0",
       "dependencies": [
         "meta"
       ]
