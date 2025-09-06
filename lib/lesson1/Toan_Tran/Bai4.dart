@@ -1,4 +1,4 @@
-// Bài tập 4: Hình chữ nhật.//
+// Bài tập 4: Hình chữ nhật//
 void main() {
   double chieudai = 19.2;
   int chieurong = 16;

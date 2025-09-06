@@ -1,4 +1,4 @@
-// Bài tập 3: Gom nhóm thông tin bằng record.//
+// Bài tập 3: Gom nhóm thông tin bằng record//
 void main() {
   String name = 'Trần anh Toàn';
   int tuoi = 16;

@@ -1,4 +1,4 @@
-// Bonus : Sử dụng list<double> và for//
+// Bonus : Sử dụng list<double> và for.//
 void main() {
   List<String> monhoc = ["Toán", "Lý", "Hóa", "Sinh", "Tin"];
   List<double> diem = [10, 10, 9.9, 9, 9.2];
