@@ -7,7 +7,7 @@ void main() {
     print('Tuổi không hợp lệ');
     return;
   }
-  if (tuoi < 18) {
+  if (tuoi >= 18) {
     print('Đủ điều kiện thi bằng lái');
   } else {
     print('Chưa đủ tuổi');
