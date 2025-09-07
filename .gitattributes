@@ -1,0 +1,19 @@
+# Normalize line endings for cross-platform consistency
+* text=auto eol=lf
+
+# Treat Dart files as text explicitly
+*.dart text eol=lf diff
+
+# Common binary types
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.jar binary
+*.aac binary
+*.mp3 binary
+*.mp4 binary
+*.mov binary
