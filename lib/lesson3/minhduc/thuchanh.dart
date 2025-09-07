@@ -5,7 +5,7 @@ void main() {
   print('Nhập giờ hiện tại: ');
   int? hour = int.tryParse(stdin.readLineSync() ?? '');
   if (hour == null || hour < 0 || hour > 23) {
-    print('Giờ không hợp lệ.');
+    print('Giờ không hợp lệ, thử lại.');
     return;
   }
   if (hour < 11) {
