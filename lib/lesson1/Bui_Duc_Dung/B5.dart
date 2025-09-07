@@ -1,5 +1,5 @@
 void main() {
-  double Toan = 9.6, Ly = 9.4, Hoa = 9.5;
+  double Toan = 9.6, Ly = 9.4, Hoa = 9.8;
 
   double avg = (Toan + Ly + Hoa) / 3;
   double gpa = avg / 2.5;

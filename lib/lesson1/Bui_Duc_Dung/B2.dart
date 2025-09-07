@@ -1,6 +1,6 @@
 void main() {
   int number1 = 18;
-  int number2 = 22;
+  int number2 = 20;
 
   int sum = number1 + number2;
   int difference = number1 - number2;
