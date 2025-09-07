@@ -19,7 +19,7 @@
 import 'dart:io';
 
 void main() {
-  List<String> Thongtinsv = [];
+  List<String> thongtinsv = [];
   var hangmuc = [
     'Tên: ',
     'Tuổi: ',
@@ -31,11 +31,16 @@ void main() {
   for (int i = 0; i < hangmuc.length; i++) {
     stdout.write(hangmuc[i]);
     String? a = stdin.readLineSync();
-    Thongtinsv.add(a ?? "");
+    thongtinsv.add(a ?? "");
+  }
+  for (int i = 0; i < hangmuc.length; i++) {
+    if (thongtinsv[i].isEmpty) {
+      thongtinsv[i] = "Chưa nhập";
+    }
   }
   print("\nThông tin sinh viên vừa nhập:");
   for (int i = 0; i < hangmuc.length; i++) {
-    print("${hangmuc[i]}${Thongtinsv[i]}");
+    print("${hangmuc[i]}${thongtinsv[i]}");
   }
   return;
 }

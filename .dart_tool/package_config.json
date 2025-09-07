@@ -3,15 +3,15 @@
   "packages": [
     {
       "name": "_fe_analyzer_shared",
-      "rootUri": "file:///C:/Users/ADMIN/AppData/Local/Pub/Cache/hosted/pub.dev/_fe_analyzer_shared-85.0.0",
+      "rootUri": "file:///C:/Users/ADMIN/AppData/Local/Pub/Cache/hosted/pub.dev/_fe_analyzer_shared-88.0.0",
       "packageUri": "lib/",
-      "languageVersion": "3.5"
+      "languageVersion": "3.7"
     },
     {
       "name": "analyzer",
-      "rootUri": "file:///C:/Users/ADMIN/AppData/Local/Pub/Cache/hosted/pub.dev/analyzer-7.7.1",
+      "rootUri": "file:///C:/Users/ADMIN/AppData/Local/Pub/Cache/hosted/pub.dev/analyzer-8.1.1",
       "packageUri": "lib/",
-      "languageVersion": "3.5"
+      "languageVersion": "3.7"
     },
     {
       "name": "args",
@@ -99,9 +99,9 @@
     },
     {
       "name": "js",
-      "rootUri": "file:///C:/Users/ADMIN/AppData/Local/Pub/Cache/hosted/pub.dev/js-0.7.1",
+      "rootUri": "file:///C:/Users/ADMIN/AppData/Local/Pub/Cache/hosted/pub.dev/js-0.7.2",
       "packageUri": "lib/",
-      "languageVersion": "3.1"
+      "languageVersion": "3.7"
     },
     {
       "name": "lints",
@@ -299,13 +299,13 @@
       "name": "dart_basic",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "3.6"
     }
   ],
-  "generated": "2025-09-07T02:06:56.846424Z",
+  "generated": "2025-09-07T13:06:53.986381Z",
   "generator": "pub",
-  "generatorVersion": "3.6.1",
-  "flutterRoot": "file:///C:/flutter",
-  "flutterVersion": "3.27.2",
+  "generatorVersion": "3.9.0",
+  "flutterRoot": "file:///C:/Users/ADMIN/flutter",
+  "flutterVersion": "3.35.2",
   "pubCache": "file:///C:/Users/ADMIN/AppData/Local/Pub/Cache"
 }
