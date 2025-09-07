@@ -1,6 +1,6 @@
 import 'dart:io';
 void main() {
-print('nhập giờ13:');
+print('nhập giờ:');
  int? gio = int.tryParse(stdin.readLineSync() ?? '');
 if (gio ==null) {
   print('giá trị không hợp lệ');
