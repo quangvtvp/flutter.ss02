@@ -1,4 +1,5 @@
-void.main() {
-  print('nguyen tuan minh')
-  print('toi thich xem phim')
+
+void main() {
+  print('nguyen tuan minh');
+  print('toi thich xem phim');
 }
