@@ -1,0 +1,6 @@
+void main() {
+  int age = 15;
+  String name = 'Nguyễn Ngọc Quỳnh';
+  double heigh = 1.55;
+  print('Xin chào, tôi là $name, năm nay tôi $age tuổi, tôi cao $heigh mét');
+}
