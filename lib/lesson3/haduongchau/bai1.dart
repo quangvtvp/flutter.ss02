@@ -7,9 +7,9 @@ void main() {
     print('Gio khong hop le. Vui long nhap lai.');
     return;
   }
-  if (hour < 12) {
+  if (hour < 12 && hour >= 0) {
     print('Chao buoi sang!');
-  } else if (hour < 18) {
+  } else if (hour < 18 && hour >= 12) {
     print('Chao buoi chieu!');
   } else {
     print('Chao buoi toi!');
