@@ -6,6 +6,5 @@ void main() {
   print('Tuổi $age');
   print('Tên $Myname');
   print('Chiều cao $height mét');
-  print(
-      'Xin chào, Tôi tên là $Myname, Năm nay tôi $age tuổi và cao $height mét.');
+  print('Xin chào, Tôi tên là $Myname, Năm nay tôi $age tuổi và cao $height mét.');
 }

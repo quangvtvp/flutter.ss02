@@ -1,4 +1,4 @@
-// Bài tập 2: Tính Toán//
+// Bài Tập 2: Tính Toán.//
 void main() {
   int number1 = 10;
   int number2 = 25;
