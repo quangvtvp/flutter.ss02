@@ -2,7 +2,7 @@ import 'dart:io';
 
 void main() {
   print('Hãy nhập số:');
-  int number = int.tryParse(stdin.readLineSync() ?? '') ?? 0;
+  int? number = int.tryParse(stdin.readLineSync() ?? '');
   if (number == null) {
     print('Giá trị nhập vào không hợp lệ.');
     return;
