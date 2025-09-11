@@ -1,8 +1,8 @@
 import 'dart:io';
 void main() {
   print('nhap so luong hang con lai:');
-  int sohangconlai = int.tryParse (stdin.readLineSync() ?? '');
-  if (sohangconlai ==null || sohangconlai<0 ) {
+  int?sohangconlai = int.tryParse (stdin.readLineSync() ?? '');
+  if (sohangconlai ==null ) {
     print('khong hop le'); 
   } else if (sohangconlai <0) {
     print ('giỡn quài ní , chơi vậy ai chơi,nhập lại đi');
