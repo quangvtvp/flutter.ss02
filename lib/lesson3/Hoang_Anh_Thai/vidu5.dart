@@ -1,8 +1,7 @@
 import 'dart:io';
 
 void main() {
-  print:
-  ('Nhập mật khẩu:');
+  print('Nhập mật khẩu:');
   String? password = stdin.readLineSync();
   if (password == null || password.isEmpty) {
     print('Mật khẩu không được để trống');
