@@ -1,3 +1,7 @@
+//Chào theo giờ: Viết chương trình in ra lời chào theo khung giờ.
+// Với khung giờ buổi sáng (0–12h) in “Chào buổi sáng”, 
+// khung giờ buổi chiều (12–18h) in “Chào buổi chiều”, sau 18h in “Chào buổi tối”.
+
 import 'dart:io';
 
 void main() {
