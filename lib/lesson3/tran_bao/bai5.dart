@@ -1,7 +1,7 @@
 import 'dart:io';
 
 void main() {
-  stdout.write('Nhập mật khẩu: ');
+  print('Nhập mật khẩu: ');
   String password = stdin.readLineSync()?.trim() ?? '';
 
   if (password.length == 0) {
