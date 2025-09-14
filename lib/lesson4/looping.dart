@@ -1,68 +1,59 @@
 import 'dart:io';
 
 void main() {
-  printMultipleLinesFormat();
-}
-
-void simpleLoop() {
-  for (var i = 0; i < 10; i++) {
-    print(i);
+  print('Input a number from keyboard: ');
+  int? number = int.tryParse(stdin.readLineSync() ?? '');
+  if (number == null || number < 0) {
+    print('Invalid number!');
+    return;
+  } else {
+    findTheFirstNumberDivisibleBy4And7(number);
   }
 }
 
-void simpleWhile() {
-  var i = 10;
-  while (i > 0) {
-    print(i);
-    i--;
-  }
-}
-
-void simpleDoWhile() {
-  var i = 10;
-  do {
-    print(i);
-    i--;
-  } while (i > 0);
-}
-
-void breakLoop() {
-  for (var i = 0; i <= 100; i++) {
+void forLoopBasic(int number) {
+  for (int i = 0; i < number; i++) {
+    // only print number divisible by 5
     if (i % 5 != 0) {
       continue;
     }
-    print(i);
+    print('i = $i');
   }
 }
 
-void firstNumberDivisibleBy4and7() {
-  for (var i = 1; i <= 100; i++) {
-    if (i % 4 == 0 && i % 7 == 0) {
-      print('the first number divisible by 4 and 7 is $i');
+void findTheFirstNumberDivisibleBy4And7(int number) {
+  for (int i = 0; i < number; i++) {
+    if (i != 0 && i % 4 == 0 && i % 7 == 0) {
+      print('The first number divisible by 4 and 7 is: $i');
       break;
     }
   }
 }
 
-int tryToGetInputNumber() {
-  // Uncomment the following lines if running in an environment that supports stdin
-
-  while (true) {
-    stdout.write('Enter a number: ');
-    var input = stdin.readLineSync();
-    var number = int.tryParse(input ?? '');
-    if (number != null) {
-      return number;
-    }
-    print('Invalid input. Please enter a valid number.');
+void whileLoopBasic() {
+  int i = 5;
+  while (i >= 0) {
+    print('i = $i');
+    i--;
   }
 }
 
-void printMultipleLinesFormat() {
-  var text = '''
-1. student 1
-2. student 2
-3. student 3
-4. student 4''';
-  print(text);
+void doWhileBasic() {
+  int i = 0;
+  do {
+    print('i = $i');
+    i++;
+  } while (i < 5);
 }
+
+// Example: Tính tổng các số từ 1 đến n
+// 1,2,3,4,5,...,n
+int sumFrom1ToN(int n) {
+  int sum = 0;
+  for (int i = 1; i <= n; i++) {
+    sum = sum + i;
+  }
+  return sum;
+}
+
+// 0 > + 1 + 2 + 3 + ... + n
