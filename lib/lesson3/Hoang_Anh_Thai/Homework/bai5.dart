@@ -14,6 +14,7 @@ void main() {
   }
   bool flagchu = false;
   bool flagso = false;
+  bool flagkyhieu = false;
   for (var i in matkhau) {
     if (i.contains(RegExp(r'[A-Z]'))) {
       flagchu = true;
@@ -21,8 +22,11 @@ void main() {
     if (i.contains(RegExp(r'[0-9]'))) {
       flagso = true;
     }
+    if (i.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
+      flagkyhieu = true;
+    }
   }
-  if (flagchu && flagso) {
+  if (flagchu && flagso && flagkyhieu) {
     print('Mật khẩu hợp lệ');
   } else {
     print('Mật khẩu phải có ít nhất một chữ cái viết hoa và một số');
