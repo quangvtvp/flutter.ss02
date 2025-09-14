@@ -1,5 +1,5 @@
+// Ví dụ 1: Chào hỏi theo giờ//.
 import 'dart:io';
-
 void main() {
   print('Nhập giờ hiện tại: ');
   double? hour = double.tryParse(stdin.readLineSync() ?? '');
