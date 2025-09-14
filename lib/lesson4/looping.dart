@@ -1,13 +1,33 @@
 import 'dart:io';
 
 void main() {
-  print('Input a number from keyboard: ');
-  int? number = int.tryParse(stdin.readLineSync() ?? '');
-  if (number == null || number < 0) {
-    print('Invalid number!');
-    return;
-  } else {
-    findTheFirstNumberDivisibleBy4And7(number);
+  printAll();
+}
+
+void printNumberOfStar() {
+  for (int i = 1; i <= 5; i++) {
+    print('*' * i);
+  }
+}
+
+void printBangCuuChuong(int number) {
+  for (int i = 1; i <= 9; i++) {
+    print('$number x $i = ${number * i}');
+  }
+}
+
+void printAll() {
+  for (int i = 1; i <= 9; i++) {
+    print('Bang Cuu Chuong $i:');
+    for (int j = 1; j <= 9; j++) {
+      print('$i x $j = ${i * j}');
+    }
+  }
+}
+
+void forLoop() {
+  for (int i = 0; i < 5; i++) {
+    print('*' * i);
   }
 }
 
