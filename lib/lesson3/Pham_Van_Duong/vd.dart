@@ -1,10 +1,11 @@
 import 'dart:io';
 
 void main() {
+  print('Xin chao ban');
   print('Nhập giờ hiện tại: ');
-  double? hour = double.tryParse(stdin.readLineSync() ?? '');
-  if (hour == null || hour < 0 || hour > 24) {
-    print('Giờ không hợp lệ, thử lại.');
+  int? hour = int.tryParse(stdin.readLineSync() ?? '');
+  if (hour == null || hour < 0 || hour > 23) {
+    print('Giờ không hợp lệ, vui lòng nhập lại số từ 0 đến 23');
     return;
   }
   if (hour < 12) {
