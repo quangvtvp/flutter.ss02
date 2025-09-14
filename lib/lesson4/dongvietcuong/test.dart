@@ -8,7 +8,7 @@ void main () {
     for (int i = 1; i <= giaithua; i++) {
       result *= i;
     }
-    print("giai thua cua $giaithua la $result");
+    print(" $giaithua! = $result");
   } else {
     print("vui long nhap so giai thua");
   }
