@@ -14,10 +14,29 @@ void main() {
 
   print(' Diem Chuyencan: ');
   double? Chuyencan = double.tryParse(stdin.readLineSync() ?? '') ?? 0;
+  // Check for invalid input before calculating GPA
+  if (Toan < 0 ||
+      Toan > 10 ||
+      Van < 0 ||
+      Van > 10 ||
+      Anh < 0 ||
+      Anh > 10 ||
+      Lichsu < 0 ||
+      Lichsu > 10 ||
+      Chuyencan < 0 ||
+      Chuyencan > 1 ||
+      Toan == null ||
+      Van == null ||
+      Anh == null ||
+      Lichsu == null ||
+      Chuyencan == null) {
+    print('Khong hop le');
+    return;
+  }
+
   double avg = (Toan + Van + Anh + Lichsu) / 4;
   double GPA = avg;
   print('GPA: ${GPA.toStringAsFixed(2)}');
-
   if (GPA >= 9.0) {
     print('Xuat sac');
     print('Can phat huy');
