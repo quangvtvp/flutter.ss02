@@ -5,7 +5,7 @@ void main() {
   var input = stdin.readLineSync();
   var Gio = int.tryParse(input!);
   if (Gio == null) {
-    print("Giá trị bạn nhập không phải là số");
+    print("Giá trị bạn nhập không phải là số giờ hợp lệ");
   } else if (Gio < 0 || Gio > 23) {
     print("Số giờ không hợp lệ");
   } else if (Gio <= 12) {
