@@ -1,7 +1,7 @@
 import 'dart:io';
 
 void main() {
-  print('Nhập số tầng');
+  print('Nhập số tầng của tháp sao:');
   int? n = int.tryParse(stdin.readLineSync() ?? '');
   while (true) {
     if (n == null || n <= 0) {
