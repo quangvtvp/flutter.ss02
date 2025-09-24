@@ -6,11 +6,16 @@ void main() {
   print('Xin chào bạn!');
   stdout.write('Nhập vào chiều cao của tam giác cân: ');
   int height = int.tryParse(stdin.readLineSync()!) ?? 0;
-  if (height == null || height <= 0) {
-    print('Chiều cao phải là số nguyên dương. Vui lòng nhập lại.');
-    return;
+  while(true) {
+    if (height == null || height <= 0) {
+      print('Chiều cao không hợp lệ. Vui lòng nhập số nguyên dương.');
+      stdout.write('Nhập vào chiều cao của tam giác cân: ');
+      height = int.tryParse(stdin.readLineSync()!) ?? 0;
+    } else {
+      break;
+    }
   }
-  print('TA CÓ TAM GIÁC CÂN:');
+
   for (int i = 1; i <= height; i++) {
     // In đoạn cách
     for (int j = height - i; j > 0; j--) {
