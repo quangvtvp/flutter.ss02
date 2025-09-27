@@ -1,18 +1,6 @@
-import 'dart:io';
-
 void main() {
-  print('Xin chao ban');
-  print('Nhập giờ hiện tại: ');
-  int? hour = int.tryParse(stdin.readLineSync() ?? '');
-  if (hour == null || hour < 0 || hour > 23) {
-    print('Giờ không hợp lệ, vui lòng nhập lại số từ 0 đến 23');
-    return;
-  }
-  if (hour < 12) {
-    print('Chào buổi sáng');
-  } else if (hour < 18) {
-    print('Chào buổi chiều');
-  } else {
-    print('Chào buổi tối');
+  int n = 5;
+  for (int i = 1; i <= 5; i++) {
+    print('*' * i);
   }
 }
