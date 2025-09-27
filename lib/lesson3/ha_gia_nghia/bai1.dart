@@ -1,16 +1,20 @@
 import 'dart:io';
 void main() {
-print('nhập giờ:');
- int? gio = int.tryParse(stdin.readLineSync() ?? '');
-if (gio ==null) {
-  print('giá trị không hợp lệ');
-} else if (gio <0 || gio >23) {
-  print('giờ không hợp lệ');
-} else if (0<= gio && gio <12) {
-  print('chào buổi sáng');
-} else if (12<=gio && gio <18) {
-  print('chào buổi chiều '); 
-} else if (gio >=18 && gio <=23) {
-  print('chào buổi tối');
-}
+  print('nhập điểm rèn luyện (0-100):');
+  int ? diem = int.tryParse (stdin.readLineSync() ?? '');
+  if (diem == null) {
+    print('giá trị không hợp lệ');
+  } else if (diem <0 || diem >100) {
+    print('nhap sai');
+  } else if (diem>=90) {
+    print('kết quả: xuất sắc');
+  } else if (diem >=80) {
+    print('kết quả:giỏi');
+  } else if (diem >=65) {
+    print('kết quả;khá');
+  } else if (diem >=50) {
+    print('kết quả:trung bình');
+  } else if (diem <50) {
+    print('kết quả:yếu');
+  } 
 }

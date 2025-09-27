@@ -2,9 +2,11 @@ import 'dart:io';
 
 void main() {
   print('Xin chào bạn!');
-  print('Nhập giờ hiện tại: ');
-  double? hour = double.tryParse(stdin.readLineSync() ?? '');
-  if (hour == null || hour < 0 || hour > 24) {
+  stdout.write('Nhập giờ hiện tại: ');
+  String? input = stdin.readLineSync();
+  print('Bạn vừa nhập: $input'); // Dòng này để kiểm tra giá trị nhập vào
+  int? hour = int.tryParse(input ?? '');
+  if (hour == null || hour < 0 || hour > 23) {
     print('Giờ không hợp lệ, thử lại.');
     return;
   }
