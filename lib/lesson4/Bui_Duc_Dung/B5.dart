@@ -7,11 +7,11 @@ void main() {
   int? b = int.tryParse(stdin.readLineSync() ?? '');
 
   if (a == null || b == null) {
-    print('❌ Dữ liệu nhập không hợp lệ (phải nhập số nguyên)');
+    print(' Dữ liệu nhập không hợp lệ (phải nhập số nguyên)');
     return;
   }
   if (a > b) {
-    print('❌ Khoảng không hợp lệ (a phải ≤ b)');
+    print(' Khoảng không hợp lệ (a phải ≤ b)');
     return;
   }
 
@@ -29,5 +29,5 @@ void main() {
     if (isPrime) dem++;
   }
 
-  print('✅ Có $dem số nguyên tố trong khoảng [$a, $b]');
+  print(' Có $dem số nguyên tố trong khoảng [$a, $b]');
 }
