@@ -9,8 +9,8 @@ void main() {
   while (true) {
     String? a;
     while (true) {
-      a = stdin.readLineSync()!;
-      if (a.isEmpty) {
+      a = stdin.readLineSync();
+      if (a == null || a.isEmpty) {
         print('Nhập hẳn hoi');
       } else {
         break;
@@ -21,8 +21,8 @@ void main() {
     }
     String? b;
     while (true) {
-      b = stdin.readLineSync()!;
-      if (a.isEmpty) {
+      b = stdin.readLineSync();
+      if (b == null || b.isEmpty) {
         print('Nhập hẳn hoi');
       } else {
         break;
@@ -32,6 +32,13 @@ void main() {
       break;
     }
     List c = b.split(",");
+    int i = 1;
+    while (thongtin.containsKey(a)) {
+      a = a!;
+      a = a + i.toString();
+      i++;
+    }
+    a = a!;
     thongtin[a] = c;
   }
   print('Thông tin của bạn là: ');
