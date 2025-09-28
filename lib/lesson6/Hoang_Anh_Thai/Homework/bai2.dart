@@ -1,4 +1,4 @@
-import 'dart:io';
+//import 'dart:io';
 
 void main() {
   List<String> baihat = [
@@ -16,21 +16,6 @@ void main() {
         String temp = baihat[i];
         baihat[i] = baihat[j];
         baihat[j] = temp;
-      } else if (chu1 == chu2) {
-        int k = 1;
-        while (k < baihat[i].length && k < baihat[j].length) {
-          int? chu3 = (baihat[i]).codeUnitAt(k);
-          int? chu4 = (baihat[j]).codeUnitAt(k);
-          if (chu3 > chu4) {
-            String temp = baihat[i];
-            baihat[i] = baihat[j];
-            baihat[j] = temp;
-            break;
-          } else if (chu3 < chu4) {
-            continue;
-          }
-          k++;
-        }
       }
     }
   }
