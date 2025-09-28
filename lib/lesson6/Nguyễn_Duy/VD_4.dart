@@ -1,13 +1,19 @@
+import 'dart:io';
+
 void main() {
-  var listname = ['genyukiko', 'Nguyễn Duy', 'GenYuki'];
-  for (var name in listname) {
-    var name2 = {
-      'hoppy 1': 'chơi game',
-      'hoppy 2': 'xem phim',
-      'hoppy 3': 'nghe nhạc'
-    };
-    var hoppy = name2.values.toList();
-    print('Sở thích của $name là: $hoppy');
-    print('                                        ');
+  var name2 = {
+    'genyukiko': 'chơi game',
+    'Nguyen Duy': 'xem phim',
+    'GenYuki': 'nghe nhạc',
+  };
+  print('tên:');
+  var namein = stdin.readLineSync();
+  for (String name in name2.keys) {
+    if (namein != name) {
+      print('Where are you in my file');
+      break;
+    } else {
+      print('Sở thích của $name là: ${name2[name]}');
+    }
   }
 }
