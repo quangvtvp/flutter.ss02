@@ -1,6 +1,6 @@
 void main() {
   print('In thông tin và sở thích của mỗi người trong nhóm:');
-  List<Map<String, String>> groupMembers = [
+  List<Map<String, dynamic>> groupMembers = [
     {
       'name': 'Lê Viết Minh Đức',
       'hobby': 'chơi game, cầu lông',
@@ -25,4 +25,9 @@ void main() {
   groupMembers.forEach((member) {;
     print('Sở thích của ${member['name']} là: ${member['hobby']}');
   });
+  groupMembers.add({
+    'name': 123,
+    'hobby': 'chơi game, đọc sách',
+  });
+  print('Danh sách nhóm sau khi thêm thành viên mới: $groupMembers');
 }
