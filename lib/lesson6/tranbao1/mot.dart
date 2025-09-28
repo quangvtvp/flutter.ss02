@@ -5,5 +5,6 @@ void main() {
   print('cách món ăn yêu thích:$monan');
  monan.add('khogadetem');
  print('thêm món ăn:$monan');
+print('tổng món ăn:${monan.length}');
 }
   
