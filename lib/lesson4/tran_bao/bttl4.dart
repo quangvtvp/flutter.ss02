@@ -12,7 +12,6 @@ void main() {
 
   int u1 = 0;
   int u2 = 1;
-
   print('Dãy fibonaci:');
   for (int i = 1; i <= n; i++) {
     print(u1);
