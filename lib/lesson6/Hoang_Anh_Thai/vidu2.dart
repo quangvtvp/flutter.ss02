@@ -19,5 +19,5 @@ void main() {
   print('Nhập điểm của bạn: ');
   double? ax = double.tryParse(stdin.readLineSync()!)!;
   a.add(ax);
-  print('Điểm trung bình là: ${a.reduce((a, b) => a + b) / a.length}');
+  print('Điểm trung bình là: ${a.reduce((c, b) => c + b) / a.length}');
 }
