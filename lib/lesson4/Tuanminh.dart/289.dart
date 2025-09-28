@@ -1,19 +1,19 @@
 void main() {
-  List<String> fruits = [];
-  print(fruits);
+  List<int> diemso = [9, 8, 5, 4, 3, 2];
+  var list = [];
+  for (var b in diemso) {
+    if (b >= 5) {
+      list.add(b);
+    }
+  }
+  print(list);
 
-  List<String> fruits2 = ['Apple', 'Banana', 'Mango'];
-  print('fruits2: $fruits2');
+  List<int> list2 = diemso.where((d) => d >= 5).toList(); // chuyển thành list
+  print(list2);
+  List<int> list3 = diemso.where((d) => (d % 5) == 0).toList();
+  print('điểm trên trung bình: ${list3}');
 
-  var diemso = [9.5, 8.0, 7.5];
-  print('diemso: $diemso');
-
-  List<dynamic> mixed = [1, "Capybara", 3, 15, true];
-  print('$mixed');
-
-  print(fruits2.length);
-
-  print('first fruit: ${fruits2[0]}');
-
-  print('first fruit: ${fruits2.first}');
+  if (diemso.contains(5)) {
+    print("có 5");
+  }
 }
