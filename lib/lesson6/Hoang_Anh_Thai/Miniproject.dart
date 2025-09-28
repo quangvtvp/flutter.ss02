@@ -23,4 +23,26 @@ void main() {
     diem['${monhoc[i]}'] = a;
   }
   print('Bẳng điểm của bạn là: ');
+  diem.forEach((key, value) {
+    print('$key: $value');
+  });
+  print(
+    'Điểm trung bình: ${diem.values.reduce((a, b) => a + b) / diem.length}',
+  );
+  stdout.write('Các môn có điểm giỏi là:');
+  diem.forEach((key, value) {
+    if (value >= 8) {
+      stdout.write(' $key');
+    }
+  });
+  while (true) {
+    print('Nhập môn muốn xem điểm: ');
+    String? xem = stdin.readLineSync();
+    if (xem != null && diem.containsKey(xem)) {
+      print('Điểm của môn $xem là: ${diem[xem]}');
+      break;
+    } else {
+      print('Môn không tồn tại, nhập lại');
+    }
+  }
 }
