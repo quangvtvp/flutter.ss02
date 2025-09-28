@@ -1,7 +1,16 @@
 import 'dart:io';
 
 void main() {
-  String word = "hello";
+  List<String> words = [
+    "hello",
+    "world",
+    "dart",
+    "flutter",
+    "skibidi",
+    "bruh",
+  ];
+  words.shuffle();
+  String word = words.first;
   shuffleWord(word);
   guessWord(word);
 }
