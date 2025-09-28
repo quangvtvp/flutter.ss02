@@ -1,17 +1,29 @@
-// In ra N giai thừa
-import "dart:io";
+import 'dart:io';
 
 void main() {
-  print("Nhập N:");
-  var input = stdin.readLineSync();
-  int? n = int.tryParse(input!);
-  if (n == null || n < 0) {
-    print("Không hợp lệ");
-  } else {
-    int gt = 1;
-    for (int i = 1; i <= n; i++) {
-      gt = gt * i;
+  print('Bài 2: Vẽ hình tam giác cân bằng dấu *');
+  print('Xin chào bạn!');
+  stdout.write('Nhập vào chiều cao của tam giác cân: ');
+  int height = int.tryParse(stdin.readLineSync()!) ?? 0;
+  while (true) {
+    if (height == null || height <= 0) {
+      print('Chiều cao không hợp lệ. Vui lòng nhập số nguyên dương.');
+      stdout.write('Nhập vào chiều cao của tam giác cân: ');
+      height = int.tryParse(stdin.readLineSync()!) ?? 0;
+    } else {
+      break;
     }
-    print("Giai thừa của $n là $gt");
+  }
+
+  for (int i = 1; i <= height; i++) {
+    // In đoạn cách
+    for (int j = height - i; j > 0; j--) {
+      stdout.write(' ');
+    }
+    // In dấu *
+    for (int k = 1; k <= (2 * i - 1); k++) {
+      stdout.write('*');
+    }
+    print('');
   }
 }
