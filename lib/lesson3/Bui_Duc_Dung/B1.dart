@@ -7,9 +7,9 @@ void main() {
     print('Giờ không hợp lệ.');
     return;
   }
-  if (hour <= 12) {
+  if (hour < 12) {
     print('Chào buổi sáng');
-  } else if (hour <= 18) {
+  } else if (hour < 18) {
     print('Chào buổi chiều');
   } else {
     print('Chào buổi tối');
