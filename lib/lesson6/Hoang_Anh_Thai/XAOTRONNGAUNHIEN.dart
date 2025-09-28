@@ -9,8 +9,8 @@ void main() {
   print('Câu hỏi: $cauhoi');
   while (true) {
     print('Nhập đáp án: ');
-    String? dapan = stdin.readLineSync();
-    if (dapan == kq) {
+    String? dapan = stdin.readLineSync()!;
+    if (dapan.toLowerCase() == kq) {
       print('Chính xác!');
       break;
     } else {
