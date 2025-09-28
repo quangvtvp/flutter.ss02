@@ -1,17 +1,29 @@
 import 'dart:io';
 
 void main() {
-  String? input = "cuong";
+  List<String> words = ["hoc bai", "an com", "choi game", "di ngu"];
+  List<String> word = words..shuffle();
+  for (var i = 0; i < word.length; i++) {
+    play(word[i]);
+  }
+}
+
+void play(String input) {
   List<String> chars = input.split('');
   chars.shuffle();
-  print("hãy sắp xếp lại các chữ cái trên thành chữ cái hoàn chỉnh: $chars");
-  stdout.write("nhập chữ cái chính xác");
+  print("Hãy sắp xếp lại các chữ cái để thành từ đúng: $chars");
+  stdout.write("Nhập chữ bạn đoán: ");
   String? guess = stdin.readLineSync();
-  if (guess != null && guess.isNotEmpty) {
-    if (guess == input) {
-      print("chúc mừng bạn đã đoán đúng");
-    } else {
-      print("bạn đã đoán sai, chữ đúng là: $input");
-    }
+  var i = 0;
+  while (guess == null) {
+    stdout.write("Vui lòng nhập chữ bạn đoán: ");
+    guess = stdin.readLineSync();
   }
+  if (guess.toLowerCase() == input) {
+    i = i + 20;
+    print("Chính xác! bạn được thêm $i điểm");
+  } else {
+    print("Sai rồi! Đáp án đúng là: $input");
+  }
+  print("Tổng điểm của bạn là: $i");
 }

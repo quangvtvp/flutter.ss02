@@ -6,14 +6,20 @@ void play(String word) {
   var shuffleword = list.join('');
   print(shuffleword);
   String? guess;
-  do {
-    print('nhap tu ban doan:');
-    guess = stdin.readLineSync()!;
-    if (guess != word) {
-      print('doan lai nao');
+  for (var i = 1; i <= 3; i++) {
+    print('nhap tu ban doan lan thu $i:');
+    guess = stdin.readLineSync();
+    if (guess == word) {
+      print('chinh xac!');
+      break;
+    } else {
+      if (i == 3) {
+        print('ban het luot doan, tu dung la: $word');
+      } else {
+        print('doan lai nao');
+      }
     }
-  } while (guess != word);
-  print('chinh xac!');
+  }
 }
 
 void main() {
