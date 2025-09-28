@@ -18,6 +18,13 @@ void guessWord(
     stdout.write("Nhập chữ: ");
     var input = stdin.readLineSync() ?? "";
     input = input.toLowerCase();
+    if (input == word) {
+      break;
+    }
+    if (input.length != 1) {
+      print("Vui lòng nhập đúng 1 chữ cái");
+      continue;
+    }
     if (wordlist.contains(input)) {
       for (int i = 0; i < wordlist.length; i++) {
         if (wordlist[i] == input) {
