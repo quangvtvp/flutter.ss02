@@ -7,11 +7,27 @@ void main() {
   print('eg: Tên');
   print('    Sở thích1,Sở thích2,Sở thích3');
   while (true) {
-    String? a = stdin.readLineSync()!;
+    String? a;
+    while (true) {
+      a = stdin.readLineSync()!;
+      if (a.isEmpty) {
+        print('Nhập hẳn hoi');
+      } else {
+        break;
+      }
+    }
     if (a == 'exit') {
       break;
     }
-    String? b = stdin.readLineSync()!;
+    String? b;
+    while (true) {
+      b = stdin.readLineSync()!;
+      if (a.isEmpty) {
+        print('Nhập hẳn hoi');
+      } else {
+        break;
+      }
+    }
     if (b == 'exit') {
       break;
     }
