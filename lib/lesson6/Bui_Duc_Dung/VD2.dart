@@ -1,5 +1,5 @@
 void main() {
-  List<int> diem = [8, 9, 5, 7, 6];
+  List<double> diem = [8.0, 9.5, 5.0, 6.5, 7.0];
   var max = diem[0];
   var min = diem[0];
   for (var i = 0; i < diem.length; i++) {
@@ -16,7 +16,7 @@ void main() {
   diem.add(9);
   print('Danh sách điểm sau khi thêm: $diem');
 
-  int tongdiem = 0;
+  double tongdiem = 0;
   for (var d in diem) {
     tongdiem += d;
   }
