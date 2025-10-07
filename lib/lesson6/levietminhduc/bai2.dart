@@ -1,53 +1,23 @@
 import 'dart:io';
 import 'dart:math';
-
-void main() {
-  print('Chào mừng đến với trò chơi đoán từ!');
-  play('Chào mừng đến với trò chơi đoán từ!');
-}
-
-void play(String welcomeMessage) {
-  List<String> words = ['flutter', 'dart', 'hangman', 'mobile', 'game'];
-  Random random = Random();
-  String randomWord = words[random.nextInt(words.length)];
-  print(welcomeMessage);
-
-  String hiddenWord = '_' * randomWord.length; // Hiển thị dưới dạng gạch chân
-  int attempts = 15;
-  Set<String> guessedLetters = {};
-
-  while (attempts > 0 && hiddenWord.contains('_')) {
-    print('Từ hiện tại: $hiddenWord');
-    print('Bạn còn $attempts lượt đoán.');
-    stdout.write('Nhập một chữ cái: ');
-    String? input = stdin.readLineSync();
-    if (input == null || input.length != 1) {
-      print('Vui lòng nhập đúng một chữ cái.');
-      continue;
-    }
-    String letter = input.toLowerCase();
-    if (guessedLetters.contains(letter)) {
-      print('Bạn đã đoán chữ cái này rồi. Hãy thử chữ khác.');
-      continue;
-    }
-    guessedLetters.add(letter);
-
-    if (randomWord.contains(letter)) {
-      print('Chính xác! Chữ cái "$letter" có trong từ.');
-      for (int i = 0; i < randomWord.length; i++) {
-        if (randomWord[i] == letter) {
-          hiddenWord = hiddenWord.substring(0, i) + letter + hiddenWord.substring(i + 1);
-        }
-      }
-    } else {
-      attempts--;
-      print('Sai rồi! Chữ cái "$letter" không có trong từ.');
-    }
+void main () {
+  print('Xin chào bạn!');
+  print('Chào mừng đến với danh sách nhạc yêu thích của tôi!');
+  List<String> favoriteSongs = [
+    'Bài 1: 有何不可  ',
+    'Bài 2: 起风了',
+    'Bài 3: 追光者',
+    'Bài 4: 刚好遇见你',
+    'Bài 5: Nơi này có anh',
+  ];
+  print('Sắp xếp theo thứ tự alphabet:');
+  favoriteSongs.sort();
+  for (var song in favoriteSongs) {
+    print(song);
   }
-
-  if (!hiddenWord.contains('_')) {
-    print('Chúc mừng! Bạn đã đoán đúng từ: $randomWord');
-  } else {
-    print('Hết lượt đoán! Từ đúng là: $randomWord');
+  print('Các bài hát có tên dài hơn 10 ký tự:');
+  var longTitleSongs = favoriteSongs.where((song) => song.substring(6).length > 10);
+  for (var song in longTitleSongs) {
+    print(song);
   }
 }
