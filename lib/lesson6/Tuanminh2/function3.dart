@@ -8,12 +8,18 @@ void main() {
     stdout.write('*');
   }
   List<String> list1 = List.filled(list.length, '*');
-  print('nhập 1 kí tự:');
-  String char = stdin.readLineSync()!;
-  for (var i = 0; i < list.length; i++) {
-    if (list[i].toLowerCase() == char.toLowerCase()) {
-      list1[i] = char;
+
+  do {
+    print("Nhập 1 kí tự:");
+    String char = stdin.readLineSync()!;
+
+    for (var i = 0; i < list.length; i++) {
+      if (list[i].toLowerCase() == char.toLowerCase()) {
+        list1[i] = char;
+        print(list1.join());
+      }
     }
-  }
-  print(list1.join());
+  } while (list1.contains("*"));
+  print("Đây là đáp án: $word");
+  return;
 }
