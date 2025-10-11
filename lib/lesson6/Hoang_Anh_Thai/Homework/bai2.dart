@@ -1,5 +1,3 @@
-//import 'dart:io';
-
 void main() {
   List<String> baihat = [
     'Lần cuối',
@@ -19,5 +17,11 @@ void main() {
       }
     }
   }
-  print(baihat);
+  print('Danh sách các bài hát là: $baihat');
+  print('Bài hát có số kí tự lớn hơn 10 là: ');
+  for (int i = 0; i < baihat.length; i++) {
+    if (baihat[i].length > 10) {
+      print(baihat[i]);
+    }
+  }
 }

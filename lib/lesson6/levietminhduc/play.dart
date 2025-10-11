@@ -1,15 +1,18 @@
 import 'dart:io';
 import 'dart:math';
+
 void main() {
   print('Chào mừng đến với trò chơi đoán từ!');
   play('Chào mừng đến với trò chơi đoán từ!');
 }
+
 void play(String welcomeMessage) {
-  String? randomWord;
+  List<String> words = ['flutter', 'dart', 'hangman', 'mobile', 'game'];
   Random random = Random();
+  String randomWord = words[random.nextInt(words.length)];
   print(welcomeMessage);
-  String wordToGuess = 'apple'; // Từ cần đoán
-  String hiddenWord = '_' * wordToGuess.length; // Hiển thị dưới dạng gạch chân
+
+  String hiddenWord = '_' * randomWord.length; // Hiển thị dưới dạng gạch chân
   int attempts = 15;
   Set<String> guessedLetters = {};
 
@@ -28,10 +31,11 @@ void play(String welcomeMessage) {
       continue;
     }
     guessedLetters.add(letter);
-    if (wordToGuess.contains(letter)) {
+
+    if (randomWord.contains(letter)) {
       print('Chính xác! Chữ cái "$letter" có trong từ.');
-      for (int i = 0; i < wordToGuess.length; i++) {
-        if (wordToGuess[i] == letter) {
+      for (int i = 0; i < randomWord.length; i++) {
+        if (randomWord[i] == letter) {
           hiddenWord = hiddenWord.substring(0, i) + letter + hiddenWord.substring(i + 1);
         }
       }
@@ -42,8 +46,8 @@ void play(String welcomeMessage) {
   }
 
   if (!hiddenWord.contains('_')) {
-    print('Chúc mừng! Bạn đã đoán đúng từ: $wordToGuess');
+    print('Chúc mừng! Bạn đã đoán đúng từ: $randomWord');
   } else {
-    print('Hết lượt đoán! Từ đúng là: $wordToGuess');
+    print('Hết lượt đoán! Từ đúng là: $randomWord');
   }
 }

@@ -2,7 +2,37 @@ import 'dart:io';
 
 //code by NotTie
 void main() {
-  play('hocbai');
+  List<String> tuvung = [
+    'a',
+    'b',
+    'c',
+    'd',
+    'e',
+    'f',
+    'g',
+    'h',
+    'i',
+    'j',
+    'k',
+    'l',
+    'm',
+    'n',
+    'o',
+    'p',
+    'q',
+    'r',
+    's',
+    't',
+    'u',
+    'v',
+    'w',
+    'x',
+    'y',
+    'z'
+  ];
+  tuvung.shuffle();
+  String kq = tuvung.sublist(0, 5).join();
+  play(kq);
 }
 
 void play(String kq) {
