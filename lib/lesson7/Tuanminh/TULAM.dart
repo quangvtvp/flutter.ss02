@@ -1,32 +1,32 @@
 void main() {
-  var mapsach = [
-    {
-      'tác giả': 'Nguyễn Văn A',
-      'môn học': 'Văn học',
-      'tên sách': 'Văn học 11',
-      'số trang': '300'
-    },
-    {
-      'tác giả': 'Trần Thị B',
-      'môn học': 'Toán học',
-      'tên sách': 'Toán 12',
-      'số trang': '250'
-    },
-    {
-      'tác giả': 'Lê Văn C',
-      'môn học': 'Vật lý',
-      'tên sách': 'Vật lý 10',
-      'số trang': '200'
-    },
-    {
-      'tác giả': 'Phạm Thị D',
-      'môn học': 'Hóa học',
-      'tên sách': 'Hóa học 11',
-      'số trang': '220'
-    }
-  ];
-  for (int i = 0; i < mapsach.length; i++) {
+  var booklist = [];
+  book book1 = book(
+      author: 'Nam Cao',
+      subject: 'Văn học',
+      bookname: 'Chí Phèo',
+      numberpages: 120);
+  book book2 = book(
+      author: 'Tô Hoài',
+      subject: 'Văn học',
+      bookname: 'Dế Mèn phiêu lưu ký',
+      numberpages: 150);
+  booklist.addAll([book1, book2]);
+
+  for (var book in booklist) {
     print(
-        'Tác giả : ${mapsach[i]['tác giả']}, Môn học : ${mapsach[i]['môn học']}, Tên sách : ${mapsach[i]['tên sách']}, Số trang : ${mapsach[i]['số trang']}');
+        'Tác giả : ${book.author}, Môn học: ${book.subject}, Tên sách: ${book.bookname}, số trang : ${book.numberpages}');
   }
+}
+
+class book {
+  String author;
+  String subject;
+  String bookname;
+  int numberpages;
+  book({
+    required this.author,
+    required this.subject,
+    required this.bookname,
+    required this.numberpages,
+  });
 }
