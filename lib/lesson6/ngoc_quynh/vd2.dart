@@ -19,9 +19,9 @@ void main() {
   diem.add(9.5);
   print(' Diem ktra la: $diem');
 
-  for (var so in diem) {
+  for (double so in diem) {
     tongdiem += so;
-    double avg = tongdiem / diem.length;
-    print('Diem trung binh la: $avg');
   }
+  double avg = tongdiem / diem.length;
+  print('Diem trung binh la: $avg');
 }
