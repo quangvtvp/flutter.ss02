@@ -26,4 +26,8 @@ void main() {
       'sotrang': 350
     },
   ];
+  for (int i = 0; i < maphocsinh.length; i++) {
+    print(
+        '${i + 1}: ${maphocsinh[i]['tacgia']} - ${maphocsinh[i]['monhoc']} - ${maphocsinh[i]['tensach']} - ${maphocsinh[i]['sotrang']}');
+  }
 }
