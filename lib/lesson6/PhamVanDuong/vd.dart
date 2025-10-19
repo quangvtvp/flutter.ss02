@@ -1,9 +1,15 @@
-void main() {
-  Map<String, List<String>> student = {
-    'Duong': ['Chơi game', 'Xem Phim', 'Nghe nhạc'],
-    'Tran Bao': ['Chơi game', 'Xem Phim', 'Nghe nhạc'],
-  };
+void StudentInfo() {
+  var students = [
+    {'name': 'An', 'age': 16, 'grade': 8.5},
+    {'name': 'Bình', 'age': 17, 'grade': 7.8},
+    {'name': 'Chi', 'age': 16, 'grade': 9.0},
+  ];
 
-  print('Sở thích của Duong: ${student['Duong']}');
-  print('Sở thích của Tran Bao: ${student['Tran Bao']}');
+  for (var s in students) {
+    print('Tên: ${s['name']}, Tuổi: ${s['age']}, Điểm: ${s['grade']}');
+  }
+}
+
+void main() {
+  StudentInfo();
 }

@@ -1,17 +1,15 @@
-import 'dart:async';
+void PrintStudentInfo() {
+  var students = [
+    {'name': 'An', 'age': 16, 'grade': 8.5},
+    {'name': 'Bình', 'age': 17, 'grade': 7.8},
+    {'name': 'Chi', 'age': 16, 'grade': 9.0},
+  ];
+
+  for (var s in students) {
+    print('Tên: ${s['name']}, Tuổi: ${s['age']}, Điểm: ${s['grade']}');
+  }
+}
 
 void main() {
-  Map<String, int> students = {
-    'Thai': 85,
-    'Thai2': 92,
-    'Hoang Thai': 78,
-    'Thai Hoang': 90,
-  };
-  int dem = 0;
-  students.forEach((key, value) {
-    if (key.contains('Thai')) {
-      dem++;
-    }
-  });
-  print('Số học sinh có tên chứa "Thai" là: $dem');
+  PrintStudentInfo();
 }
