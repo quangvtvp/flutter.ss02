@@ -2,7 +2,7 @@ import 'dart:math';
 import 'dart:io';
 void main () {
   print('Mini Game 1: Đoán Số');
-  print('Xin chào bạn!');import
+  print('Xin chào bạn!');
   print('Chào mừng bạn đến với chương trình đoán số!');
   int randomNumber = Random().nextInt(100) + 1; // Số ngẫu nhiên từ 1 đến 100
   int attempts = 0;
@@ -16,9 +16,9 @@ void main () {
     }
     attempts++;
     if (guess < randomNumber) {
-      print('Số bạn đoán quá thấp. Hãy thử lại!');
+      print('Số bạn đoán thấp hơn. Hãy thử lại!');
     } else if (guess > randomNumber) {
-      print('Số bạn đoán quá cao. Hãy thử lại!');
+      print('Số bạn đoán cao hơn. Hãy thử lại!');
     } else {
       print('Chúc mừng! Bạn đã đoán đúng số $randomNumber trong $attempts lần thử.');
       break;
