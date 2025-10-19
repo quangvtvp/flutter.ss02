@@ -1,5 +1,3 @@
-//import 'dart:io';
-
 void main() {
   List<String> baihat = [
     'Lần cuối',
@@ -16,23 +14,14 @@ void main() {
         String temp = baihat[i];
         baihat[i] = baihat[j];
         baihat[j] = temp;
-      } else if (chu1 == chu2) {
-        int k = 1;
-        while (k < baihat[i].length && k < baihat[j].length) {
-          int? chu3 = (baihat[i]).codeUnitAt(k);
-          int? chu4 = (baihat[j]).codeUnitAt(k);
-          if (chu3 > chu4) {
-            String temp = baihat[i];
-            baihat[i] = baihat[j];
-            baihat[j] = temp;
-            break;
-          } else if (chu3 < chu4) {
-            continue;
-          }
-          k++;
-        }
       }
     }
   }
-  print(baihat);
+  print('Danh sách các bài hát là: $baihat');
+  print('Bài hát có số kí tự lớn hơn 10 là: ');
+  for (int i = 0; i < baihat.length; i++) {
+    if (baihat[i].length > 10) {
+      print(baihat[i]);
+    }
+  }
 }
