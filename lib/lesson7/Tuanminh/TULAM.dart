@@ -27,6 +27,6 @@ void main() {
   ];
   for (int i = 0; i < mapsach.length; i++) {
     print(
-        '${mapsach[i]['tác giả']} ${mapsach[i]['môn học']} ${mapsach[i]['tên sách']} ${mapsach[i]['số trang']}');
+        'Tác giả : ${mapsach[i]['tác giả']}, Môn học : ${mapsach[i]['môn học']}, Tên sách : ${mapsach[i]['tên sách']}, Số trang : ${mapsach[i]['số trang']}');
   }
 }
