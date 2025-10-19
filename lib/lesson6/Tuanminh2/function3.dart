@@ -21,5 +21,4 @@ void main() {
     }
   } while (list1.contains("*"));
   print("Đây là đáp án: $word");
-  return;
 }

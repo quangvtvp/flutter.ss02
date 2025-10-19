@@ -27,7 +27,7 @@ void main() {
     'chup anh',
     'an uong',
     'toan hoc',
-    'van hoc'
+    'van hoc',
   ];
   words.shuffle();
   play('${words[0]}');
