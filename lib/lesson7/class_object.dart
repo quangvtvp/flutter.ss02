@@ -97,6 +97,20 @@ class Car {
   }
 }
 
+class University {
+  String name;
+  String address;
+  int enrollScore;
+  int numberOfStudent;
+
+  University({
+    required this.name,
+    required this.address,
+    required this.enrollScore,
+    required this.numberOfStudent,
+  });
+}
+
 void printStudentsUsingMap() {
   // Tên, điểm, giới tính, lớp
   var mapStudents = [

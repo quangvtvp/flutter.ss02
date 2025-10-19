@@ -33,6 +33,6 @@ void printbook() {
   ];
   for (int i = 0; i < books.length; i++) {
     print(
-        '${i + 1}: ${books[i]['Tacgia']} \t${books[i]['Monhoc ']} \t${books[i]['Tensach']} \t${books[i]['Sotrang']}');
+        '${i + 1}: ${books[i]['Tacgia']} ${books[i]['Monhoc ']} ${books[i]['Tensach']} ${books[i]['Sotrang']}');
   }
 }
