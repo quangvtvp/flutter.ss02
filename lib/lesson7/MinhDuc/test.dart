@@ -4,13 +4,13 @@ main() {
     tensach: 'Cac chuyên đề bồi dưỡng Hsg Toán',
     tacgia: 'Trần Nam Dũng',
     monhoc: 'Toán',
-    sotrang: 131,
+    sotrang: 135,
   );
   Book book2 = Book(
     tensach: 'BĐT Hình học',
     tacgia: 'hoàng NGọc Quang',
     monhoc: 'Toán',
-    sotrang: 163,
+    sotrang: 160,
   );
   Book book3 = Book(
     tensach: 'PT và HPT',
@@ -22,7 +22,7 @@ main() {
     tensach: 'Vật lý đại cương',
     tacgia: 'Phạm Văn Đồng',
     monhoc: 'Vật lý',
-    sotrang: 115,
+    sotrang: 180,
   );
   Book book5 = Book(
     tensach: 'Hóa học cơ bản',
