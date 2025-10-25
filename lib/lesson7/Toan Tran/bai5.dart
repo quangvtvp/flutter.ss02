@@ -117,7 +117,7 @@ void printTop3EachClass(List<Student> students) {
   Map<String, List<Student>> grouped = {};
   for (var s in students) grouped.putIfAbsent(s.classId, () => []).add(s);
 
-  print('\n📘 Top 3 học sinh mỗi lớp (theo grade ↓):');
+  print('\n Top 3 học sinh mỗi lớp (theo grade ↓):');
   grouped.forEach((classId, list) {
     list.sort((a, b) => b.grade.compareTo(a.grade));
     print('\n$classId:');
@@ -168,23 +168,23 @@ void main() {
   while (ans == 'y') {
     Student newStudent = inputStudent();
     students.add(newStudent);
-    print('✅ Đã thêm học sinh: $newStudent\n');
+    print('Đã thêm học sinh: $newStudent\n');
     stdout.write('Bạn có muốn thêm học sinh nữa không? (y/n): ');
     ans = stdin.readLineSync(encoding: utf8)?.toLowerCase();
   }
 
-  // 1️⃣ Lọc theo classId & grade >= 8
+  // Lọc theo classId & grade >= 8
   stdout.write('Nhập classId để lọc (vd: 10A2): ');
   String classId = stdin.readLineSync(encoding: utf8) ?? '';
   List<Student> filtered = filterByClassAndGrade(students, classId);
   sortByGradeAndName(filtered);
 
-  print('\n🎯 Danh sách học sinh lớp $classId có grade >= 8.0:');
+  print('\n Danh sách học sinh lớp $classId có grade >= 8.0:');
   if (filtered.isEmpty) print('Không có học sinh nào.');
   else filtered.forEach((s) => print('  - $s'));
 
-  // 2️⃣ Tìm kiếm đa điều kiện
-  print('\n🔍 Tìm kiếm học sinh theo nhiều điều kiện:');
+  // Tìm kiếm đa điều kiện
+  print('\n Tìm kiếm học sinh theo nhiều điều kiện:');
   stdout.write('Nhập từ khóa (tên, có thể bỏ trống): ');
   String keyword = stdin.readLineSync(encoding: utf8) ?? '';
   stdout.write('Nhập tuổi tối thiểu (hoặc Enter để bỏ qua): ');
@@ -201,14 +201,14 @@ void main() {
       maxAge: maxAge,
       minGrade: minGrade);
 
-  print('\n📋 Kết quả tìm kiếm:');
+  print('\n Kết quả tìm kiếm:');
   if (searchResult.isEmpty) print('Không tìm thấy học sinh nào phù hợp.');
   else searchResult.forEach((s) => print('  - $s'));
 
-  // 3️⃣ Top 3 học sinh mỗi lớp
+  // Top 3 học sinh mỗi lớp
   printTop3EachClass(students);
 
-  // 4️⃣ Lưu dữ liệu vào file JSON
+  // Lưu dữ liệu vào file JSON
   saveToFile(students, filename);
-  print('\n💾 Danh sách học sinh đã được lưu vào "$filename".');
+  print('\n Danh sách học sinh đã được lưu vào "$filename".');
 }
