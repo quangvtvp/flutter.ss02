@@ -1,29 +1,54 @@
-//Bài về nhà số 2: Hình chữ nhật bằng class
+// Bài về nhà số 2:Hình chữ nhật với class 
+import 'dart:io';
+
 class Rectangle {
-  double length;
   double width;
-  Rectangle({required this.length, required this.width});
+  double height;
+
+  Rectangle(this.width, this.height);
+
   double area() {
-    return length * width;
+    return width * height;
   }
-  double perimeter() {
-    return 2 * (length + width);
-  }
+
   void showInfo() {
-    print('Chiều dài: $length, Chiều rộng: $width, Diện tích: ${area()}, Chu vi: ${perimeter()}');
+    print('Chiều rộng: $width . Chiều cao: $height . Diện tích: ${area()}');
   }
 }
+
 void main() {
-  var rectangles = <Rectangle>[];
-  Rectangle rect1 = Rectangle(length: 5.0, width: 3.0);
-  Rectangle rect2 = Rectangle(length: 7.5, width: 4.5);
-  Rectangle rect3 = Rectangle(length: 10.0, width: 6.0);
+  print('Nhập số lượng hình chữ nhật:');
+  int n = int.parse(stdin.readLineSync()!);
+  if (n == null || n <= 0) {
+    print('Số lượng phải là số nguyên dương.');
+    return;
+  }
 
-  rectangles.add(rect1);
-  rectangles.add(rect2);
-  rectangles.add(rect3);
+  List<Rectangle> rectangles = [];
 
-  for (var rect in rectangles) {
-    rect.showInfo();
+  for (int i = 0; i < n; i++) {
+    print('\n--- Hình chữ nhật thứ ${i + 1} ---');
+    stdout.write('Nhập chiều rộng: ');
+    double width = double.parse(stdin.readLineSync()!);
+    if (width == null || width <= 0) {
+      print('Chiều rộng phải là số dương.');
+      i--;
+      continue;
+    }
+    stdout.write('Nhập chiều cao: ');
+    double height = double.parse(stdin.readLineSync()!);
+    if (height == null || height <= 0) {
+      print('Chiều cao phải là số dương.');
+      i--;
+      continue;
+    }
+
+    rectangles.add(Rectangle(width, height));
+  }
+
+  print('\n Danh sách các hình chữ nhật:');
+  for (int i = 0; i < rectangles.length; i++) {
+    print('\nHình thứ ${i + 1}:');
+    rectangles[i].showInfo();
   }
 }
