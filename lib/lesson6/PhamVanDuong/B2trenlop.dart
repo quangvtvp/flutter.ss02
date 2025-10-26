@@ -1,13 +1,11 @@
 List<int> Diem = [4, 5, 7, 9, 1, 3, 2];
 void main() {
   int Max = Diem[0];
+  int Min = Diem[0];
   for (int i = 0; i < Diem.length; i++) {
     if (Diem[i] > Max) {
       Max = Diem[i];
     }
-  }
-  int Min = Diem[0];
-  for (int i = 0; i < Diem.length; i++) {
     if (Diem[i] < Min) {
       Min = Diem[i];
     }

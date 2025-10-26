@@ -1,4 +1,4 @@
-void PrintStudentInfo() {
+void StudentInfo() {
   var students = [
     {'name': 'An', 'age': 16, 'grade': 8.5},
     {'name': 'Bình', 'age': 17, 'grade': 7.8},
@@ -11,5 +11,5 @@ void PrintStudentInfo() {
 }
 
 void main() {
-  PrintStudentInfo();
+  StudentInfo();
 }
