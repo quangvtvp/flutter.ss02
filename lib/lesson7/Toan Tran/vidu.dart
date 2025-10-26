@@ -1,29 +1,24 @@
+class Book {
+  String tacGia;
+  String monHoc;
+  String tenSach;
+  int soTrang;
+  Book(this.tacGia, this.monHoc, this.tenSach, this.soTrang);
+  void printInfo(int index) {
+    print("Sách thứ $index:");
+    print("Tác giả: $tacGia");
+    print("Môn học: $monHoc");
+    print("Tên sách: $tenSach");
+    print("Số trang: $soTrang\n");
+  }
+}
 void main() {
-  List<Map<String, dynamic>> books = [
-    {
-      'tacGia': 'Trần Anh Toàn',
-      'monHoc': 'Toán 11',
-      'tenSach': 'Định nghĩa dãy số',
-      'soTrang': 225
-    },
-    {
-      'tacGia': 'Trần Kim Ánh',
-      'monHoc': 'Văn Học',
-      'tenSach': 'Hai số phận',
-      'soTrang': 299
-    },
-    {
-      'tacGia': 'Học viện ABC',
-      'monHoc': 'Lịch sử',
-      'tenSach': 'Lịch sử thế giới',
-      'soTrang': 555
-    }
+  List<Book> books = [
+    Book('Trần Anh Toàn', 'Toán 11', 'Định nghĩa dãy số', 225),
+    Book('Trần Kim Ánh', 'Văn Học', 'Hai số phận', 299),
+    Book('Học viện ABC', 'Lịch sử', 'Lịch sử thế giới', 555)
   ];
   for (int i = 0; i < books.length; i++) {
-    print("Sách thứ ${i + 1}:");
-    print("Tác giả: ${books[i]['tacGia']}");
-    print("Môn học: ${books[i]['monHoc']}");
-    print("Tên sách: ${books[i]['tenSach']}");
-    print("Số trang: ${books[i]['soTrang']}\n");
+    books[i].printInfo(i + 1);
   }
 }
