@@ -18,12 +18,12 @@ class Studentgrade {
   }
 
   Studentgrade_calculateAverage(mathscore, physicscore, chemistryscore) {
-    print(
+    return print(
         "Điểm trung bình:  ${(mathscore + physicscore + chemistryscore) / 3} ");
   }
 }
 
 void main() {
   var student = Studentgrade("minh", 10, 9, 8);
-  print(student.Studentgrade_calculateAverage(10, 9, 8));
+  student.Studentgrade_calculateAverage(10, 9, 8);
 }
