@@ -1,11 +1,19 @@
 void main() {
-  var listFriends = {
-    'Thái': ['Chơi game', 'Bóng đá'],
-    'Quang': ['Xem phim', 'Nghe nhạc'],
-    'Minh': ['Đọc sách', 'Chạy bộ']
-  };
-
-  listFriends.forEach((name, hobbies) {
-    print('Tên: $name, Sở thích: $hobbies');
-  });
+  var listFriends = [
+    {
+      'name': 'Thái',
+      'hoppy': ['Chơi game', 'Bóng đá']
+    },
+    {
+      'name': 'Quang',
+      'hoppy': ['Xem phim', 'Nghe nhạc']
+    },
+    {
+      'name': 'Minh',
+      'hoppy': ['Đọc sách', 'Chạy bộ']
+    }
+  ];
+  for (var friend in listFriends) {
+    print('Tên: ${friend['name']}, Sở thích: ${friend['hoppy']}');
+  }
 }
