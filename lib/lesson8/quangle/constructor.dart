@@ -1,37 +1,34 @@
-class Point {
-  double x = 0;
-  double y = 0;
+class BankAccount {
+  double _balance; // Public - không an toàn!
 
-  Point(this.x, this.y);
+  BankAccount(this._balance);
 
-  Point.Origin() {
-    x = 10;
-    y = 10;
+  void addInterest() {
+    _balance = _balance * 1.05; // Cộng 5% lãi
   }
 
+  bool _validateAmount(double amount) {
+    if (amount <= 0) {
+      print('❌ Số tiền phải lớn hơn 0!');
+      return false;
+    }
+    if (amount > 1000000) {
+      print('❌ Ko hop le!');
+      return false;
+    }
+    return true;
+  }
 }
 
 void main() {
-  var p = Point(10,20); // Gọi constructor mặc định
+  var account = BankAccount(1000000);
 
-  var pOrigin = Point.Origin(); // Gọi constructor named
+  // ❌ Nguy hiểm: ai cũng có thể thay đổi số dư tùy ý!
+  account._balance = 999999999;
+  account._validateAmount(-500);
+  
+  print('Số dư: ${account._balance}'); // Đã bị thay đổi!
 
-  print('x: ${p.x}, y: ${p.y}'); // x: 0, y: 0
-  print('x1: ${pOrigin.x}, y1: ${pOrigin.y}'); // x: 0, y: 0
-
-  var student = Student('quang', 2000);
- 
-}
-
-//ten, namsinh
-
-class Student {
-  String name;
-  int yearOfBirth;
-
-  Student(this.name, this.yearOfBirth);
-
-  // viết 2 hàm tạo mặc định cho năm sinh 2k8 và 2k9
-
-
+  // ❌ Nguy hiểm: có thể gọi logic nội bộ từ ngoài
+  account.addInterest();
 }
