@@ -2,7 +2,7 @@ import 'dart:math';
 import 'dart:io';
 void main () {
   print('Mini Game 1: Đoán Số');
-  print('Xin chào bạn!');
+  print('Xin chào bạn!');import
   print('Chào mừng bạn đến với chương trình đoán số!');
   int randomNumber = Random().nextInt(100) + 1; // Số ngẫu nhiên từ 1 đến 100
   int attempts = 0;
