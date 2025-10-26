@@ -9,10 +9,6 @@ void play(String word) {
   do {
     print('nhap 1 ki tu trong tu ban doan:');
     guess = stdin.readLineSync()!;
-    //   if (guess == null || guess.length != 1) {
-    //     print('vui long nhap 1 ki tu');
-    //   }
-    // } while (guess == null || guess.length != 1);
     if (guess.length == 1) {
       for (var i = 0; i < list.length; i++) {
         if (list[i] == guess) {
@@ -29,5 +25,28 @@ void play(String word) {
 }
 
 void main() {
-  play('uong');
+  List<String> words = [
+    'toan',
+    'van',
+    'anh',
+    'nga',
+    'phap',
+    'duc',
+    'trung',
+    'ly',
+    'hoa',
+    'sao',
+    'may',
+    'nang',
+    'hoa',
+    'sinh',
+    'su',
+    'dia',
+    'truyen',
+    'phim',
+    'game',
+    'vong'
+  ];
+  words.shuffle();
+  play('${words[2]}');
 }
