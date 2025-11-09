@@ -46,19 +46,24 @@ void timsachtheotacgia(String author, List<Book> books) {
     if (book.author == author) {
       result += '$format. ${book.getInfo()}\n';
       count++;
+      format++;
     }
   }
   print('Tìm thấy $count cuốn sách:\n$result');
 }
 
-int sachco(String author, List<Book> books) {
+void sachco(List<Book> books) {
+  String result = '';
   int count = 0;
+  int format = 1;
   for (var book in books) {
-    if (book.author == author && book.isOldbook()) {
+    if (book.isOldbook()) {
+      result += '$format. ${book.getInfo()}\n';
       count++;
+      format++;
     }
   }
-  return count;
+  print('Số sách cổ (trước 1950): $count\n$result');
 }
 
 void main() {
@@ -94,5 +99,5 @@ void main() {
   motexpensive(books);
   print('=== TÌM SÁCH CỦA TÁC GIẢ "NAM CAO"===');
   timsachtheotacgia('Nam Cao', books);
-  print('Số sách cổ (trước 1950): ${sachco('Nam Cao', books)}');
+  sachco(books);
 }
