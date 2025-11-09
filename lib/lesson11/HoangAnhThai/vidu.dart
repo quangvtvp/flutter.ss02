@@ -49,10 +49,11 @@ class Car {
 }
 
 Future<void> getLatestModels(List<Car> cars) async {
+  await Future.delayed(Duration(seconds: 1));
   for (var car in cars) {
     if (car.year >= 2022) {
       print('${car.brand} ${car.model} - ${car.year}');
+      await Future.delayed(Duration(seconds: 1));
     }
-    Future.delayed(Duration(seconds: 1));
   }
 }
