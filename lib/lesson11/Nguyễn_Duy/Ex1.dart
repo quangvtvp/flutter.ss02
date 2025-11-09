@@ -1,3 +1,5 @@
+import 'dart:async';
+
 class Car {
   String model;
   String year;
@@ -5,7 +7,7 @@ class Car {
   Car(this.model, this.year, this.color);
 }
 
-void main() {
+Future<void> main() async {
   List<Car> cars = [
     Car('Toyota', '2020', 'Red'),
     Car('Honda', '2019', 'Blue'),
@@ -15,7 +17,11 @@ void main() {
   print('start the app');
   print('fetching the latest car');
   cars.sort((a, b) => b.year.compareTo(a.year));
-  Future.delayed(Duration(seconds: 3), () {
+  for (var i = 0; i < 10; i++) {
+    await Future.delayed(Duration(seconds: 1));
+    print('Loading${'.' * (i + 1)}');
+  }
+  await Future.delayed(Duration(seconds: 1), () {
     print('Latest car: ${cars[0].model}');
     print('done');
   });
