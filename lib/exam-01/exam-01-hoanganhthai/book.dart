@@ -10,7 +10,7 @@ class Book {
   void borrow(String title) => isAvailable = false;
   void returnBook(String title) => isAvailable = true;
   String getInfo() {
-    return 'Tên: $title,\nTác giả: $author,\nNăm xuất bản: $pulishYear,\nGiá: $priceđ,\nTrạng thái: ${isAvailable ? "Có sẵn" : "Đã mượn"}';
+    return 'Tên: $title, Tác giả: $author, Năm xuất bản: $pulishYear, Giá: ${price.toInt()}đ, Trạng thái: ${isAvailable ? "Có sẵn" : "Đã mượn"}';
   }
 
   bool isOldbook() {
