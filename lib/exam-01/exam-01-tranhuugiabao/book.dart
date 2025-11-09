@@ -23,7 +23,7 @@ void main() {
   print('Trạng thái sau khi mượn: ${book1.isAvailable}');
   book1.returnBook(book1);
   print('Trạng thái sau khi trả: ${book1.isAvailable}');
- bool isoldBook = book1.publishYear < 2010;
+ bool isoldBook = book1.publishYear < 1950;
   if (isoldBook) {
     print('Sách cũ');
   } else {
