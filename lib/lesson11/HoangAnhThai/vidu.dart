@@ -1,3 +1,7 @@
+import 'dart:io';
+import 'dart:async';
+import 'dart:math';
+
 Future<void> main() async {
   List<Car> cars = [
     Car('Toyota', 'Camry', 2020),
@@ -30,8 +34,24 @@ Future<void> main() async {
     Car('Buick', 'Regal', 2019),
     Car('Chrysler', '300', 2021),
   ];
-  getLatestModels(cars);
+
   print('latest models is printing');
+  const total = 100;
+  const barLength = 30;
+
+  for (int i = 0; i <= total; i++) {
+    int randomDelay = Random().nextInt(100);
+    double percent = i / total;
+    int filled = (percent * barLength).round();
+    int empty = barLength - filled;
+
+    String bar =
+        '[${'*' * filled}${'_' * empty}] ${(percent * 100).toStringAsFixed(0)}%';
+    stdout.write('\r$bar');
+    await Future.delayed(Duration(milliseconds: randomDelay));
+  }
+  print(' DONE\n');
+  getLatestModels(cars);
 }
 
 Future<String> processingimg() async {
@@ -53,7 +73,6 @@ Future<void> getLatestModels(List<Car> cars) async {
   for (var car in cars) {
     if (car.year >= 2022) {
       print('${car.brand} ${car.model} - ${car.year}');
-      await Future.delayed(Duration(seconds: 1));
     }
   }
 }
