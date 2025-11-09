@@ -9,7 +9,7 @@ Future<void> main(List<String> args) async {
 
   // Dòng này chỉ được thực thi sau khi await ở trên hoàn thành.
   print('Kết quả nhận được: $ketQua');
-  print('Ô tô cũ nhất đã được tìm thấy là: $latestModel');
+  print('Ô tô mới nhất đã được tìm thấy là: $latestModel');
   print('Chương trình kết thúc.');
 }
 
@@ -37,8 +37,10 @@ Future<String> layDuLieuoto() async {
 Future<String> getLatestModel() async {
   List<Car> cars = [
     Car('Toyota', 2020),
-    Car('Honda', 2022),
-    Car('Ford', 2021),
+    Car('Honda', 2019),
+    Car('Ford', 2018),
+    Car('Chevrolet', 2021),
+    Car('BMW', 2022),
   ];
   return Future.delayed(Duration(seconds: 15), () {
     cars.sort((a, b) => b.year.compareTo(a.year));
