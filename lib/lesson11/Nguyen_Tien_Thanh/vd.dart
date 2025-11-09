@@ -17,7 +17,7 @@ Future<String> getLatestModel() async {
     Car('Ford', 2022),
     Car('Chevrolet', 2023),
   ];
-  return Future.delayed(Duration(seconds: 1000), () {
+  return Future.delayed(Duration(seconds: 10), () {
     models.sort((a, b) => b.year.compareTo(a.year));
     return models.first.model;
   });
