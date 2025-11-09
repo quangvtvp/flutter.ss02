@@ -26,7 +26,7 @@ class Book {
   }
 
   String getInfo() {
-    return "Tên: $title, Tác giả: $author, Năm: $publishYear, Giá: $price\đ, Trạng thái: ${this.isAvailable ? "Có sẵn" : "Đã mượn"}";
+    return "Tên: $title, Tác giả: $author, Năm: $publishYear, Giá: ${price.toStringAsFixed(0)}\đ, Trạng thái: ${this.isAvailable ? "Có sẵn" : "Đã mượn"}";
   }
 
   bool isOldBook() {
