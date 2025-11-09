@@ -12,7 +12,7 @@ Future<String> getLastestModel() async {
     Car('MNP - 135', 2021)
   ];
   return Future.delayed(Duration(seconds: 10), () {
-    cars.sort((a, b) => a.year.compareTo(b.year));
+    cars.sort((a, b) => b.year.compareTo(a.year));
     return cars[0].model;
   });
 }
