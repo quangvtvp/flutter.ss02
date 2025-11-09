@@ -41,25 +41,25 @@ class Book {
 void main() {
   var books = <Book>[
     // Sách 1
-    Book(title: 'De men phieu luu ky', author: 'To Hoai', publishYear: 1941, price: 45000, isAvailable: true),
+    Book(title: 'Dế mèn phiêu lưu ký', author: 'To Hoài', publishYear: 1941, price: 45000, isAvailable: true),
     // Sách 2
-    Book(title: 'Tat den', author: 'Ngo Tat To', publishYear: 1939, price: 52000, isAvailable: false),
+    Book(title: 'Tắt đèn', author: 'Ngô Tất Tố', publishYear: 1939, price: 52000, isAvailable: false),
     // Sách 3
-    Book(title: 'So do', author: 'Vu Trong Phung', publishYear: 1936, price: 48000, isAvailable: true),
+    Book(title: 'Số đỏ', author: 'Vũ Trọng Phụng', publishYear: 1936, price: 48000, isAvailable: true),
     // Sách 4
-    Book(title: 'Chi Pheo', author: 'Nam Cao', publishYear: 1941, price: 35000, isAvailable: true),
+    Book(title: 'Chí Phèo', author: 'Nam Cao', publishYear: 1941, price: 35000, isAvailable: true),
     // Sách 5
-    Book(title: 'Lao Hac', author: 'Nam Cao', publishYear: 1943, price: 38000, isAvailable: false),
+    Book(title: 'Lão Hạc', author: 'Nam Cao', publishYear: 1943, price: 38000, isAvailable: false),
     // Sách 6
-    Book(title: 'Nha gia kim', author: 'Paulo Coelho', publishYear: 1988, price: 89000, isAvailable: true),
+    Book(title: 'Nhà giả kim', author: 'Paulo Coelho', publishYear: 1988, price: 89000, isAvailable: true),
     // Sách 7
-    Book(title: 'Dac nhan tam', author: 'Dale Carnegie', publishYear: 1936, price: 95000, isAvailable: false),
+    Book(title: 'Đắc nhân tâm', author: 'Dale Carnegie', publishYear: 1936, price: 95000, isAvailable: false),
     // Sách 8
-    Book(title: 'Tuoi tre dang gia bao nhieu', author: 'Rosie Nguyen', publishYear: 2018, price: 78000, isAvailable: true),
+    Book(title: 'Tuổi trẻ đáng giá bao nhiêu', author: 'Rosie Nguyễn', publishYear: 2018, price: 78000, isAvailable: true),
     // Sách 9
-    Book(title: 'Cay cam ngot cua toi', author: 'Jose Mauro de Vasconcelos', publishYear: 1968, price: 105000, isAvailable: true),
+    Book(title: 'Cây cam ngọt của tôi', author: 'José Mauro de Vasconcelos', publishYear: 1968, price: 105000, isAvailable: true),
     // Sách 10
-    Book(title: 'Sapiens - Luoc su loai nguoi', author: 'Yuval Noah Harari', publishYear: 2011, price: 198000, isAvailable: true)
+    Book(title: 'Sapiens - Lược sử loài người', author: 'Yuval Noah Harari', publishYear: 2011, price: 198000, isAvailable: true)
   ];
   print('--- Thông tin tất cả sách ---');
   for (var i = 0; i < books.length; i++) {
