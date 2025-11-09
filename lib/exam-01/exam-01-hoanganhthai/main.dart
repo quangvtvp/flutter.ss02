@@ -85,7 +85,7 @@ void main() {
   }
   print('=== THỐNG KÊ THƯ VIỆN ===');
   print('Tổng số sách: ${books.length}');
-  borow('Nhà giả kim', books);s
+  borow('Nhà giả kim', books);
   borow('Số đỏ', books);
   returnn('Tắt đèn', books);
   print('Số sách có sẵn: ${cosan(books)}');
