@@ -11,7 +11,7 @@ Future<void> main(List<String> args) async {
 
 Future<String> timer() async {
   print("Timer started...");
-  await Future.delayed(Duration(seconds: 20), () {
+  await Future.delayed(Duration(seconds: 2), () {
     throw Exception("Time's up!");
   });
 }
