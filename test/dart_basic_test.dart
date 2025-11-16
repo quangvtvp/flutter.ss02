@@ -1,15 +1,6 @@
-void PrintStudentInfo() {
-  var students = [
-    {'name': 'An', 'age': 16, 'grade': 8.5},
-    {'name': 'Bình', 'age': 17, 'grade': 7.8},
-    {'name': 'Chi', 'age': 16, 'grade': 9.0},
-  ];
-
-  for (var s in students) {
-    print('Tên: ${s['name']}, Tuổi: ${s['age']}, Điểm: ${s['grade']}');
-  }
-}
-
 void main() {
-  PrintStudentInfo();
+  List<int> numbers = [1, 2, 3, 4, 5];
+  List<int> numbers2 = numbers;
+  numbers2.add(6);
+  print(numbers);
 }

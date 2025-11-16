@@ -1,4 +1,4 @@
-class StudentGrades 
+class StudentGrades {
   String studentName;
   double _mathScore;
   double _physicsScore;
