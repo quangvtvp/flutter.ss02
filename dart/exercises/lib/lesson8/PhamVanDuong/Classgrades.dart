@@ -1,8 +1,8 @@
 class StudentGrades {
   String studentName;
-  double _mathScore = 9.0;
-  double _physicsScore = 8.0;
-  double _chemistryScore = 10.0;
+  final double _mathScore = 9.0;
+  final double _physicsScore = 8.0;
+  final double _chemistryScore = 10.0;
 
   StudentGrades(this.studentName);
 

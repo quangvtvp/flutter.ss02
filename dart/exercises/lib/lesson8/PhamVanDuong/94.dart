@@ -33,7 +33,7 @@ class Product {
 
   void Showinfo() {
     print(
-        'Tên sản phẩm: $name, Giá: $_price, Số lượng: $_quantity, Trị giá: ${Totalvalue}, Trạng thái: ${status}');
+        'Tên sản phẩm: $name, Giá: $_price, Số lượng: $_quantity, Trị giá: $Totalvalue, Trạng thái: $status');
   }
 }
 

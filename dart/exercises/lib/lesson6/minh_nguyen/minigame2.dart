@@ -48,5 +48,5 @@ void main() {
     'vong'
   ];
   words.shuffle();
-  play('${words[2]}');
+  play(words[2]);
 }

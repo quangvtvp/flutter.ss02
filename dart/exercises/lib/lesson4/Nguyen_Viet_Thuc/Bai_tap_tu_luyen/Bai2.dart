@@ -17,7 +17,7 @@ void main() {
       print(spaces + stars);
     } else {
       var spaces = ' ' * (n - i);
-      var stars = '*' + ' ' * (2 * i - 3) + '*';
+      var stars = '*${' ' * (2 * i - 3)}*';
       print(spaces + stars);
     }
   }
