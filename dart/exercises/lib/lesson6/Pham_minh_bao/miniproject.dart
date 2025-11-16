@@ -12,7 +12,7 @@ void main() {
   for (int i = 0; i < so; i++) {
     stdout.write('Nhập tên môn học thứ ${i + 1}: ');
     String? ten = stdin.readLineSync() ?? '';
-    if (ten == null || ten.isEmpty) {
+    if (ten.isEmpty) {
       print('Vui lòng nhập tên môn học');
       i = i - 1;
       continue;

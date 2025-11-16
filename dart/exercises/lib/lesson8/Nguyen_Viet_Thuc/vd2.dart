@@ -13,9 +13,9 @@ void main() {
 
 class StudentGrades {
   String? studentName;
-  double _mathScore = 0.0;
-  double _physicsScore = 0.0;
-  double _chemistryScore = 0.0;
+  final double _mathScore = 0.0;
+  final double _physicsScore = 0.0;
+  final double _chemistryScore = 0.0;
 
   StudentGrades(this.studentName, this._mathScore, this._physicsScore,
       this._chemistryScore);

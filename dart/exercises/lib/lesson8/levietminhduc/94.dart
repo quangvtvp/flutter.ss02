@@ -5,22 +5,24 @@ class sanpham {
   sanpham(this.tensanpham, this._giasanpham, this._soluong);
   double get giasanpham => _giasanpham;
   set giasanpham(double value) {
-    if (value == null || value < 0) {
+    if (value < 0) {
       print('Giá sản phẩm không hợp lệ! Giá phải lớn hơn hoặc bằng 0.');
     } else {
       _giasanpham = value;
       print('Cập nhật giá sản phẩm: $_giasanpham');
     }
   }
+
   int get soluong => _soluong;
   set soluong(int value) {
-    if (value == null || value < 0) {
+    if (value < 0) {
       print('Số lượng không hợp lệ! Số lượng phải lớn hơn hoặc bằng 0.');
     } else {
       _soluong = value;
       print('Cập nhật số lượng: $_soluong');
     }
   }
+
   double get thanhtien => _giasanpham * _soluong;
   String get trangthai {
     if (_soluong == 0) {
@@ -29,6 +31,7 @@ class sanpham {
       return 'Còn hàng';
     }
   }
+
   void inthongtin() {
     print('Tên sản phẩm: $tensanpham');
     print('Giá sản phẩm: $_giasanpham đồng');
@@ -37,6 +40,7 @@ class sanpham {
     print('Trạng thái: $trangthai');
   }
 }
+
 void main() {
   var product = [
     sanpham('Điện thoại', 10000000, 10),

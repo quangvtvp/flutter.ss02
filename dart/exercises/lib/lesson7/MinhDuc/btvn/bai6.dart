@@ -3,17 +3,24 @@
 // 2. Tìm kiếm sách theo từ khóa trong tiêu đề.
 // 3. In top K sách theo số trang.
 import 'dart:io';
+
 class Book {
   String title;
   String author;
   int year;
   int pages;
 
-  Book({required this.title, required this.author, required this.year, required this.pages});
+  Book(
+      {required this.title,
+      required this.author,
+      required this.year,
+      required this.pages});
   void showInfo() {
-    print('Tên sách: $title, Tác giả: $author, Năm xuất bản: $year, Số trang: $pages');
+    print(
+        'Tên sách: $title, Tác giả: $author, Năm xuất bản: $year, Số trang: $pages');
   }
 }
+
 // Sắp xếp theo tiêu chí nhập
 void sortBooks(List<Book> books, String criteria) {
   switch (criteria) {
@@ -33,17 +40,20 @@ void sortBooks(List<Book> books, String criteria) {
       print('Tiêu chí không hợp lệ.');
   }
 }
+
 // Tìm kiếm sách theo từ khóa
 List<Book> searchBooks(List<Book> books, String keyword) {
   return books
       .where((book) => book.title.toLowerCase().contains(keyword.toLowerCase()))
       .toList();
 }
+
 // In top K sách theo số trang
 List<Book> topKBooksByPages(List<Book> books, int k) {
   books.sort((a, b) => b.pages.compareTo(a.pages));
   return books.take(k).toList();
 }
+
 void main() {
   var books = <Book>[
     Book(title: 'Dart Programming', author: 'Alice', year: 2020, pages: 300),
@@ -92,7 +102,7 @@ void main() {
     } else if (choice == '3') {
       stdout.write('Nhập K: ');
       int k = int.parse(stdin.readLineSync()!);
-      if (k == null || k <= 0) {
+      if (k <= 0) {
         print('K phải là số nguyên dương. Vui lòng thử lại.');
         continue;
       }

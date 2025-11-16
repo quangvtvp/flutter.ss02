@@ -53,7 +53,7 @@ void main() {
   }
   var tongsach = 0;
   for (var i = 0; i < boook; i++) {
-    if (books[i].isAvailable = true) ;
+    if (books[i].isAvailable = true) {}
     tongsach++;
   }
   print('Tổng số sách hiện có: $tongsach');

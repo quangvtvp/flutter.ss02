@@ -38,5 +38,5 @@ void playUnvealgame(String word) {
       print('Sai, thử lại!');
     }
   }
-  print('Chúc mừng! Bạn đã đoán đúng từ: ${word}');
+  print('Chúc mừng! Bạn đã đoán đúng từ: $word');
 }
