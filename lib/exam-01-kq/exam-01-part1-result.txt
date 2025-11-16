@@ -1,0 +1,15 @@
+1. A - final List có thể add phần tử, const value không thể thay đổi
+2. B - Null-aware operator ??, age null nên lấy giá trị 18
+3. A - x>3 && y<15 = true, x==5 = true → 'A'
+4. B - continue bỏ qua lần lặp hiện tại, tiếp tục lần lặp tiếp theo
+5. A - List cho phép trùng lặp, Set không cho phép
+6. B - list2 tham chiếu đến list1, cùng object
+7. B - 3×4=12, 2×5=10, tổng=22
+8. C - Closure: calculate(5) trả về (b)=>5+b, gọi với 3 → 8
+9. C - Static variable dùng chung, tăng 3 lần
+10. C - final không thể thay đổi sau khi khởi tạo
+11. A - Setter chỉ chấp nhận v>=0, -5 bị bỏ qua
+12. A - Named constructor khởi tạo name='Guest', age=0
+13. C - An: 85+5=90, Cường: 95, tổng=185
+14. B - Map ban đầu 2 key, thêm 'orange' → 3 keys
+15. A - even: 2+4=6, odd: 1+3+5=9, 6-9=-3
