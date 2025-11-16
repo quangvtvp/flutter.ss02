@@ -5,7 +5,9 @@ import 'package:flutter/foundation.dart';
 
 import 'audio_controller.dart';
 import 'games_services_controller.dart';
+import 'gemini_model.dart';
 import 'score_repository.dart';
+import 'word_prompt_service.dart';
 
 enum GameStatus { playing, completed, failed }
 
@@ -15,9 +17,11 @@ class GameSessionController extends ChangeNotifier {
     required AudioController audioController,
     required GamesServicesController gamesServicesController,
     required ScoreRepository scoreRepository,
+    required WordPromptService wordPromptService,
   }) : _audioController = audioController,
        _gamesServicesController = gamesServicesController,
-       _scoreRepository = scoreRepository {
+       _scoreRepository = scoreRepository,
+       _wordPromptService = wordPromptService {
     _wordPool = List<String>.from(_defaultWords);
   }
 
@@ -79,11 +83,12 @@ class GameSessionController extends ChangeNotifier {
   final GamesServicesController _gamesServicesController;
   final Random _random = Random();
   final ScoreRepository _scoreRepository;
+  final WordPromptService _wordPromptService;
 
   late List<String> _wordPool;
-  late String _currentWordRaw;
-  late String _currentWordNormalized;
-  late List<String> _scrambledLetters;
+  String _currentWordRaw = '';
+  String _currentWordNormalized = '';
+  List<String> _scrambledLetters = <String>[];
 
   final List<int> _selectedLetterIndices = [];
   Timer? _roundTimer;
@@ -94,6 +99,7 @@ class GameSessionController extends ChangeNotifier {
   int _secondsRemaining = _roundDurationSeconds;
   int _runId = 0;
   bool _awaitingScoreSubmission = false;
+  bool _isInitializing = false;
 
   GameStatus get status => _status;
   int get score => _score;
@@ -104,12 +110,16 @@ class GameSessionController extends ChangeNotifier {
       _selectedLetterIndices.map((index) => _scrambledLetters[index]).toList();
   int get runId => _runId;
   bool get awaitingScoreSubmission => _awaitingScoreSubmission;
+  bool get isInitializing => _isInitializing;
+  GeminiModel get activeGeminiModel => _wordPromptService.model;
 
-  List<String> get displayPattern => _currentWordRaw.split('');
+  List<String> get displayPattern =>
+      _currentWordRaw.isEmpty ? <String>[] : _currentWordRaw.split('');
   List<String> get displayGuess {
     final guess = currentGuess;
     var guessPointer = 0;
-    return displayPattern.map((char) {
+    final pattern = displayPattern;
+    return pattern.map((char) {
       if (char == ' ') {
         return ' ';
       }
@@ -122,21 +132,94 @@ class GameSessionController extends ChangeNotifier {
 
   bool isLetterSelected(int index) => _selectedLetterIndices.contains(index);
 
-  void startNewGame({bool randomizeOrder = true}) {
-    _stopTimer();
-    _wordPool = List<String>.from(_defaultWords);
-    if (randomizeOrder) {
-      _wordPool.shuffle(_random);
+  Future<void> startNewGame({bool randomizeOrder = true}) async {
+    if (_isInitializing) {
+      return;
     }
-    _currentWordIndex = 0;
+
+    _stopTimer();
+    _selectedLetterIndices.clear();
+    _currentWordRaw = '';
+    _currentWordNormalized = '';
+    _scrambledLetters = <String>[];
     _score = 0;
     _status = GameStatus.playing;
     _awaitingScoreSubmission = false;
+    _secondsRemaining = _roundDurationSeconds;
     _runId += 1;
+    final shouldFetchRemoteWords = _wordPromptService.hasValidApiKey;
+
+    if (shouldFetchRemoteWords) {
+      _isInitializing = true;
+      notifyListeners();
+      try {
+        await _refreshWordPool(randomizeOrder: randomizeOrder);
+      } catch (error, stackTrace) {
+        debugPrint('Failed to fetch Gemini word list: $error');
+        debugPrintStack(stackTrace: stackTrace);
+        _applyFallbackWordPool(randomizeOrder: randomizeOrder);
+      } finally {
+        _isInitializing = false;
+      }
+    } else {
+      _applyFallbackWordPool(randomizeOrder: randomizeOrder);
+    }
+
+    _currentWordIndex = 0;
     _prepareCurrentWord();
   }
 
+  Future<void> _refreshWordPool({required bool randomizeOrder}) async {
+    final generatedWords = await _wordPromptService.fetchWordList();
+    final normalized = <String>[];
+    final seen = <String>{};
+
+    for (final word in generatedWords) {
+      final cleaned = word.replaceAll(RegExp(r'\s+'), ' ').trim().toUpperCase();
+      if (cleaned.isEmpty) {
+        continue;
+      }
+      if (seen.add(cleaned)) {
+        normalized.add(cleaned);
+      }
+      if (normalized.length >= 50) {
+        break;
+      }
+    }
+
+    if (normalized.isNotEmpty) {
+      _wordPool = normalized;
+      if (randomizeOrder && _wordPool.length > 1) {
+        _wordPool.shuffle(_random);
+      }
+    } else {
+      _applyFallbackWordPool(randomizeOrder: randomizeOrder);
+    }
+  }
+
+  void _applyFallbackWordPool({required bool randomizeOrder}) {
+    _wordPool = List<String>.from(_defaultWords);
+    if (randomizeOrder && _wordPool.length > 1) {
+      _wordPool.shuffle(_random);
+    }
+  }
+
+  void selectGeminiModel(GeminiModel model) {
+    _wordPromptService.selectModel(model);
+  }
+
   void _prepareCurrentWord() {
+    if (_wordPool.isEmpty) {
+      _status = GameStatus.failed;
+      _awaitingScoreSubmission = false;
+      _scrambledLetters = <String>[];
+      _currentWordRaw = '';
+      _currentWordNormalized = '';
+      _secondsRemaining = 0;
+      notifyListeners();
+      return;
+    }
+
     _stopTimer();
     _selectedLetterIndices.clear();
     _currentWordRaw = _wordPool[_currentWordIndex].toUpperCase();
@@ -177,6 +260,7 @@ class GameSessionController extends ChangeNotifier {
 
   Future<void> selectLetter(int index) async {
     if (_status != GameStatus.playing ||
+        _isInitializing ||
         _selectedLetterIndices.contains(index)) {
       return;
     }
@@ -233,7 +317,7 @@ class GameSessionController extends ChangeNotifier {
   }
 
   void resetCurrentRound() {
-    if (_status != GameStatus.playing) return;
+    if (_status != GameStatus.playing || _isInitializing) return;
     _selectedLetterIndices.clear();
     notifyListeners();
   }

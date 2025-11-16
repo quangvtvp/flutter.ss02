@@ -39,6 +39,10 @@ class _GameScreenState extends State<GameScreen> {
               builder: (context, gameSession, _) {
                 _handlePostGameFlow(context, gameSession, settings);
 
+                if (gameSession.isInitializing) {
+                  return const _InitializingView();
+                }
+
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -85,7 +89,9 @@ class _GameScreenState extends State<GameScreen> {
                     if (gameSession.status == GameStatus.completed)
                       _PrimaryButton(
                         label: 'CHƠI LẠI',
-                        onPressed: () => gameSession.startNewGame(),
+                        onPressed: () {
+                          gameSession.startNewGame();
+                        },
                       )
                     else if (gameSession.status == GameStatus.failed)
                       Column(
@@ -102,7 +108,9 @@ class _GameScreenState extends State<GameScreen> {
                           const SizedBox(height: 12),
                           _PrimaryButton(
                             label: 'THỬ LẠI',
-                            onPressed: () => gameSession.startNewGame(),
+                            onPressed: () {
+                              gameSession.startNewGame();
+                            },
                           ),
                         ],
                       )
@@ -281,6 +289,32 @@ class _GameScreenState extends State<GameScreen> {
     setState(() {
       _leaderboardVisible = false;
     });
+  }
+}
+
+class _InitializingView extends StatelessWidget {
+  const _InitializingView();
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          CircularProgressIndicator(color: Colors.white),
+          SizedBox(height: 16),
+          Text(
+            'Đang tạo danh sách từ mới...',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
+    );
   }
 }
 

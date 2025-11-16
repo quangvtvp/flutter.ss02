@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -7,8 +9,15 @@ import '../../managers/settings_controller.dart';
 import '../leaderboard/leaderboard_screen.dart';
 import '../settings/settings_sheet.dart';
 
-class MenuScreen extends StatelessWidget {
+class MenuScreen extends StatefulWidget {
   const MenuScreen({super.key});
+
+  @override
+  State<MenuScreen> createState() => _MenuScreenState();
+}
+
+class _MenuScreenState extends State<MenuScreen> {
+  bool _startingGame = false;
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +89,7 @@ class MenuScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(30),
                     ),
                   ),
-                  onPressed: () => _startGame(context),
+                  onPressed: _startingGame ? null : _startGame,
                   child: const Text(
                     'BẮT ĐẦU CHƠI',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -116,14 +125,31 @@ class MenuScreen extends StatelessWidget {
     );
   }
 
-  Future<void> _startGame(BuildContext context) async {
+  void _startGame() {
+    if (_startingGame) {
+      return;
+    }
+
+    setState(() {
+      _startingGame = true;
+    });
+
+    final navigator = Navigator.of(context);
     final gameSession = context.read<GameSessionController>();
     final audio = context.read<AudioController>();
-    gameSession.startNewGame(randomizeOrder: true);
-    await audio.playTap();
-    if (context.mounted) {
-      Navigator.of(context).pushNamed('/game');
-    }
+
+    navigator.pushNamed('/game').whenComplete(() {
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _startingGame = false;
+      });
+    });
+
+    unawaited(gameSession.startNewGame(randomizeOrder: true));
+
+    audio.playTap();
   }
 
   Future<void> _openLeaderboard(BuildContext context) async {
