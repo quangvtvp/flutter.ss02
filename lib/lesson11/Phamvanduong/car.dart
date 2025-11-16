@@ -14,14 +14,17 @@ class Car {
 
 Future<String> getlastestmodel() async {
   List<Car> models = [
-    Car('Toyota', 2020),
+    Car('Toyota', 2023),
     Car('Honda', 2019),
     Car('Ford', 2018),
     Car('BMW', 2021),
     Car('Audi', 2022)
   ];
-  return Future.delayed(Duration(seconds: 10), () {
-    models.sort((a, b) => b.year.compareTo(a.year));
-    return models.first.model;
-  });
+  for (var i = 0; i < 5; i++) {
+    await Future.delayed(Duration(seconds: 1));
+    print('loading... $i/5');
+  }
+  print('Loading complete 5/5 ');
+  models.sort((a, b) => b.year.compareTo(a.year));
+  return models.first.model;
 }
