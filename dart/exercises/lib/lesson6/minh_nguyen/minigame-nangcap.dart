@@ -50,5 +50,5 @@ void main() {
   ];
 
   words.shuffle();
-  play('${words[0]}');
+  play(words[0]);
 }

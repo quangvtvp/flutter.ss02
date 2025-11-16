@@ -11,7 +11,7 @@ void main() {
   int j = 1;
   int temp;
   while (i <= so && j <= so) {
-    stdout.write('${j} ');
+    stdout.write('$j ');
     temp = i + j;
     i = j;
     j = temp;

@@ -3,7 +3,7 @@ import 'dart:io';
 void main() {
   print('Nhap so n: ');
   int n = int.tryParse(stdin.readLineSync() ?? '') ?? 0;
-  if (n <= 0 || n == null) {
+  if (n <= 0) {
     print('n khong hop le');
     return;
   }

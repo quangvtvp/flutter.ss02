@@ -1,4 +1,4 @@
-// Bài về nhà số 2:Hình chữ nhật với class 
+// Bài về nhà số 2:Hình chữ nhật với class
 import 'dart:io';
 
 class Rectangle {
@@ -19,7 +19,7 @@ class Rectangle {
 void main() {
   print('Nhập số lượng hình chữ nhật:');
   int n = int.parse(stdin.readLineSync()!);
-  if (n == null || n <= 0) {
+  if (n <= 0) {
     print('Số lượng phải là số nguyên dương.');
     return;
   }
@@ -30,14 +30,14 @@ void main() {
     print('\n--- Hình chữ nhật thứ ${i + 1} ---');
     stdout.write('Nhập chiều rộng: ');
     double width = double.parse(stdin.readLineSync()!);
-    if (width == null || width <= 0) {
+    if (width <= 0) {
       print('Chiều rộng phải là số dương.');
       i--;
       continue;
     }
     stdout.write('Nhập chiều cao: ');
     double height = double.parse(stdin.readLineSync()!);
-    if (height == null || height <= 0) {
+    if (height <= 0) {
       print('Chiều cao phải là số dương.');
       i--;
       continue;
