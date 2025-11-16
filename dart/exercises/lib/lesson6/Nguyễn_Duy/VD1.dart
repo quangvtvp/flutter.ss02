@@ -10,6 +10,6 @@ void main() {
   monan.removeAt(1);
   print('các món ăn còn lại là: $monan');
   for (String monan2 in monan) {
-    print('$monan2');
+    print(monan2);
   }
 }

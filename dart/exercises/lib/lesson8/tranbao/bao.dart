@@ -1,10 +1,11 @@
 class StudentGrades {
   String studentName;
-  double _mathScore;
-  double _physicsScore;
-  double _chemistryScore;
+  final double _mathScore;
+  final double _physicsScore;
+  final double _chemistryScore;
 
-  StudentGrades(this.studentName, this._mathScore, this._physicsScore, this._chemistryScore);
+  StudentGrades(this.studentName, this._mathScore, this._physicsScore,
+      this._chemistryScore);
   double get mathScore => _mathScore;
   double get physicsScore => _physicsScore;
   double get chemistryScore => _chemistryScore;
@@ -15,7 +16,9 @@ class StudentGrades {
   }
 
   bool isValid() {
-    return _validateScore(_mathScore) && _validateScore(_physicsScore) && _validateScore(_chemistryScore);
+    return _validateScore(_mathScore) &&
+        _validateScore(_physicsScore) &&
+        _validateScore(_chemistryScore);
   }
 }
 

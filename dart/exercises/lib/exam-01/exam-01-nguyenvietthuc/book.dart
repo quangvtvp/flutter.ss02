@@ -18,19 +18,19 @@ class Book {
   Book(this.title, this.author, this.publishYear, this.price, this.isAvailable);
 
   void borrow() {
-    this.isAvailable = false;
+    isAvailable = false;
   }
 
   void returnBook() {
-    this.isAvailable = true;
+    isAvailable = true;
   }
 
   String getInfo() {
-    return "Tên: $title, Tác giả: $author, Năm: $publishYear, Giá: ${price.toStringAsFixed(0)}\đ, Trạng thái: ${this.isAvailable ? "Có sẵn" : "Đã mượn"}";
+    return "Tên: $title, Tác giả: $author, Năm: $publishYear, Giá: ${price.toStringAsFixed(0)}đ, Trạng thái: ${isAvailable ? "Có sẵn" : "Đã mượn"}";
   }
 
   bool isOldBook() {
-    if (this.publishYear < 1950) {
+    if (publishYear < 1950) {
       return true;
     } else {
       return false;

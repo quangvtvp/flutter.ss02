@@ -26,7 +26,7 @@ void main() {
       }
     }
     if (flag) {
-      stdout.write('${check} ');
+      stdout.write('$check ');
     }
     check++;
   }

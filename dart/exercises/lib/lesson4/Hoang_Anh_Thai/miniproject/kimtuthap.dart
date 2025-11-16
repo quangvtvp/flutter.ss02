@@ -13,6 +13,6 @@ void main() {
   }
   print('');
   for (int i = 1; i <= n; i++) {
-    stdout.write(" " * (n - i) + '*' * (2 * i - 1) + '\n');
+    stdout.write('${" " * (n - i)}${'*' * (2 * i - 1)}\n');
   }
 }

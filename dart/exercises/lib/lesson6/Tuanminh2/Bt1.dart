@@ -12,7 +12,7 @@ void main() {
   for (var b in monan) {
     print("Món ăn: $b");
   }
-  monan.forEach((a) {
+  for (var a in monan) {
     print("Món ăn: $a");
-  });
+  }
 }

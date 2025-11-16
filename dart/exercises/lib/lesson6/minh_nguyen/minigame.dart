@@ -30,5 +30,5 @@ void main() {
     'van hoc',
   ];
   words.shuffle();
-  play('${words[0]}');
+  play(words[0]);
 }
