@@ -27,11 +27,14 @@ Future<String> layDuLieuoto() async {
     Car('Chevrolet', 2021),
     Car('BMW', 2022),
   ];
-  return Future.delayed(Duration(seconds: 10), () {
+  for (var i = 1; i <= 10; i++) {
+    print('Đang lấy dữ liệu ô tô... $i/10');
+    await Future.delayed(Duration(seconds: 1));
+  }
     print('Dữ liệu ô tô đã được lấy.');
     cars.sort((a, b) => a.year.compareTo(b.year));
     return 'Danh sách ô tô đã được sắp xếp theo năm: ${cars.map((car) => '${car.model} (${car.year})').join(', ')}';
-  });
+  
   
 }
 Future<String> getLatestModel() async {
