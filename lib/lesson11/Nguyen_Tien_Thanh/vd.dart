@@ -1,3 +1,5 @@
+import 'dart:io';
+
 Future<void> main(List<String> args) async {
   print('Start the app');
   print('fetching the latest model');
@@ -17,8 +19,12 @@ Future<String> getLatestModel() async {
     Car('Ford', 2022),
     Car('Chevrolet', 2023),
   ];
-  return Future.delayed(Duration(seconds: 10), () {
+  for(var i = 0; i < 10; i++) {
+    await Future.delayed(Duration(seconds: 1));
+    stdout.write('.');
+  }
+  print('Loading done 100%'); {
     models.sort((a, b) => b.year.compareTo(a.year));
     return models.first.model;
-  });
+  }
 }
