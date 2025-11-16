@@ -43,86 +43,65 @@ class _GameScreenState extends State<GameScreen> {
                   return const _InitializingView();
                 }
 
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    _Header(
-                      secondsRemaining: gameSession.secondsRemaining,
-                      score: gameSession.score,
-                    ),
-                    const SizedBox(height: 32),
-                    const Text(
-                      'Sắp xếp các chữ cái tiếng Việt trong 30 giây để ghi điểm.',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    const SizedBox(height: 24),
-                    _GuessDisplay(
-                      pattern: gameSession.displayPattern,
-                      guess: gameSession.displayGuess,
-                    ),
-                    const SizedBox(height: 40),
-                    Wrap(
-                      spacing: 14,
-                      runSpacing: 14,
-                      alignment: WrapAlignment.center,
+                return LayoutBuilder(
+                  builder: (context, constraints) {
+                    final content = Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        for (
-                          var i = 0;
-                          i < gameSession.scrambledLetters.length;
-                          i++
-                        )
-                          LetterTile(
-                            letter: gameSession.scrambledLetters[i],
-                            isSelected: gameSession.isLetterSelected(i),
-                            onTap: () => gameSession.selectLetter(i),
-                          ),
-                      ],
-                    ),
-                    const SizedBox(height: 24),
-                    _StatusMessage(gameSession: gameSession),
-                    const Spacer(),
-                    if (gameSession.status == GameStatus.completed)
-                      _PrimaryButton(
-                        label: 'CHƠI LẠI',
-                        onPressed: () {
-                          gameSession.startNewGame();
-                        },
-                      )
-                    else if (gameSession.status == GameStatus.failed)
-                      Column(
-                        children: [
-                          Text(
-                            'Từ đúng: ${gameSession.currentWordRaw}',
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              fontSize: 18,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(height: 12),
-                          _PrimaryButton(
-                            label: 'THỬ LẠI',
-                            onPressed: () {
-                              gameSession.startNewGame();
-                            },
-                          ),
-                        ],
-                      )
-                    else
-                      TextButton(
-                        onPressed: () => gameSession.resetCurrentRound(),
-                        child: const Text(
-                          'Chọn lại',
-                          style: TextStyle(color: Colors.white70, fontSize: 16),
+                        _Header(
+                          secondsRemaining: gameSession.secondsRemaining,
+                          score: gameSession.score,
                         ),
+                        const SizedBox(height: 32),
+                        const Text(
+                          'Sắp xếp các chữ cái tiếng Việt trong 30 giây để ghi điểm.',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        const SizedBox(height: 24),
+                        _GuessDisplay(
+                          pattern: gameSession.displayPattern,
+                          guess: gameSession.displayGuess,
+                        ),
+                        const SizedBox(height: 40),
+                        Wrap(
+                          spacing: 14,
+                          runSpacing: 14,
+                          alignment: WrapAlignment.center,
+                          children: [
+                            for (
+                              var i = 0;
+                              i < gameSession.scrambledLetters.length;
+                              i++
+                            )
+                              LetterTile(
+                                letter: gameSession.scrambledLetters[i],
+                                isSelected: gameSession.isLetterSelected(i),
+                                onTap: () => gameSession.selectLetter(i),
+                              ),
+                          ],
+                        ),
+                        const SizedBox(height: 24),
+                        _StatusMessage(gameSession: gameSession),
+                        const SizedBox(height: 24),
+                        _ActionArea(gameSession: gameSession),
+                      ],
+                    );
+
+                    return SingleChildScrollView(
+                      padding: const EdgeInsets.only(bottom: 24),
+                      child: ConstrainedBox(
+                        constraints: BoxConstraints(
+                          minHeight: constraints.maxHeight,
+                        ),
+                        child: content,
                       ),
-                  ],
+                    );
+                  },
                 );
               },
             ),
@@ -492,6 +471,54 @@ class _StatusMessage extends StatelessWidget {
               style: TextStyle(color: Colors.white70, fontSize: 16),
             ),
           ],
+        );
+    }
+  }
+}
+
+class _ActionArea extends StatelessWidget {
+  const _ActionArea({required this.gameSession});
+
+  final GameSessionController gameSession;
+
+  @override
+  Widget build(BuildContext context) {
+    switch (gameSession.status) {
+      case GameStatus.completed:
+        return _PrimaryButton(
+          label: 'CHƠI LẠI',
+          onPressed: () {
+            gameSession.startNewGame();
+          },
+        );
+      case GameStatus.failed:
+        return Column(
+          children: [
+            Text(
+              'Từ đúng: ${gameSession.currentWordRaw}',
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 18,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 12),
+            _PrimaryButton(
+              label: 'THỬ LẠI',
+              onPressed: () {
+                gameSession.startNewGame();
+              },
+            ),
+          ],
+        );
+      case GameStatus.playing:
+        return TextButton(
+          onPressed: () => gameSession.resetCurrentRound(),
+          child: const Text(
+            'Chọn lại',
+            style: TextStyle(color: Colors.white70, fontSize: 16),
+          ),
         );
     }
   }
