@@ -7,7 +7,7 @@ void main() {
     print(' Canh hinh vuong khong hop le');
     return;
   }
-  for (int i = 1; i <= n!; i++) {
+  for (int i = 1; i <= n; i++) {
     String row = "";
     for (int j = 1; j <= n; j++) {
       if (i == n || i == 1 || j == 1 || j == n) {

@@ -4,7 +4,7 @@ void main() {
   print('Nhập mật khẩu: ');
   String password = stdin.readLineSync()?.trim() ?? '';
 
-  if (password.length == 0) {
+  if (password.isEmpty) {
     print('Mật khẩu không được để trống.');
     return;
   }

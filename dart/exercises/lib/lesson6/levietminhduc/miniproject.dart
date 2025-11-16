@@ -22,9 +22,9 @@ void main() {
       'hobby': ['chơi game', 'đọc sách'],
     },
   ];
-  groupMembers.forEach((member) {;
+  for (var member in groupMembers) {
     print('Sở thích của ${member['name']} là: ${member['hobby']}');
-  });
+  }
   groupMembers.add({
     'name': 123,
     'hobby': ['chơi game', 'đọc sách'],

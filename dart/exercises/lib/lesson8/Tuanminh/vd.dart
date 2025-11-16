@@ -1,7 +1,7 @@
 class Studentgrade {
-  var _mathscore;
-  var _physicscore;
-  var _chemistryscore;
+  final _mathscore;
+  final _physicscore;
+  final _chemistryscore;
   String Studentname;
   Studentgrade(this.Studentname, this._mathscore, this._physicscore,
       this._chemistryscore);

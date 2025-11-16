@@ -12,8 +12,7 @@ void main() {
   print('tam giác cân rỗng chiều dài $n dòng ');
   for (int i = 1; i <= n; i++) {
     String N = ' ' * (n - i);
-    String M = '*' + ' ' * (2 * i - 3) + (i == 1 ? ' ' : '*');
+    String M = '*${' ' * (2 * i - 3)}${i == 1 ? ' ' : '*'}';
     print(M + N);
   }
-
-  }
+}

@@ -4,7 +4,7 @@ void main() {
     {'name': 'Đức', 'hobby': 'Cầu lông'},
     {'name': 'Việt Anh', 'hobby': 'Nghe nhạc'},
   ];
-  name.forEach((hocsinh) {
+  for (var hocsinh in name) {
     print('Tên: ${hocsinh['name']}, Sở thích: ${hocsinh['hobby']}');
-  });
+  }
 }

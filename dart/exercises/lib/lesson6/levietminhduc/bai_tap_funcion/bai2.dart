@@ -1,7 +1,7 @@
-import 'dart:math';
 import 'dart:io';
+
 void main() {
-  print ('Mini Game 2: Tính toán theo với menu lựa chọn');
+  print('Mini Game 2: Tính toán theo với menu lựa chọn');
   print('Xin chào bạn!');
   print('Chào mừng bạn đến với chương trình máy tính đơn giản!');
   while (true) {

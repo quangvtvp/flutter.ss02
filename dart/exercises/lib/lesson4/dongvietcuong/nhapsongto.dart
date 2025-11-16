@@ -23,7 +23,7 @@ void main() {
   }
 
   stdout.write("Số:   ");
-  for (int i = 2; i <= n!; i++) {
+  for (int i = 2; i <= n; i++) {
     stdout.write("$i ");
   }
   print("");

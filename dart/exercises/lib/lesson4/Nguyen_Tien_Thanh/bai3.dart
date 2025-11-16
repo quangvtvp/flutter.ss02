@@ -3,7 +3,7 @@ import 'dart:io';
 void main() {
   for (int j = 1; j <= 10; j++) {
     for (int i = 1; i <= 9; i++) {
-      stdout.write('${i} x $j = ${i * j}\t');
+      stdout.write('$i x $j = ${i * j}\t');
     }
     print('');
   }

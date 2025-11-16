@@ -18,7 +18,7 @@ void main() {
     } else if (i == n) {
       line += '*' * (2 * n - 1);
     } else {
-      line += '*' + ' ' * (2 * i - 3) + '*';
+      line += '*${' ' * (2 * i - 3)}*';
     }
 
     print(line);
