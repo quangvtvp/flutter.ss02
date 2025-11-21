@@ -37,6 +37,8 @@ dependencies:
   
   # Game development packages
   provider: ^6.1.2
+  shared_preferences: ^2.2.2
+  flame: ^1.16.0
 
 dev_dependencies:
   flutter_test:
