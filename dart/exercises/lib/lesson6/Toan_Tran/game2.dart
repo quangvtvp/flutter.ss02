@@ -1,8 +1,10 @@
 import 'dart:io';
+
 void main() {
   String answer = 'Tran Anh Toan';
   List<String> chars = answer.split('');
-  List<String> display = List.generate(chars.length, (i) => chars[i] == ' ' ? ' ' : '*');
+  List<String> display =
+      List.generate(chars.length, (i) => chars[i] == ' ' ? ' ' : '*');
   int attempts = 5;
   List<String> guessed = [];
   print('Chào mừng đến với game đoán từ!');
@@ -35,8 +37,8 @@ void main() {
     }
   }
   if (!display.contains('*')) {
-    print('Chúc mừng! Bạn đã đoán đúng: ${answer}');
+    print('Chúc mừng! Bạn đã đoán đúng: $answer');
   } else {
-    print('Bạn đã thua! Đáp án là: ${answer}');
+    print('Bạn đã thua! Đáp án là: $answer');
   }
 }

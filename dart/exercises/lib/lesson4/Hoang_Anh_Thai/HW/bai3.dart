@@ -11,7 +11,6 @@ void main() {
   while (so! != 0) {
     e++;
     so = (so / 10).round();
-    ;
   }
-  print('Số chữ số là: ${e}');
+  print('Số chữ số là: $e');
 }

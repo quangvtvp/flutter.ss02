@@ -1,6 +1,4 @@
-import 'dart:io';
-import 'dart:math';
-void main () {
+void main() {
   print('Xin chào bạn!');
   print('Chào mừng đến với danh sách nhạc yêu thích của tôi!');
   List<String> favoriteSongs = [
@@ -16,7 +14,8 @@ void main () {
     print(song);
   }
   print('Các bài hát có tên dài hơn 10 ký tự:');
-  var longTitleSongs = favoriteSongs.where((song) => song.substring(6).length > 10);
+  var longTitleSongs =
+      favoriteSongs.where((song) => song.substring(6).length > 10);
   for (var song in longTitleSongs) {
     print(song);
   }
