@@ -39,7 +39,6 @@ class _GameScreenState extends State<GameScreen> {
           padding: const EdgeInsets.all(8.0),
           child: ElevatedButton(
             onPressed: () {
-              // Thay đổi trạng thái game khi bấm nút
               _game.increaseSpeed();
             },
             child: const Text('Tăng tốc độ di chuyển'),
@@ -57,7 +56,7 @@ class MyGame extends FlameGame {
   @override
   void update(double dt) {
     x += speed * dt;
-    if (x > size.x) x = 0; // quay lại khi ra ngoài màn hình
+    if (x > size.x) x = 0;
   }
 
   @override
