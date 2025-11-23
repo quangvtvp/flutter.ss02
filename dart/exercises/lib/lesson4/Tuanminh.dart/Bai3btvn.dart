@@ -8,7 +8,7 @@ void main() {
     print("Khong hop le");
   } else {
     int s = 0;
-    int a = h!;
+    int a = h;
     while (a > 0) {
       a = a ~/ 10;
       s = s + 1;

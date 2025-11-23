@@ -37,7 +37,8 @@ class GameContainer extends StatefulWidget {
 
 enum GameState { menu, playing, paused, gameOver, howToPlay }
 
-class _GameContainerState extends State<GameContainer> with SingleTickerProviderStateMixin {
+class _GameContainerState extends State<GameContainer>
+    with SingleTickerProviderStateMixin {
   late Ticker _ticker;
   double _lastFrameTime = 0; // Use a double for elapsed time in seconds
   GameState state = GameState.menu;
@@ -61,11 +62,16 @@ class _GameContainerState extends State<GameContainer> with SingleTickerProvider
 
   Future<void> _loadAudio() async {
     try {
-      bgm = html.AudioElement('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3')
+      bgm = html.AudioElement(
+          'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3')
         ..loop = true
         ..volume = 0.25;
-      sfxPickup = html.AudioElement('https://www.soundjay.com/buttons/sounds/button-16.mp3')..volume = 0.8;
-      sfxHit = html.AudioElement('https://www.soundjay.com/misc/sounds/fail-buzzer-02.mp3')..volume = 0.7; // Example hit sound
+      sfxPickup = html.AudioElement(
+          'https://www.soundjay.com/buttons/sounds/button-16.mp3')
+        ..volume = 0.8;
+      sfxHit = html.AudioElement(
+          'https://www.soundjay.com/misc/sounds/fail-buzzer-02.mp3')
+        ..volume = 0.7; // Example hit sound
     } catch (e) {
       // audio might fail on some environments, log error but don't crash
       debugPrint('Audio loading failed: $e');
@@ -76,7 +82,8 @@ class _GameContainerState extends State<GameContainer> with SingleTickerProvider
   }
 
   void _onTick(Duration elapsed) {
-    final double currentTime = elapsed.inMicroseconds / 1000000.0; // Convert to seconds
+    final double currentTime =
+        elapsed.inMicroseconds / 1000000.0; // Convert to seconds
     final double dt = currentTime - _lastFrameTime;
     _lastFrameTime = currentTime;
 
@@ -168,27 +175,37 @@ class _GameContainerState extends State<GameContainer> with SingleTickerProvider
     return ChangeNotifierProvider<GameModel>(
       create: (BuildContext context) => _gameModel,
       builder: (BuildContext context, Widget? child) {
-        final GameModel gameModel = context.watch<GameModel>(); // Watch the model for UI updates
+        final GameModel gameModel =
+            context.watch<GameModel>(); // Watch the model for UI updates
         return RawKeyboardListener(
           focusNode: FocusNode()..requestFocus(),
           autofocus: true,
           onKey: (RawKeyEvent ev) {
             if (ev is RawKeyDownEvent) {
               if (state == GameState.playing) {
-                if (ev.logicalKey == LogicalKeyboardKey.arrowLeft) gameModel.moveLeft();
-                if (ev.logicalKey == LogicalKeyboardKey.arrowRight) gameModel.moveRight();
-                if (ev.logicalKey == LogicalKeyboardKey.space || ev.logicalKey == LogicalKeyboardKey.keyW || ev.logicalKey == LogicalKeyboardKey.arrowUp) gameModel.jump();
+                if (ev.logicalKey == LogicalKeyboardKey.arrowLeft)
+                  gameModel.moveLeft();
+                if (ev.logicalKey == LogicalKeyboardKey.arrowRight)
+                  gameModel.moveRight();
+                if (ev.logicalKey == LogicalKeyboardKey.space ||
+                    ev.logicalKey == LogicalKeyboardKey.keyW ||
+                    ev.logicalKey == LogicalKeyboardKey.arrowUp)
+                  gameModel.jump();
                 if (ev.logicalKey == LogicalKeyboardKey.keyP) pauseGame();
-              } else if (state == GameState.menu && ev.logicalKey == LogicalKeyboardKey.enter) {
+              } else if (state == GameState.menu &&
+                  ev.logicalKey == LogicalKeyboardKey.enter) {
                 startGame();
-              } else if (state == GameState.paused && ev.logicalKey == LogicalKeyboardKey.keyP) {
+              } else if (state == GameState.paused &&
+                  ev.logicalKey == LogicalKeyboardKey.keyP) {
                 resumeGame();
-              } else if (state == GameState.gameOver && ev.logicalKey == LogicalKeyboardKey.enter) {
+              } else if (state == GameState.gameOver &&
+                  ev.logicalKey == LogicalKeyboardKey.enter) {
                 startGame();
               }
             }
           },
-          child: LayoutBuilder(builder: (BuildContext context, BoxConstraints constraints) {
+          child: LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints constraints) {
             final double w = constraints.maxWidth;
             final double h = constraints.maxHeight;
             return Stack(children: <Widget>[
@@ -255,7 +272,11 @@ class _GameContainerState extends State<GameContainer> with SingleTickerProvider
                 ),
 
               // minimalist bottom-right info
-              Positioned(bottom: 10, right: 10, child: Text('Adventure Run', style: TextStyle(color: Colors.white.withOpacity(0.6))))
+              Positioned(
+                  bottom: 10,
+                  right: 10,
+                  child: Text('Adventure Run',
+                      style: TextStyle(color: Colors.white.withOpacity(0.6))))
             ]);
           }),
         );
@@ -269,10 +290,12 @@ class _GameContainerState extends State<GameContainer> with SingleTickerProvider
 // ---------------------------
 class ParallaxBackground extends StatelessWidget {
   final double w, h, time;
-  const ParallaxBackground({required this.w, required this.h, required this.time, super.key});
+  const ParallaxBackground(
+      {required this.w, required this.h, required this.time, super.key});
 
   // small set of nature images (picsum) for demo; they tile well
-  String _img(String seed, [int w = 1400]) => 'https://picsum.photos/seed/$seed/${w}';
+  String _img(String seed, [int w = 1400]) =>
+      'https://picsum.photos/seed/$seed/$w';
 
   @override
   Widget build(BuildContext context) {
@@ -283,13 +306,37 @@ class ParallaxBackground extends StatelessWidget {
 
     return Stack(children: <Widget>[
       // far
-      Positioned(left: -offset1, top: 0, width: w * 2, height: h, child: Image.network(_img('mountain_far'), fit: BoxFit.cover)),
+      Positioned(
+          left: -offset1,
+          top: 0,
+          width: w * 2,
+          height: h,
+          child: Image.network(_img('mountain_far'), fit: BoxFit.cover)),
       // mid
-      Positioned(left: -offset2 * 0.6, top: 0, width: w * 2, height: h * 0.9, child: Opacity(opacity: 0.95, child: Image.network(_img('trees_mid'), fit: BoxFit.cover))),
+      Positioned(
+          left: -offset2 * 0.6,
+          top: 0,
+          width: w * 2,
+          height: h * 0.9,
+          child: Opacity(
+              opacity: 0.95,
+              child: Image.network(_img('trees_mid'), fit: BoxFit.cover))),
       // near (foreground silhouette)
-      Positioned(left: -offset3 * 0.3, top: h * 0.2, width: w * 2, height: h * 0.8, child: Opacity(opacity: 0.95, child: Image.network(_img('plants_near'), fit: BoxFit.cover))),
+      Positioned(
+          left: -offset3 * 0.3,
+          top: h * 0.2,
+          width: w * 2,
+          height: h * 0.8,
+          child: Opacity(
+              opacity: 0.95,
+              child: Image.network(_img('plants_near'), fit: BoxFit.cover))),
       // subtle gradient overlay to unify palette
-      Container(decoration: BoxDecoration(gradient: LinearGradient(colors: <Color>[Colors.transparent, Colors.black.withOpacity(0.15)], begin: Alignment.topCenter, end: Alignment.bottomCenter))),
+      Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(colors: <Color>[
+        Colors.transparent,
+        Colors.black.withOpacity(0.15)
+      ], begin: Alignment.topCenter, end: Alignment.bottomCenter))),
     ]);
   }
 }
@@ -299,8 +346,10 @@ class ParallaxBackground extends StatelessWidget {
 // ---------------------------
 class GameModel extends ChangeNotifier {
   // world coords: x runs from 0..1 for screen reference
-  static const double _groundY = 0.78; // ground baseline (fraction of screen height)
-  static const double _playerStartX = 0.18; // fraction of screen width (left area)
+  static const double _groundY =
+      0.78; // ground baseline (fraction of screen height)
+  static const double _playerStartX =
+      0.18; // fraction of screen width (left area)
   static const double _playerMaxX = 0.4; // Max player X
   static const double _playerMinX = 0.06; // Min player X
 
@@ -326,7 +375,8 @@ class GameModel extends ChangeNotifier {
   double worldTime;
 
   // particles
-  List<Particle> particles; // Changed to non-final to allow reassignment with .map().toList()
+  List<Particle>
+      particles; // Changed to non-final to allow reassignment with .map().toList()
 
   // Callbacks for external events (e.g., playing sounds)
   final VoidCallback? onItemCollected;
@@ -360,7 +410,8 @@ class GameModel extends ChangeNotifier {
     jumping = false;
     score = 0;
     health = 3;
-    items = List<GameItem>.generate(6, (int i) => spawnItem(x: 0.6 + i * 0.15 * rnd.nextDouble()));
+    items = List<GameItem>.generate(
+        6, (int i) => spawnItem(x: 0.6 + i * 0.15 * rnd.nextDouble()));
     hazards = <Hazard>[spawnHazard(x: 1.2)]; // Start with one hazard
     particles.clear();
     worldTime = 0;
@@ -373,7 +424,11 @@ class GameModel extends ChangeNotifier {
     final double px = x ?? (0.9 + rnd.nextDouble() * 0.6);
     final double py = 0.45 + rnd.nextDouble() * 0.28;
     final double size = 0.03 + rnd.nextDouble() * 0.04;
-    return GameItem(x: px, y: py, size: size, kind: rnd.nextBool() ? ItemKind.star : ItemKind.leaf);
+    return GameItem(
+        x: px,
+        y: py,
+        size: size,
+        kind: rnd.nextBool() ? ItemKind.star : ItemKind.leaf);
   }
 
   Hazard spawnHazard({double? x}) {
@@ -397,11 +452,14 @@ class GameModel extends ChangeNotifier {
       onGround = false;
     }
 
-    final double currentScrollSpeed = scrollSpeed * (0.6 + score / 200.0); // speed up slowly with score
+    final double currentScrollSpeed =
+        scrollSpeed * (0.6 + score / 200.0); // speed up slowly with score
 
     // Advance items to left, respawn
     // FIX: Use map to create new immutable GameItem instances with updated x
-    items = items.map((GameItem it) => it.copyWith(x: it.x - currentScrollSpeed * dt)).toList();
+    items = items
+        .map((GameItem it) => it.copyWith(x: it.x - currentScrollSpeed * dt))
+        .toList();
     items.removeWhere((GameItem it) => it.x < -0.1);
     while (items.length < 6) {
       items.add(spawnItem(x: 0.9 + rnd.nextDouble() * 0.6));
@@ -409,7 +467,9 @@ class GameModel extends ChangeNotifier {
 
     // Advance hazards to left, respawn
     // FIX: Use map to create new immutable Hazard instances with updated x
-    hazards = hazards.map((Hazard hzd) => hzd.copyWith(x: hzd.x - currentScrollSpeed * dt)).toList();
+    hazards = hazards
+        .map((Hazard hzd) => hzd.copyWith(x: hzd.x - currentScrollSpeed * dt))
+        .toList();
     hazards.removeWhere((Hazard hzd) => hzd.x < -0.1);
     if (hazards.length < 2 && rnd.nextDouble() < 0.008) {
       // Chance to spawn new hazard
@@ -435,7 +495,9 @@ class GameModel extends ChangeNotifier {
             vx: (rnd.nextDouble() - 0.5) * 0.7,
             vy: (rnd.nextDouble() - 0.6) * 0.9,
             life: 0.6 + rnd.nextDouble() * 0.6,
-            color: it.kind == ItemKind.star ? Colors.amber : Colors.lightGreenAccent,
+            color: it.kind == ItemKind.star
+                ? Colors.amber
+                : Colors.lightGreenAccent,
             size: 0.008 + rnd.nextDouble() * 0.015,
           ));
         }
@@ -475,19 +537,22 @@ class GameModel extends ChangeNotifier {
 
     // update particles
     // FIX: Use map to create new immutable Particle instances with updated properties
-    particles = particles.map((Particle p) {
-      final double newLife = p.life - dt;
-      final double newVy = p.vy + 2.2 * dt; // Apply gravity to vy
-      final double newX = p.x + p.vx * dt;
-      final double newY = p.y + newVy * dt;
+    particles = particles
+        .map((Particle p) {
+          final double newLife = p.life - dt;
+          final double newVy = p.vy + 2.2 * dt; // Apply gravity to vy
+          final double newX = p.x + p.vx * dt;
+          final double newY = p.y + newVy * dt;
 
-      return p.copyWith(
-        life: newLife,
-        x: newX,
-        y: newY,
-        vy: newVy,
-      );
-    }).where((Particle p) => p.life > 0).toList(); // Filter out particles whose life is <= 0
+          return p.copyWith(
+            life: newLife,
+            x: newX,
+            y: newY,
+            vy: newVy,
+          );
+        })
+        .where((Particle p) => p.life > 0)
+        .toList(); // Filter out particles whose life is <= 0
 
     if (score > highScore) {
       highScore = score;
@@ -533,7 +598,11 @@ class GameItem {
   final double y;
   final double size;
   final ItemKind kind;
-  GameItem({required this.x, required this.y, required this.size, required this.kind});
+  GameItem(
+      {required this.x,
+      required this.y,
+      required this.size,
+      required this.kind});
 
   // Allows modification for game logic by creating new instance
   GameItem copyWith({double? x, double? y, double? size, ItemKind? kind}) {
@@ -554,7 +623,11 @@ class Hazard {
   final double y;
   final double size;
   final HazardKind kind;
-  Hazard({required this.x, required this.y, required this.size, required this.kind});
+  Hazard(
+      {required this.x,
+      required this.y,
+      required this.size,
+      required this.kind});
 
   Hazard copyWith({double? x, double? y, double? size, HazardKind? kind}) {
     return Hazard(
@@ -575,9 +648,23 @@ class Particle {
   final double life;
   final double size;
   final Color color;
-  Particle({required this.x, required this.y, required this.vx, required this.vy, required this.life, required this.color, required this.size});
+  Particle(
+      {required this.x,
+      required this.y,
+      required this.vx,
+      required this.vy,
+      required this.life,
+      required this.color,
+      required this.size});
 
-  Particle copyWith({double? x, double? y, double? vx, double? vy, double? life, Color? color, double? size}) {
+  Particle copyWith(
+      {double? x,
+      double? y,
+      double? vx,
+      double? vy,
+      double? life,
+      Color? color,
+      double? size}) {
     return Particle(
       x: x ?? this.x,
       y: y ?? this.y,
@@ -606,22 +693,30 @@ class GamePainter extends CustomPainter {
 
     // ground area
     final double groundTop = sy(GameModel._groundY);
-    final Rect groundRect = Rect.fromLTWH(0, groundTop, size.width, size.height - groundTop);
+    final Rect groundRect =
+        Rect.fromLTWH(0, groundTop, size.width, size.height - groundTop);
 
     // subtle fog above foreground
     final Rect fogRect = Rect.fromLTWH(0, 0, size.width, size.height);
 
     // draw layered ground (soft)
     final Paint groundGrad = Paint()
-      ..shader = LinearGradient(colors: <Color>[Colors.brown[700]!, Colors.green[800]!], begin: Alignment.topCenter, end: Alignment.bottomCenter).createShader(groundRect);
+      ..shader = LinearGradient(
+              colors: <Color>[Colors.brown[700]!, Colors.green[800]!],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter)
+          .createShader(groundRect);
     canvas.drawRect(groundRect, groundGrad);
 
     // draw rolling bushes (foreground decals)
-    final Paint bushPaint = Paint()..color = Colors.green[900]!.withOpacity(0.9);
+    final Paint bushPaint = Paint()
+      ..color = Colors.green[900]!.withOpacity(0.9);
     for (double i = -0.5; i < size.width / 80; i++) {
       final double cx = (i * 80 + (sin(t * 0.6 + i) * 8));
       final double cy = groundTop + 28 + cos(i + t) * 6;
-      canvas.drawOval(Rect.fromCenter(center: Offset(cx, cy), width: 120, height: 38), bushPaint);
+      canvas.drawOval(
+          Rect.fromCenter(center: Offset(cx, cy), width: 120, height: 38),
+          bushPaint);
     }
 
     // draw items
@@ -651,30 +746,48 @@ class GamePainter extends CustomPainter {
     final double playerPy = sy(model.playerY);
     // shadow
     final Paint shadow = Paint()..color = Colors.black.withOpacity(0.25);
-    canvas.drawOval(Rect.fromCenter(center: Offset(playerPx, playerPy + 28), width: 64, height: 16), shadow);
+    canvas.drawOval(
+        Rect.fromCenter(
+            center: Offset(playerPx, playerPy + 28), width: 64, height: 16),
+        shadow);
     // body
-    final Rect bodyRect = Rect.fromCenter(center: Offset(playerPx, playerPy - 6), width: 42, height: 56);
-    final Paint bodyPaint = Paint()..shader = LinearGradient(colors: <Color>[Colors.deepOrange, Colors.orangeAccent]).createShader(bodyRect);
-    canvas.drawRRect(RRect.fromRectAndRadius(bodyRect, const Radius.circular(12)), bodyPaint);
+    final Rect bodyRect = Rect.fromCenter(
+        center: Offset(playerPx, playerPy - 6), width: 42, height: 56);
+    final Paint bodyPaint = Paint()
+      ..shader = LinearGradient(
+              colors: <Color>[Colors.deepOrange, Colors.orangeAccent])
+          .createShader(bodyRect);
+    canvas.drawRRect(
+        RRect.fromRectAndRadius(bodyRect, const Radius.circular(12)),
+        bodyPaint);
     // helmet/head
     final Paint headPaint = Paint()..color = Colors.brown[200]!;
     canvas.drawCircle(Offset(playerPx, playerPy - 28), 12, headPaint);
     // backpack
-    final Rect packRect = Rect.fromCenter(center: Offset(playerPx - 14, playerPy - 2), width: 18, height: 28);
+    final Rect packRect = Rect.fromCenter(
+        center: Offset(playerPx - 14, playerPy - 2), width: 18, height: 28);
     final Paint packPaint = Paint()..color = Colors.green[700]!;
-    canvas.drawRRect(RRect.fromRectAndRadius(packRect, const Radius.circular(6)), packPaint);
+    canvas.drawRRect(
+        RRect.fromRectAndRadius(packRect, const Radius.circular(6)), packPaint);
 
     // small particles
     for (Particle p in model.particles) {
       final double px = sx(p.x);
       final double py = sy(p.y);
-      final Paint paint = Paint()..color = p.color.withOpacity(max(0.0, p.life / 1.0));
+      final Paint paint = Paint()
+        ..color = p.color.withOpacity(max(0.0, p.life / 1.0));
       canvas.drawCircle(Offset(px, py), p.size * size.shortestSide, paint);
     }
 
     // subtle vignette
     final Paint vignette = Paint()
-      ..shader = RadialGradient(colors: <Color>[Colors.transparent, Colors.black.withOpacity(0.25)], stops: <double>[0.6, 1.0]).createShader(Rect.fromLTWH(0, 0, size.width, size.height));
+      ..shader = RadialGradient(colors: <Color>[
+        Colors.transparent,
+        Colors.black.withOpacity(0.25)
+      ], stops: <double>[
+        0.6,
+        1.0
+      ]).createShader(Rect.fromLTWH(0, 0, size.width, size.height));
     canvas.drawRect(fogRect, vignette);
   }
 
@@ -694,7 +807,8 @@ class GamePainter extends CustomPainter {
       }
     }
     p.close();
-    c.drawPath(p, paint..maskFilter = const MaskFilter.blur(BlurStyle.normal, 2.0));
+    c.drawPath(
+        p, paint..maskFilter = const MaskFilter.blur(BlurStyle.normal, 2.0));
     c.drawPath(p, paint);
   }
 
@@ -702,10 +816,13 @@ class GamePainter extends CustomPainter {
     final Paint paint = Paint()..color = color;
     final Path path = Path();
     path.moveTo(center.dx, center.dy - r);
-    path.quadraticBezierTo(center.dx + r * 0.6, center.dy - r * 0.3, center.dx, center.dy + r);
-    path.quadraticBezierTo(center.dx - r * 0.6, center.dy - r * 0.3, center.dx, center.dy - r);
+    path.quadraticBezierTo(
+        center.dx + r * 0.6, center.dy - r * 0.3, center.dx, center.dy + r);
+    path.quadraticBezierTo(
+        center.dx - r * 0.6, center.dy - r * 0.3, center.dx, center.dy - r);
     path.close();
-    c.drawPath(path, paint..maskFilter = const MaskFilter.blur(BlurStyle.normal, 1.0));
+    c.drawPath(
+        path, paint..maskFilter = const MaskFilter.blur(BlurStyle.normal, 1.0));
   }
 
   void _drawSpikeHazard(Canvas c, Offset center, double r, Color color) {
@@ -715,7 +832,8 @@ class GamePainter extends CustomPainter {
     path.lineTo(center.dx - r * 0.8, center.dy - r * 1.5);
     path.lineTo(center.dx + r * 0.8, center.dy - r * 1.5);
     path.close();
-    c.drawPath(path, paint..maskFilter = const MaskFilter.blur(BlurStyle.normal, 1.0));
+    c.drawPath(
+        path, paint..maskFilter = const MaskFilter.blur(BlurStyle.normal, 1.0));
     c.drawPath(path, paint);
   }
 
@@ -735,17 +853,28 @@ class HUD extends StatelessWidget {
     return Row(children: <Widget>[
       Container(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-        decoration: BoxDecoration(color: Colors.black.withOpacity(0.4), borderRadius: BorderRadius.circular(12)),
+        decoration: BoxDecoration(
+            color: Colors.black.withOpacity(0.4),
+            borderRadius: BorderRadius.circular(12)),
         child: Row(children: <Widget>[
           const Icon(Icons.favorite, color: Colors.redAccent),
           const SizedBox(width: 8),
-          Text('${model.health}', style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+          Text('${model.health}',
+              style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold)),
           const SizedBox(width: 18),
           const Icon(Icons.star, color: Colors.amberAccent),
           const SizedBox(width: 8),
-          Text('${model.score}', style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+          Text('${model.score}',
+              style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold)),
           const SizedBox(width: 18),
-          Text('High: ${model.highScore}', style: const TextStyle(color: Colors.white70, fontSize: 14)),
+          Text('High: ${model.highScore}',
+              style: const TextStyle(color: Colors.white70, fontSize: 14)),
         ]),
       ),
     ]);
@@ -757,7 +886,11 @@ class HUD extends StatelessWidget {
 // ---------------------------
 class ControlButtons extends StatelessWidget {
   final VoidCallback onLeft, onRight, onJump;
-  const ControlButtons({required this.onLeft, required this.onRight, required this.onJump, super.key});
+  const ControlButtons(
+      {required this.onLeft,
+      required this.onRight,
+      required this.onJump,
+      super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -783,7 +916,9 @@ class _ControlButton extends StatelessWidget {
       child: Container(
         width: 62,
         height: 62,
-        decoration: BoxDecoration(color: Colors.white.withOpacity(0.12), borderRadius: BorderRadius.circular(14)),
+        decoration: BoxDecoration(
+            color: Colors.white.withOpacity(0.12),
+            borderRadius: BorderRadius.circular(14)),
         child: Icon(icon, color: Colors.white, size: 30),
       ),
     );
@@ -796,7 +931,8 @@ class _ControlButton extends StatelessWidget {
 class MenuOverlay extends StatelessWidget {
   final VoidCallback onStart;
   final VoidCallback onHowToPlay;
-  const MenuOverlay({required this.onStart, required this.onHowToPlay, super.key});
+  const MenuOverlay(
+      {required this.onStart, required this.onHowToPlay, super.key});
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -806,19 +942,26 @@ class MenuOverlay extends StatelessWidget {
           constraints: const BoxConstraints(maxWidth: 480),
           child: Card(
             color: Colors.black87.withOpacity(0.65),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-                const Text('Adventure Run', style: TextStyle(color: Colors.white, fontSize: 36, fontWeight: FontWeight.bold)),
+                const Text('Adventure Run',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 36,
+                        fontWeight: FontWeight.bold)),
                 const SizedBox(height: 8),
-                const Text('A short adventure — side-scroller, natural style', style: TextStyle(color: Colors.white70)),
+                const Text('A short adventure — side-scroller, natural style',
+                    style: TextStyle(color: Colors.white70)),
                 const SizedBox(height: 18),
                 ElevatedButton.icon(
                   onPressed: onStart,
                   icon: const Icon(Icons.play_arrow),
                   label: const Text('Start Adventure'),
-                  style: ElevatedButton.styleFrom(minimumSize: const Size(220, 48)),
+                  style: ElevatedButton.styleFrom(
+                      minimumSize: const Size(220, 48)),
                 ),
                 const SizedBox(height: 12),
                 OutlinedButton.icon(
@@ -850,13 +993,22 @@ class PauseOverlay extends StatelessWidget {
             color: Colors.black87.withOpacity(0.6),
             child: Padding(
               padding: const EdgeInsets.all(18.0),
-              child: Column(mainAxisAlignment: MainAxisAlignment.center, mainAxisSize: MainAxisSize.min, children: <Widget>[
-                const Text('PAUSED', style: TextStyle(color: Colors.white, fontSize: 26, fontWeight: FontWeight.bold)),
-                const SizedBox(height: 18),
-                ElevatedButton(onPressed: onResume, child: const Text('Resume')),
-                const SizedBox(height: 8),
-                TextButton(onPressed: onQuit, child: const Text('Quit to Menu')),
-              ]),
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    const Text('PAUSED',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 26,
+                            fontWeight: FontWeight.bold)),
+                    const SizedBox(height: 18),
+                    ElevatedButton(
+                        onPressed: onResume, child: const Text('Resume')),
+                    const SizedBox(height: 8),
+                    TextButton(
+                        onPressed: onQuit, child: const Text('Quit to Menu')),
+                  ]),
             ),
           ),
         ),
@@ -870,7 +1022,12 @@ class GameOverOverlay extends StatelessWidget {
   final int highScore;
   final VoidCallback onRestart;
   final VoidCallback onMenu;
-  const GameOverOverlay({required this.score, required this.highScore, required this.onRestart, required this.onMenu, super.key});
+  const GameOverOverlay(
+      {required this.score,
+      required this.highScore,
+      required this.onRestart,
+      required this.onMenu,
+      super.key});
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -880,20 +1037,33 @@ class GameOverOverlay extends StatelessWidget {
           constraints: const BoxConstraints(maxWidth: 420),
           child: Card(
             color: Colors.black87.withOpacity(0.8),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
             child: Padding(
               padding: const EdgeInsets.all(18.0),
-              child: Column(mainAxisAlignment: MainAxisAlignment.center, mainAxisSize: MainAxisSize.min, children: <Widget>[
-                const Text('GAME OVER', style: TextStyle(color: Colors.white, fontSize: 28, fontWeight: FontWeight.bold)),
-                const SizedBox(height: 12),
-                Text('Score: $score', style: const TextStyle(color: Colors.amber, fontSize: 20)),
-                const SizedBox(height: 6),
-                Text('High: $highScore', style: const TextStyle(color: Colors.white70)),
-                const SizedBox(height: 14),
-                ElevatedButton(onPressed: onRestart, child: const Text('Play Again')),
-                const SizedBox(height: 8),
-                TextButton(onPressed: onMenu, child: const Text('Back to Menu')),
-              ]),
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    const Text('GAME OVER',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 28,
+                            fontWeight: FontWeight.bold)),
+                    const SizedBox(height: 12),
+                    Text('Score: $score',
+                        style:
+                            const TextStyle(color: Colors.amber, fontSize: 20)),
+                    const SizedBox(height: 6),
+                    Text('High: $highScore',
+                        style: const TextStyle(color: Colors.white70)),
+                    const SizedBox(height: 14),
+                    ElevatedButton(
+                        onPressed: onRestart, child: const Text('Play Again')),
+                    const SizedBox(height: 8),
+                    TextButton(
+                        onPressed: onMenu, child: const Text('Back to Menu')),
+                  ]),
             ),
           ),
         ),
@@ -915,23 +1085,32 @@ class HowToPlayOverlay extends StatelessWidget {
           constraints: const BoxConstraints(maxWidth: 480),
           child: Card(
             color: Colors.black87.withOpacity(0.7),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-                const Text('How to Play', style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold)),
+                const Text('How to Play',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold)),
                 const SizedBox(height: 16),
                 const InstructionRow(icon: Icons.arrow_left, text: 'Move Left'),
-                const InstructionRow(icon: Icons.arrow_right, text: 'Move Right'),
-                const InstructionRow(icon: Icons.arrow_upward, text: 'Jump (Tap or W)'),
-                const InstructionRow(icon: Icons.space_bar, text: 'Jump (Space Bar)'),
+                const InstructionRow(
+                    icon: Icons.arrow_right, text: 'Move Right'),
+                const InstructionRow(
+                    icon: Icons.arrow_upward, text: 'Jump (Tap or W)'),
+                const InstructionRow(
+                    icon: Icons.space_bar, text: 'Jump (Space Bar)'),
                 const InstructionRow(icon: Icons.pause, text: 'Pause (P)'),
                 const SizedBox(height: 16),
                 OutlinedButton.icon(
                   onPressed: onBackToMenu,
                   icon: const Icon(Icons.menu),
                   label: const Text('Back to Menu'),
-                  style: OutlinedButton.styleFrom(minimumSize: const Size(200, 40)),
+                  style: OutlinedButton.styleFrom(
+                      minimumSize: const Size(200, 40)),
                 ),
               ]),
             ),

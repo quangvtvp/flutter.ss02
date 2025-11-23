@@ -24,12 +24,7 @@ void main() {
       Lichsu < 0 ||
       Lichsu > 10 ||
       Chuyencan < 0 ||
-      Chuyencan > 1 ||
-      Toan == null ||
-      Van == null ||
-      Anh == null ||
-      Lichsu == null ||
-      Chuyencan == null) {
+      Chuyencan > 1) {
     print('Khong hop le');
     return;
   }

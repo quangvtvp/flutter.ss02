@@ -20,25 +20,21 @@ void main() {
   double? diemTrungBinh = (diemToan! + diemVan! + diemAnh! + diemSu!) / 4;
   print('Điểm trung bình là: ${diemTrungBinh.toStringAsFixed(2)}');
 
-  if (diemTrungBinh != null) {
-    if (diemTrungBinh < 0 || diemTrungBinh > 10) {
-      print('Điểm không hợp lệ. Vui lòng nhập lại.');
-    } else {
-      String xepLoai;
-      if (diemTrungBinh >= 9) {
-        xepLoai = 'Xuất sắc';
-      } else if (diemTrungBinh >= 8) {
-        xepLoai = 'Giỏi';
-      } else if (diemTrungBinh >= 6.5) {
-        xepLoai = 'Khá';
-      } else if (diemTrungBinh >= 5) {
-        xepLoai = 'Trung bình';
-      } else {
-        xepLoai = 'Yếu';
-      }
-      print('Xếp loại học lực: $xepLoai');
-    }
+  if (diemTrungBinh < 0 || diemTrungBinh > 10) {
+    print('Điểm không hợp lệ. Vui lòng nhập lại.');
   } else {
-    print('Đã xảy ra lỗi. Vui lòng nhập lại.');
+    String xepLoai;
+    if (diemTrungBinh >= 9) {
+      xepLoai = 'Xuất sắc';
+    } else if (diemTrungBinh >= 8) {
+      xepLoai = 'Giỏi';
+    } else if (diemTrungBinh >= 6.5) {
+      xepLoai = 'Khá';
+    } else if (diemTrungBinh >= 5) {
+      xepLoai = 'Trung bình';
+    } else {
+      xepLoai = 'Yếu';
+    }
+    print('Xếp loại học lực: $xepLoai');
   }
 }

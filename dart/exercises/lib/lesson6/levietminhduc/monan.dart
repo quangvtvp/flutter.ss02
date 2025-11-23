@@ -15,7 +15,9 @@ void main() {
   List<String> monHoc = ['Toán', 'Lý', 'Hóa', 'Sinh'];
 
   print('Danh sách môn học:');
-  monHoc.forEach((mon) => print('* $mon'));
+  for (var mon in monHoc) {
+    print('* $mon');
+  }
   List<String> monHoc1 = ['Toán', 'Lý', 'Hóa', 'Sinh'];
 
   print('Danh sách môn học:');
