@@ -1,4 +1,3 @@
-import 'dart:io';
 
 void main() {
   print('Xin chào bạn!');

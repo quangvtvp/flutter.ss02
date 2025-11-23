@@ -60,7 +60,9 @@ void main() {
     if (Title != 0) return Title;
     return y.year.compareTo(x.year);
   });
-  for (var i in books) i.si();
+  for (var i in books) {
+    i.si();
+  }
 //tìm theo từ khóa
   print('Nhập từ khso sách cần tìm:');
   String n = stdin.readLineSync()!;
@@ -74,7 +76,9 @@ void main() {
   print(
       'danh sách 5 kết quả phù hợp nhất --------------------------------------');
   if (ketqua.length <= 5) {
-    for (var q in ketqua) q.si();
+    for (var q in ketqua) {
+      q.si();
+    }
   } else {
     for (var k = 0; k < 5; k++) {
       ketqua[k].si();

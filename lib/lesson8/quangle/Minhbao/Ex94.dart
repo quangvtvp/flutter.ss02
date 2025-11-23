@@ -29,15 +29,16 @@ class Product {
 
   double get totalprice => _price * _quanlity;
   String get status {
-    if (_quanlity == 0)
+    if (_quanlity == 0) {
       return 'Hết hàng';
-    else
+    } else {
       return 'Còn hàng';
+    }
   }
 
   void show() {
     print(
-        'Tên sản phẩm: $name \tGiá: ${_price} VNĐ \tSố lượng: ${_quanlity} \tThành tiền: ${totalprice} VNĐ \tTrạng thái: ${status}');
+        'Tên sản phẩm: $name \tGiá: $_price VNĐ \tSố lượng: $_quanlity \tThành tiền: $totalprice VNĐ \tTrạng thái: $status');
   }
 }
 

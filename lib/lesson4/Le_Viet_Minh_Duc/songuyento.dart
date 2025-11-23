@@ -5,7 +5,7 @@ void main() {
   stdout.write('Nhập vào một số nguyên dương n: ');
   int n = int.tryParse(stdin.readLineSync()!) ?? 0;
   while(true) {
-    if (n == null || n <= 0) {
+    if (n <= 0) {
       print('Số nhập vào không hợp lệ. Vui lòng nhập số nguyên dương.');
       stdout.write('Nhập vào một số nguyên dương n: ');
       n = int.tryParse(stdin.readLineSync()!) ?? 0;

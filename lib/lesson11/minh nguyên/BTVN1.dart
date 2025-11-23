@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:ffi';
 
 Future<String> thucday() {
   return Future.delayed(Duration(seconds: 1), () {

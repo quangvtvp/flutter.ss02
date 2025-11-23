@@ -21,9 +21,9 @@ void main() {
     tong = tong + i;
   }
   var TB = tong / diem.length;
-  diem.forEach((n) {
+  for (var n in diem) {
     stdout.write('$n\t');
-  });
+  }
   print('');
   print('điểm thấp nhất: $min');
   print('điểm cao nhất: $max');

@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'dart:io';
 void main() {
   print ('Mini Game 2: Tính toán theo với menu lựa chọn');

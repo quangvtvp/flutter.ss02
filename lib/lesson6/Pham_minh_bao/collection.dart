@@ -88,9 +88,9 @@ void main() {
   }
 
   // cách 3: dùng forEach (không thể kết hợp điều kiện/in tất cả)
-  list.forEach((n) {
+  for (var n in list) {
     print('fruit: $n');
-  });
+  }
 
   // LỌC PHẦN TỬ VỚI 'WHERE'
   // ví dụ thực tế: trong danh sách điểm, lọc ra các điểm >= 8

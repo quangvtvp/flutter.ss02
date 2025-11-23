@@ -8,7 +8,7 @@ void main() {
   do {
     stdout.write('Nhập vào 1 kí tự bạn đoánn:');
     String? n = (stdin.readLineSync() ?? '').toUpperCase();
-    if (n == null || n.length != 1) {
+    if (n.length != 1) {
         print('vui lòng nhập lại');
         continue;
     } else {

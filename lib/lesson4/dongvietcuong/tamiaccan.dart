@@ -15,7 +15,7 @@ void main() {
   }
 
   int i = 0;
-  while (i < n!) {
+  while (i < n) {
     String spaces = ' ' * (n - i - 1);
     String stars = '*' * (2 * i + 1);
     print(spaces + stars);

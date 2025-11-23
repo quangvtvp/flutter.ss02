@@ -1,5 +1,5 @@
 class Product {
-  String _name;
+  final String _name;
   double _price;
   int _stock;
 

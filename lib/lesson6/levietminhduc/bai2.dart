@@ -1,5 +1,3 @@
-import 'dart:io';
-import 'dart:math';
 void main () {
   print('Xin chào bạn!');
   print('Chào mừng đến với danh sách nhạc yêu thích của tôi!');

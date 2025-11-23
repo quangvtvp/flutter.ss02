@@ -6,7 +6,8 @@ void main() {
     print('Số lượng không hợp lệ!');
     return;
   }
-  if (qty == 0) print('Hết hàng');
-  else if (qty < 5) print('Sắp hết');
+  if (qty == 0) {
+    print('Hết hàng');
+  } else if (qty < 5) print('Sắp hết');
   else print('Đủ hàng');
 }

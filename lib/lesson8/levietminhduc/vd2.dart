@@ -4,7 +4,7 @@ class Student {
   Student(this.name, this._grade);
   double get grade => _grade;
   set grade(double value) {
-    if (value == null || value < 0 || value > 10) {
+    if (value < 0 || value > 10) {
       print('Điểm không hợp lệ! Điểm phải từ 0 đến 10.');
     } else {
       _grade = value;

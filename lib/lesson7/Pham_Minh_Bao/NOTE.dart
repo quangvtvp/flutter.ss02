@@ -1,4 +1,3 @@
-import 'dart:io';
 
 void main() {
   book sach1 = book(name: 'Toan 11', tg: 'Nguyen Van A', trang: 100);

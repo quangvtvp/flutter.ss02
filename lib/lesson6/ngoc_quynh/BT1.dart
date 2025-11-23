@@ -1,5 +1,3 @@
-import 'dart:io';
-import 'dart:math';
 
 void main() {
   Map<String, double> chitieu = {

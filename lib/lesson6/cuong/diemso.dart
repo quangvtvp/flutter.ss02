@@ -1,4 +1,3 @@
-import 'dart:io';
 
 void main() {
   List<int> diemso = [6, 7, 8, 10, 5];

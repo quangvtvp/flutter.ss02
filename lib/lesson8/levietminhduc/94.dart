@@ -5,7 +5,7 @@ class sanpham {
   sanpham(this.tensanpham, this._giasanpham, this._soluong);
   double get giasanpham => _giasanpham;
   set giasanpham(double value) {
-    if (value == null || value < 0) {
+    if (value < 0) {
       print('Giá sản phẩm không hợp lệ! Giá phải lớn hơn hoặc bằng 0.');
     } else {
       _giasanpham = value;
@@ -14,7 +14,7 @@ class sanpham {
   }
   int get soluong => _soluong;
   set soluong(int value) {
-    if (value == null || value < 0) {
+    if (value < 0) {
       print('Số lượng không hợp lệ! Số lượng phải lớn hơn hoặc bằng 0.');
     } else {
       _soluong = value;

@@ -92,7 +92,7 @@ void main() {
     } else if (choice == '3') {
       stdout.write('Nhập K: ');
       int k = int.parse(stdin.readLineSync()!);
-      if (k == null || k <= 0) {
+      if (k <= 0) {
         print('K phải là số nguyên dương. Vui lòng thử lại.');
         continue;
       }

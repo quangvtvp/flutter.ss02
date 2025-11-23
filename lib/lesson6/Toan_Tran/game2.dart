@@ -35,8 +35,8 @@ void main() {
     }
   }
   if (!display.contains('*')) {
-    print('Chúc mừng! Bạn đã đoán đúng: ${answer}');
+    print('Chúc mừng! Bạn đã đoán đúng: $answer');
   } else {
-    print('Bạn đã thua! Đáp án là: ${answer}');
+    print('Bạn đã thua! Đáp án là: $answer');
   }
 }

@@ -33,8 +33,8 @@ void main() {
     }
   }
   if (hint.contains('*') == false) {
-    print('Congratulations! You guessed the answer: ${answer}');
+    print('Congratulations! You guessed the answer: $answer');
   } else {
-    print('You lost! The answer is: ${answer}');
+    print('You lost! The answer is: $answer');
   }
 }

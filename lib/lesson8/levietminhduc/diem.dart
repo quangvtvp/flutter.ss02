@@ -1,8 +1,8 @@
 class StudentGrades {
   String studentName;
-  double _mathScore; 
-  double _physicsScore; 
-  double _chemistryScore; 
+  final double _mathScore; 
+  final double _physicsScore; 
+  final double _chemistryScore; 
   StudentGrades(this.studentName, this._mathScore, this._physicsScore, this._chemistryScore);
   // Phương thức tính điểm trung bình
   double _calculateAverage() {

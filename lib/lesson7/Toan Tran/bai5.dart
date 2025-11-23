@@ -115,13 +115,17 @@ List<Student> searchStudents({
 // Top 3 học sinh mỗi lớp
 void printTop3EachClass(List<Student> students) {
   Map<String, List<Student>> grouped = {};
-  for (var s in students) grouped.putIfAbsent(s.classId, () => []).add(s);
+  for (var s in students) {
+    grouped.putIfAbsent(s.classId, () => []).add(s);
+  }
 
   print('\n Top 3 học sinh mỗi lớp (theo grade ↓):');
   grouped.forEach((classId, list) {
     list.sort((a, b) => b.grade.compareTo(a.grade));
     print('\n$classId:');
-    for (var s in list.take(3)) print('  - ${s.name} (${s.grade})');
+    for (var s in list.take(3)) {
+      print('  - ${s.name} (${s.grade})');
+    }
   });
 }
 
@@ -180,8 +184,13 @@ void main() {
   sortByGradeAndName(filtered);
 
   print('\n Danh sách học sinh lớp $classId có grade >= 8.0:');
-  if (filtered.isEmpty) print('Không có học sinh nào.');
-  else filtered.forEach((s) => print('  - $s'));
+  if (filtered.isEmpty) {
+    print('Không có học sinh nào.');
+  } else {
+    for (var s in filtered) {
+   print('  - $s');
+ }
+  }
 
   // Tìm kiếm đa điều kiện
   print('\n Tìm kiếm học sinh theo nhiều điều kiện:');
@@ -202,8 +211,13 @@ void main() {
       minGrade: minGrade);
 
   print('\n Kết quả tìm kiếm:');
-  if (searchResult.isEmpty) print('Không tìm thấy học sinh nào phù hợp.');
-  else searchResult.forEach((s) => print('  - $s'));
+  if (searchResult.isEmpty) {
+    print('Không tìm thấy học sinh nào phù hợp.');
+  } else {
+    for (var s in searchResult) {
+   print('  - $s');
+ }
+  }
 
   // Top 3 học sinh mỗi lớp
   printTop3EachClass(students);

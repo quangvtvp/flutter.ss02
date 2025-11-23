@@ -12,7 +12,7 @@ void main() {
     print('Hint: $sword');
     stdout.write('Nhập vào từ bạn đoán: ');
     String? n = (stdin.readLineSync() ?? '').toLowerCase();
-    if (n == null || n.isEmpty) {
+    if (n.isEmpty) {
       print('vui lòng nhập lại');
       continue;
     } else if (n == word) {

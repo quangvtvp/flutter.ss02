@@ -6,15 +6,15 @@
 
 class Book {
   String title, author;
-  int _year;
-  double _price;
+  final int _year;
+  final double _price;
 
   Book(this.title, this.author, this._year, this._price);
 
   int get year => _year;
-  set year(int _year) {
-    if (_year > 1900) {
-      _year = _year;
+  set year(int year) {
+    if (year > 1900) {
+      year = year;
     } else {
       print('Năm sản xuất không hợp lệ (>1900)');
       return;
@@ -23,9 +23,9 @@ class Book {
 
   double get price => _price;
 
-  set price(double _price) {
-    if (_price > 0) {
-      _price = _price;
+  set price(double price) {
+    if (price > 0) {
+      price = price;
     } else {
       print('Giá không hợp lệ (>0)');
       return;

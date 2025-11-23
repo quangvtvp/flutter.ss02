@@ -17,7 +17,6 @@ Future<String> getLastestModel() async {
     await Future.delayed(Duration(seconds: 2));
     stdout.write('💡');
   }
-  ;
   cars.sort((a, b) => b.year.compareTo(a.year));
   return cars[0].model;
 }

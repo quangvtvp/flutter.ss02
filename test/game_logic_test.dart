@@ -1,4 +1,4 @@
-import '../lib/lesson7/game.dart';
+import 'package:dart_basic/lesson7/game.dart';
 import 'package:test/test.dart';
 
 void main() {
