@@ -3,11 +3,11 @@ class Student {
   int yearofbirth;
   Student(this.name, this.yearofbirth);
   Student.k8(String name)
-      : this.name = name,
+      : name = name,
         yearofbirth = 2008;
 
   Student.k9(String name)
-      : this.name = name,
+      : name = name,
         yearofbirth = 2009;
   void information() {
     print('name: $name; year of birth: $yearofbirth');

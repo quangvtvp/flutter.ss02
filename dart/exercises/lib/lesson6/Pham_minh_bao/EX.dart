@@ -21,9 +21,9 @@ void main() {
     tong = tong + i;
   }
   var TB = tong / diem.length;
-  diem.forEach((n) {
+  for (var n in diem) {
     stdout.write('$n\t');
-  });
+  }
   print('');
   print('điểm thấp nhất: $min');
   print('điểm cao nhất: $max');
@@ -46,7 +46,8 @@ void main() {
     'Trần Thị B': st2,
     'Lê Văn C': st3
   };
-  for (var key in sothich.keys) { // '.keys': trả về các key trong map
+  for (var key in sothich.keys) {
+    // '.keys': trả về các key trong map
     print('Sở thích của $key là: ${sothich[key]}'); // lấy value theo key
   }
 }

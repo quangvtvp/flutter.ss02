@@ -7,9 +7,11 @@ void main() {
   if (n == null || n < 0) {
     print(' Khong hop le');
     return;
-  } else if (n != null && n > 0) {
+  } else if (n > 0) {
     int giaithua = 1;
-    for (int i = 1; i <= n; i++) giaithua *= i;
+    for (int i = 1; i <= n; i++) {
+      giaithua *= i;
+    }
     print(' Giai thua cua $n la: $giaithua ');
   }
 }

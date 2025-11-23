@@ -11,7 +11,7 @@ void main() {
   List<int> list2 = diemso.where((d) => d >= 5).toList(); // chuyển thành list
   print(list2);
   List<int> list3 = diemso.where((d) => (d % 5) == 0).toList();
-  print('điểm trên trung bình: ${list3}');
+  print('điểm trên trung bình: $list3');
 
   if (diemso.contains(5)) {
     print("có 5");

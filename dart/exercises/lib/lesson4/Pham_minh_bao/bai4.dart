@@ -13,7 +13,7 @@ void main() {
       if (i == 1 || i == n) {
         print('*' * n);
       } else {
-        print('*' + ' ' * (n-2) + '*');
+        print('*${' ' * (n - 2)}*');
       }
     }
   }

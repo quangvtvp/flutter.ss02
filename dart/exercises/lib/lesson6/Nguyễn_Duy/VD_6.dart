@@ -5,7 +5,7 @@ void main() {
   var b = a.split('');
   var d = b.length;
   var c = '*' * (d);
-  print('$c');
+  print(c);
   print('nhập số lượt đoán tối đa');
   int f = int.parse(stdin.readLineSync()!);
   print('vui lòng nhập từ cần đoán');
