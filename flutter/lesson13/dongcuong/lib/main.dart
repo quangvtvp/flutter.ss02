@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:dongcuong/hinh.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MyGame());
 }
 
-class Mygamescreen extends StatelessWidget {
-  const Mygamescreen({super.key});
+class MyGame extends StatelessWidget {
+  const MyGame({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-  
+    return MaterialApp(debugShowCheckedModeBanner: false, home: MyGameScreen());
+  }
+}
