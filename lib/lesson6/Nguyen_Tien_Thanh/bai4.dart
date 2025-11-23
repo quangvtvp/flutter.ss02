@@ -8,7 +8,7 @@ void main() {
    'ten': 'Quang',
    'soThich': 'Nghe nhạc,xem phim,chơi game',
   };
-
+  
   Map<String, String> nguoi3 = {
   'ten': 'Minh',
   'soThich': 'Nghe nhạc,xem phim,chơi game',
