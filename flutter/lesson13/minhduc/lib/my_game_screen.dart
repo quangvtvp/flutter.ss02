@@ -18,3 +18,4 @@ class MyGameScreen extends StatelessWidget {
       ),
     );
   }
+}
