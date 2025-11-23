@@ -1,5 +1,3 @@
-import 'dart:io';
-
 void main() {
   print('Xin chào bạn!');
   print('Chào mừng bạn đến với chương trình quản lý chi tiêu cá nhân 1 ngày!');

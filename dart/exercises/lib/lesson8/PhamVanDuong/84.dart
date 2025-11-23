@@ -51,7 +51,7 @@ class StudentGrades {
     var average = _calculateAverage();
     var grade = _getGrade(average);
     print(
-        'Tên học sinh: $studentname, Điểm Toán: ${_mathscore}, Điểm Lý ${_physicscore}, Điểm Hóa ${_chemistryscore}, trung bình: ${average.toStringAsFixed(2)}, Học lực: $grade');
+        'Tên học sinh: $studentname, Điểm Toán: $_mathscore, Điểm Lý $_physicscore, Điểm Hóa $_chemistryscore, trung bình: ${average.toStringAsFixed(2)}, Học lực: $grade');
   }
 }
 

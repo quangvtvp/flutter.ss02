@@ -6,5 +6,7 @@ void main() {
 
   stdout.write("Các số chia hết cho 5: ");
   List<int> chiahetcho5 = numbers.where((d) => d % 5 == 0).toList();
-  chiahetcho5.forEach((d) => stdout.write("$d "));
+  for (var d in chiahetcho5) {
+    stdout.write("$d ");
+  }
 }

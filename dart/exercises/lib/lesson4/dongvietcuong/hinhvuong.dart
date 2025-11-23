@@ -10,7 +10,7 @@ void main() {
       print('*' * n);
     } else {
       // Các dòng ở giữa
-      print('*' + ' ' * (n - 2) + '*');
+      print('*${' ' * (n - 2)}*');
     }
   }
 }
