@@ -32,7 +32,7 @@ class Book {
 }
 
 void main() {
-  List books = [
+  List<Book> books = [
     Book('Dế Mèn phiêu lưu ký', 'Tô Hoài', 1941, 45000, true),
     Book('Tắt đèn', 'Ngô Tất Tố', 1939, 52000, false),
     Book('Số đỏ', 'Vũ Trọng Phụng', 1936, 48000, true),
@@ -63,9 +63,6 @@ void main() {
   books[1].returnBook();
   print('đã trả cuốn ${books[1].title}');
   for (var i = 0; i < boook; i++) {
-    var price = 0;
-    if (books[i].price > i) {
-      price = i + price;
-    }
+    books[i].getInfo();
   }
 }

@@ -17,7 +17,7 @@ class Book {
 
   String getInfo() {
     String status = (isAvailable) ? 'Có sắn' : 'Đã Mượn';
-    return ('Tên: $title \n\tTác giả: $author \tNăm: $publishYear \tGiá: $priceđ \tTrạng thái: $status ');
+    return ('Tên: $title, Tác giả: $author, Năm: $publishYear, Giá: $priceđ, Trạng thái: $status ');
   }
 
   bool oldBook() {

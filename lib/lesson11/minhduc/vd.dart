@@ -1,23 +1,52 @@
-// Hàm này sẽ trả về một Future<String> sau 2 giây.
-Future<String> layDuLieuNguoiDung() {
-  return Future.delayed(Duration(seconds: 999), () {
-    // Sau 2 giây, Future sẽ hoàn thành và trả về giá trị này.
-    return 'Dữ liệu người dùng: John Doe';
-  });
-}
+import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
+// Game đoán màu với đồng hồ đếm ngược.
+// Nếu hết giờ mà chưa đoán đúng -> thua game.
+Future<void> main(List<String> args) async {
+  List<String> colors = ['red', 'blue', 'green', 'yellow', 'orange'];
+  final selectedColor = (colors..shuffle()).first;
 
-void main() {
-  print('Bắt đầu lấy dữ liệu...');
-  final future = layDuLieuNguoiDung();
-  print('Đã gọi hàm, đang chờ kết quả...');
-  print('Chương trình vẫn chạy mà không bị block.');
-
-  // Cách xử lý Future "kiểu cũ" dùng .then()
-  future.then((ketQua) {
-    // Callback này sẽ được gọi khi Future hoàn thành thành công.
-    print('Kết quả nhận được: $ketQua');
-  }).catchError((loi) {
-    // Callback này sẽ được gọi nếu Future hoàn thành với lỗi.
-    print('Đã xảy ra lỗi: $loi');
+  print(
+      'You have 10 seconds to guess the color. Available colors: ${colors.join(', ')}');
+  final lineStream =
+      stdin.transform(utf8.decoder).transform(const LineSplitter());
+  final completer = Completer<String>();
+  late StreamSubscription<String> subscription;
+  subscription = lineStream.listen((line) {
+    final guess = line.trim().toLowerCase();
+    if (guess.isEmpty) {
+      stdout.write('Please enter a color: ');
+      return;
+    }
+    if (guess == selectedColor) {
+      if (!completer.isCompleted) {
+        completer.complete('guessed');
+      }
+    } else {
+      stdout.write('Wrong guess. Try again: ');
+    }
+  }, onError: (e) {
+    if (!completer.isCompleted) completer.completeError(e);
   });
+
+  stdout.write('Guess the color: ');
+
+  final timerFuture =
+      Future.delayed(const Duration(seconds: 10), () => 'timeout');
+
+  final guessFuture = completer.future;
+
+  try {
+    final result = await Future.any([timerFuture, guessFuture]);
+    if (result == 'guessed') {
+      print('\nCongratulations! You guessed it right.');
+    } else {
+      print('\nTime is up! You lost. The correct color was: $selectedColor');
+    }
+  } catch (e) {
+    print('\nAn error occurred: $e');
+  } finally {
+    await subscription.cancel();
+  }
 }
