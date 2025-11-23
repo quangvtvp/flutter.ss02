@@ -1,3 +1,5 @@
+import 'dart:io';
+
 class Car {
   String model;
   int year;
@@ -11,16 +13,19 @@ Future<String> getLastestModel() async {
     Car('XYZ - 789', 2019),
     Car('MNP - 135', 2021)
   ];
-  return Future.delayed(Duration(seconds: 10), () {
-    cars.sort((a, b) => b.year.compareTo(a.year));
-    return cars[0].model;
-  });
+  for (var i = 0; i <= 10; i++) {
+    await Future.delayed(Duration(seconds: 2));
+    stdout.write('💡');
+  }
+  ;
+  cars.sort((a, b) => b.year.compareTo(a.year));
+  return cars[0].model;
 }
 
 Future<void> main(List<String> args) async {
   print('START THE APP');
   print('Finding for the lastest car ...');
   var newestcar = await getLastestModel();
-  print('Result: the lastest car model is $newestcar');
+  print('\nResult: the lastest car model is $newestcar');
   print('Thank you for using our app! ');
 }
