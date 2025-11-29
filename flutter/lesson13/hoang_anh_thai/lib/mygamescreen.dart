@@ -293,6 +293,42 @@ class MemberCard extends StatelessWidget {
           ],
         ),
       ),
+<<<<<<< HEAD
+=======
+      body: Column(
+        children: const [
+          Text('Nhập:'),
+          const SizedBox(height: 16),
+          TextField(
+            decoration: const InputDecoration(
+              labelText: 'Họ và tên',
+              hintText: 'tên bạn',
+              prefixIcon: Icon(Icons.person),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                borderSide: BorderSide(
+                  color: Color.fromARGB(255, 238, 6, 6),
+                  width: 2,
+                ),
+              ),
+            ),
+          ),
+          TextField(
+            decoration: const InputDecoration(
+              labelText: 'Mô tả',
+              prefixIcon: Icon(Icons.description_outlined),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                borderSide: BorderSide(
+                  color: Color.fromARGB(255, 238, 6, 6),
+                  width: 2,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+>>>>>>> d7e9a4ed204a2613b95dab1a0e01c8c6d93ac84b
     );
   }
 }
