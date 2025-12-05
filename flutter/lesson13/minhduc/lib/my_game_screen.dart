@@ -195,7 +195,7 @@ class MyGameScreen extends StatelessWidget {
           TextField(
             controller: _motaController,
             decoration: const InputDecoration(
-              labelText: 'Mô tả ngắn',
+              labelText: 'Mô tả bản thân',
               hintText: 'VD: Yêu thích công nghệ, thích khám phá...',
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(12)),
