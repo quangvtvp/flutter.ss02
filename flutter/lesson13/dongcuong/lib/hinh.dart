@@ -33,7 +33,19 @@ class MyGameScreen extends StatelessWidget {
     'Đầu bếp nổi tiếng',
     'Phi hành gia',
     'Nhà thám hiểm',
-    
+    'Chuyên gia công nghệ thông tin',
+    'Chuyên gia marketing',
+    'Nhà tâm lý học',
+    'Chuyên gia tài chính',
+    'Nhà báo',
+    'Chuyên gia môi trường',
+    'Chuyên gia thể thao',
+    'Nhà lập trình game',
+    'Nhà khảo cổ học',
+    'Phiên dịch ngôn ngữ',
+    'Hướng dẫn viên du lịch',
+    'Chuyên gia âm nhạc',
+    'Nhà sản xuất phim',
   ];
   Color getRandomColor() {
     return Color.fromARGB(
