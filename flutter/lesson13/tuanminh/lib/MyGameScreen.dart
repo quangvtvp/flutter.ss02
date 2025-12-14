@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+
 class Peolpe {
   final String ten;
   final String mota;
@@ -12,7 +13,6 @@ class Peolpe {
     required this.avatarColor,
   });
 }
-
 
 class MyGameScreen extends StatelessWidget {
   MyGameScreen({super.key});
@@ -55,12 +55,15 @@ class MyGameScreen extends StatelessWidget {
       _random.nextInt(256),
     );
   }
+
   void _addMember(BuildContext context) {
     final ten = _tenController.text.trim();
     final mota = _motaController.text.trim();
     if (ten.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Vui lòng nhập tên người dùng để xem bói ')),
+        const SnackBar(
+          content: Text('Vui lòng nhập tên người dùng để xem bói '),
+        ),
       );
       return;
     }
@@ -76,6 +79,7 @@ class MyGameScreen extends StatelessWidget {
     _tenController.clear();
     _motaController.clear();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -103,10 +107,7 @@ class MyGameScreen extends StatelessWidget {
 
                   const Text(
                     'Kết quả dự đoán nghề nghiệp',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 8),
 
@@ -120,7 +121,8 @@ class MyGameScreen extends StatelessWidget {
                         return SingleChildScrollView(
                           child: Column(
                             children: [
-                              for (final member in members) _MemberCard(member: member),
+                              for (final member in members)
+                                _MemberCard(member: member),
                               if (members.isEmpty)
                                 Padding(
                                   padding: const EdgeInsets.only(top: 32.0),
@@ -154,7 +156,10 @@ class MyGameScreen extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: const Color.fromARGB(255, 147, 123, 193), width: 2),
+        border: Border.all(
+          color: const Color.fromARGB(255, 147, 123, 193),
+          width: 2,
+        ),
         boxShadow: [
           BoxShadow(
             color: const Color.fromARGB(255, 147, 123, 193).withOpacity(0.3),
@@ -183,9 +188,15 @@ class MyGameScreen extends StatelessWidget {
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(12)),
               ),
-              prefixIcon: Icon(Icons.person_outline, color: Color.fromARGB(255, 104, 73, 157)),
+              prefixIcon: Icon(
+                Icons.person_outline,
+                color: Color.fromARGB(255, 104, 73, 157),
+              ),
               focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Color.fromARGB(255, 104, 73, 157), width: 2),
+                borderSide: BorderSide(
+                  color: Color.fromARGB(255, 104, 73, 157),
+                  width: 2,
+                ),
                 borderRadius: BorderRadius.all(Radius.circular(12)),
               ),
               labelStyle: TextStyle(color: Color.fromARGB(255, 104, 73, 157)),
@@ -200,9 +211,15 @@ class MyGameScreen extends StatelessWidget {
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(12)),
               ),
-              prefixIcon: Icon(Icons.description_outlined, color: Color.fromARGB(255, 104, 73, 157)),
+              prefixIcon: Icon(
+                Icons.description_outlined,
+                color: Color.fromARGB(255, 104, 73, 157),
+              ),
               focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Color.fromARGB(255, 104, 73, 157), width: 2),
+                borderSide: BorderSide(
+                  color: Color.fromARGB(255, 104, 73, 157),
+                  width: 2,
+                ),
                 borderRadius: BorderRadius.all(Radius.circular(12)),
               ),
               labelStyle: TextStyle(color: Color.fromARGB(255, 104, 73, 157)),
@@ -220,7 +237,10 @@ class MyGameScreen extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 106, 72, 164),
                   foregroundColor: Colors.white,
-                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 24,
+                    vertical: 12,
+                  ),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
@@ -284,10 +304,7 @@ class _MemberCard extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 4),
-                Text(
-                  member.mota,
-                  style: const TextStyle(fontSize: 13),
-                ),
+                Text(member.mota, style: const TextStyle(fontSize: 13)),
                 const SizedBox(height: 8),
                 Row(
                   children: [
@@ -317,7 +334,3 @@ class _MemberCard extends StatelessWidget {
     );
   }
 }
-
-
-        
-  
