@@ -23,10 +23,9 @@ class MyGameScreen extends StatelessWidget {
             border: Border.all(color: const Color(0xFFB39DDB), width: 2),
             boxShadow: [
               BoxShadow(
-                color: const Color(0xFFB39DDB).withOpacity(0.3),
-                blurRadius: 10,
-                offset: const Offset(0, 4),
-              ),
+                  color: const Color(0xFFB39DDB).withOpacity(0.3),
+                  blurRadius: 10,
+                  offset: const Offset(0, 4)),
             ],
           ),
           child: Column(
@@ -41,33 +40,33 @@ class MyGameScreen extends StatelessWidget {
                   color: Color(0xFF7E57C2),
                 ),
               ),
-              SizedBox(height: 16),
-
+              SizedBox(
+                height: 16,
+              ),
               TextField(
                 decoration: const InputDecoration(
-                  labelText: 'Họ và tên',
-                  hintText: 'Nhập họ và tên của bạn',
-                  prefixIcon: Icon(Icons.person_outline),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(12)),
-                    borderSide: BorderSide(color: Color(0xFF7E57C2), width: 1),
-                  ),
-                ),
+                    labelText: 'Họ và tên',
+                    hintText: 'Nhập họ và tên của bạn',
+                    prefixIcon: Icon(Icons.person_outline),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(12)),
+                      borderSide:
+                          BorderSide(color: Color(0xFF7E57C2), width: 1),
+                    )),
               ),
-
-              SizedBox(height: 16),
-
+              SizedBox(
+                height: 16,
+              ),
               TextField(
-                decoration: InputDecoration(
-                  labelText: 'Mô tả',
-                  hintText: 'Nhập mô tả: siêu toán, ngủ nhiều...',
-                  prefixIcon: Icon(Icons.description_outlined),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(12)),
-                    borderSide: BorderSide(color: Color(0xFF7E57C2), width: 1),
-                  ),
+                  decoration: InputDecoration(
+                labelText: 'Mô tả',
+                hintText: 'Nhập mô tả: siêu toán, ngủ nhiều...',
+                prefixIcon: Icon(Icons.description_outlined),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(12)),
+                  borderSide: BorderSide(color: Color(0xFF7E57C2), width: 1),
                 ),
-              ),
+              )),
             ],
           ),
         ),
