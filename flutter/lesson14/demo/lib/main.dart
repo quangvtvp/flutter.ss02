@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lesson14_member_funny_game/thuannd/member_screen_v1_stateless_form.dart';
 import 'package:lesson14_member_funny_game/thuannd/member_screen_v2_stateless_list.dart';
+import 'package:lesson14_member_funny_game/thuannd/member_screen_v5_gemini.dart';
 
 // HÀM main là điểm bắt đầu của ứng dụng Flutter
 void main() {
@@ -22,7 +23,7 @@ class MemberFunnyGameApp extends StatelessWidget {
       //   useMaterial3: true,
       // ),
       // home trỏ tới màn hình game chính đã tách riêng trong folder screens
-      home: const MemberFunnyGameScreenV1(),
+      home: const MemberFunnyGameScreenV5(),
     );
   }
 }
