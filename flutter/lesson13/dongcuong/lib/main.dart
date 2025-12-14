@@ -6,10 +6,13 @@ void main() {
 }
 
 class MyGame extends StatelessWidget {
-  const MyGame({Key? key}) : super(key: key);
+  const MyGame({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: MyGameScreen());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: MyGameScreen(),
+    );
   }
 }
