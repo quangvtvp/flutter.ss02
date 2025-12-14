@@ -9,11 +9,6 @@ class MemberFunnyGameScreenV1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final member = [
-      {'name': 'An', 'description': 'Học sinh chăm chỉ'},
-      {'name': 'Bình', 'description': 'Giỏi toán'},
-      {'name': 'Chi', 'description': 'Thích vẽ'},
-    ];
     return Scaffold(
       appBar: AppBar(
         title: const Text('Danh sách thành viên'),
