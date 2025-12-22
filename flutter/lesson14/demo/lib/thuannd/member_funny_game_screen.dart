@@ -27,9 +27,9 @@ class _MemberFunnyGameScreenState extends State<MemberFunnyGameScreen> {
     final desc = _descController.text.trim();
 
     if (name.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Vui lòng nhập tên!')),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text('Vui lòng nhập tên!')));
       return;
     }
 
@@ -108,9 +108,7 @@ class _MemberFunnyGameScreenState extends State<MemberFunnyGameScreen> {
 
             Expanded(
               child: _members.isEmpty
-                  ? const Center(
-                      child: Text('Chưa có thành viên nào'),
-                    )
+                  ? const Center(child: Text('Chưa có thành viên nào'))
                   : SingleChildScrollView(
                       child: Column(
                         children: [

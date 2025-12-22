@@ -23,7 +23,7 @@ class MemberFunnyGameApp extends StatelessWidget {
       //   useMaterial3: true,
       // ),
       // home trỏ tới màn hình game chính đã tách riêng trong folder screens
-      home: const MemberFunnyGameScreenV5(),
+      home: const MemberFunnyGameScreenV1(),
     );
   }
 }
