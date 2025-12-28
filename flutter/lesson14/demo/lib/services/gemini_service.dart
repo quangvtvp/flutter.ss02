@@ -24,7 +24,7 @@ Thông tin học sinh:
 - Tên: $name
 - Đặc điểm: $description
 
-Dựa trên đặc điểm trên, hãy gợi ý 2-3 ngành học phù hợp ở bậc đại học.
+Dựa trên đặc điểm trên, hãy gợi ý 2 ngành học phù hợp ở bậc đại học.
 Trả lời ngắn gọn, thân thiện, bằng tiếng Việt.
 Bắt đầu bằng: "Chào $name, rất vui được tư vấn cho em. Với những đặc điểm của $name thì..."
 ''';

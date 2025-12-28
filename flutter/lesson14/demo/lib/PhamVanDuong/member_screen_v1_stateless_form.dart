@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lesson14_member_funny_game/services/gemini_service.dart';
 
 import '../models/member.dart';
 
@@ -24,25 +23,18 @@ class _MemberFunnyGameScreenV1State extends State<MemberFunnyGameScreenV1> {
     final name = _nameController.text;
     final description = _descriptionController.text;
 
+    final newMember = Member(name: name, description: description);
+
     showDialog(
-        context: context,
-        builder: (context) {
-          return PopScope(
-            canPop: false,
-            child: Center(
-              child: CircularProgressIndicator(),
-            ),
-          );
-        });
-
-    final suggestedMajor =
-        await GeminiService.suggestMajor(name: name, description: description);
-
-    final newMember = Member(
-      name: name,
-      description: description,
-      idealJob: suggestedMajor,
+      context: context,
+      builder: (context) {
+        return PopScope(
+          canPop: false,
+          child: Center(child: CircularProgressIndicator()),
+        );
+      },
     );
+    await Future.delayed(const Duration(seconds: 3));
 
     if (!mounted) return;
     Navigator.of(context).pop(); // Đóng loading modal
@@ -104,11 +96,8 @@ class _MemberFunnyGameScreenV1State extends State<MemberFunnyGameScreenV1> {
                       Card(
                         child: ListTile(
                           title: Text(member.name),
-                          subtitle: Text(member.idealJob ??
-                              'Chưa có nghề nghiệp lý tưởng'),
-                          leading: CircleAvatar(
-                            child: Text(member.name[0]),
-                          ),
+                          subtitle: Text(member.description),
+                          leading: CircleAvatar(child: Text(member.name[0])),
                         ),
                       ),
                   ],
