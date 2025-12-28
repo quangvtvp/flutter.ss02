@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lesson14_member_funny_game/thuannd/member_screen_v1_stateless_form.dart';
+import 'package:lesson14_member_funny_game/PhamVanDuong/member_screen_v1_stateless_form.dart';
+import 'package:lesson14_member_funny_game/thuannd/member_screen_v1_stateless_form.dart'
+    hide MemberFunnyGameScreenV1;
 import 'package:lesson14_member_funny_game/thuannd/member_screen_v2_stateless_list.dart';
 import 'package:lesson14_member_funny_game/thuannd/member_screen_v5_gemini.dart';
 
