@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:lesson14_member_funny_game/PhamVanDuong/member_screen_v1_stateless_form.dart';
 import 'package:lesson14_member_funny_game/thuannd/member_screen_v1_stateless_form.dart'
     hide MemberFunnyGameScreenV1;
+=======
+import 'package:lesson14_member_funny_game/thuannd/lesson-13-stateful/color_picker.dart';
+import 'package:lesson14_member_funny_game/thuannd/lesson-13-stateful/lightbuld.dart';
+import 'package:lesson14_member_funny_game/thuannd/lesson-14-listview-gridview/color-selector.dart';
+import 'package:lesson14_member_funny_game/thuannd/lesson-14-listview-gridview/grid-game.dart';
+import 'package:lesson14_member_funny_game/thuannd/lesson-14-listview-gridview/simple_grid.dart';
+import 'package:lesson14_member_funny_game/thuannd/lesson-14-listview-gridview/simple_horizontal_list.dart';
+import 'package:lesson14_member_funny_game/thuannd/member_screen_v1_stateless_form.dart';
 import 'package:lesson14_member_funny_game/thuannd/member_screen_v2_stateless_list.dart';
 import 'package:lesson14_member_funny_game/thuannd/member_screen_v5_gemini.dart';
 
@@ -25,7 +34,10 @@ class MemberFunnyGameApp extends StatelessWidget {
       //   useMaterial3: true,
       // ),
       // home trỏ tới màn hình game chính đã tách riêng trong folder screens
-      home: const MemberFunnyGameScreenV5(),
+      home: Scaffold(
+        appBar: AppBar(title: const Text('Flutter Demo')),
+        body: const CardGridStep2(),
+      ),
     );
   }
 }

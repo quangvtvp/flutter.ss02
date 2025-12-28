@@ -87,12 +87,3 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
-  fonts:
-    - family: Montserrat
-      fonts:
-        - asset: lib/Game1_may_tien_tri/code/asset/font/Montserrat-Bold.ttf
-        - asset: lib/Game1_may_tien_tri/code/asset/font/CormorantGaramond-VariableFont_wght.ttf
-        - asset: lib/Game1_may_tien_tri/code/asset/font/innghieng.ttf
-    - family: innghieng
-      fonts:
-        - asset: lib/Game1_may_tien_tri/code/asset/font/innghieng.ttf
