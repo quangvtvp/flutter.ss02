@@ -8,15 +8,15 @@ import '../services/gemini_service.dart';
 // Mục tiêu: Học cách gọi API và xử lý kết quả bất đồng bộ
 // Khi nhấn nút, gọi Gemini API để phân tích và gợi ý ngành học
 
-class MemberFunnyGameScreenV5 extends StatefulWidget {
-  const MemberFunnyGameScreenV5({super.key});
+class MinhducGameScreen extends StatefulWidget {
+  const MinhducGameScreen({super.key});
 
   @override
-  State<MemberFunnyGameScreenV5> createState() =>
-      _MemberFunnyGameScreenV5State();
+  State<MinhducGameScreen> createState() =>
+      _MinhducGameScreenState();
 }
 
-class _MemberFunnyGameScreenV5State extends State<MemberFunnyGameScreenV5> {
+class _MinhducGameScreenState extends State<MinhducGameScreen> {
   // Biến trạng thái - danh sách thành viên
   List<Member> _members = [];
 
@@ -207,3 +207,9 @@ class _MemberFunnyGameScreenV5State extends State<MemberFunnyGameScreenV5> {
     );
   }
 }
+
+
+ 
+ 
+ 
+ 
