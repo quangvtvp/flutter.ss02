@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lesson14_member_funny_game/nguyenvietthuc/member_screen_v1_stateless_form.dart';
 import 'package:lesson14_member_funny_game/thuannd/member_screen_v1_stateless_form.dart';
 import 'package:lesson14_member_funny_game/thuannd/member_screen_v2_stateless_list.dart';
 import 'package:lesson14_member_funny_game/thuannd/member_screen_v5_gemini.dart';
@@ -23,7 +24,7 @@ class MemberFunnyGameApp extends StatelessWidget {
       //   useMaterial3: true,
       // ),
       // home trỏ tới màn hình game chính đã tách riêng trong folder screens
-      home: const MemberFunnyGameScreenV5(),
+      home: const ThucMemberFunnyGameScreenV1(),
     );
   }
 }
