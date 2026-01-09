@@ -9,6 +9,8 @@ import 'package:lesson14_member_funny_game/thuannd/member_screen_v1_stateless_fo
 import 'package:lesson14_member_funny_game/thuannd/member_screen_v2_stateless_list.dart';
 import 'package:lesson14_member_funny_game/thuannd/member_screen_v5_gemini.dart';
 
+import 'thuannd/lesson-14-listview-gridview/simplelistview.dart';
+
 // HÀM main là điểm bắt đầu của ứng dụng Flutter
 void main() {
   runApp(const MemberFunnyGameApp());
@@ -31,7 +33,7 @@ class MemberFunnyGameApp extends StatelessWidget {
       // home trỏ tới màn hình game chính đã tách riêng trong folder screens
       home: Scaffold(
         appBar: AppBar(title: const Text('Flutter Demo')),
-        body: const CardGridStep2(),
+        body: const MyWidget(),
       ),
     );
   }

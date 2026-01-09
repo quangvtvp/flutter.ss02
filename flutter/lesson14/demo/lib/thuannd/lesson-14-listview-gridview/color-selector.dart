@@ -30,7 +30,7 @@ class _SelectableListScreenState extends State<SelectableListScreen> {
         foregroundColor: Colors.white,
       ),
       body: ListView.builder(
-        itemCount: 20,
+        itemCount: 200,
         itemBuilder: (context, index) {
           final isSelected = _selectedItems.contains(index);
 
