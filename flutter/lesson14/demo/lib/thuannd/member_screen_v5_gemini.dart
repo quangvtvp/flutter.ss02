@@ -9,11 +9,13 @@ import '../services/gemini_service.dart';
 // Khi nhấn nút, gọi Gemini API để phân tích và gợi ý ngành học
 
 class MemberFunnyGameScreenV5 extends StatefulWidget {
-  const MemberFunnyGameScreenV5({super.key});
+  final String? initialName;
+  final String? initialDesc;
+
+  const MemberFunnyGameScreenV5({super.key, this.initialName, this.initialDesc});
 
   @override
-  State<MemberFunnyGameScreenV5> createState() =>
-      _MemberFunnyGameScreenV5State();
+  State<MemberFunnyGameScreenV5> createState() => _MemberFunnyGameScreenV5State();
 }
 
 class _MemberFunnyGameScreenV5State extends State<MemberFunnyGameScreenV5> {
@@ -21,8 +23,15 @@ class _MemberFunnyGameScreenV5State extends State<MemberFunnyGameScreenV5> {
   List<Member> _members = [];
 
   // Controller để lấy giá trị từ TextField
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _descController = TextEditingController();
+  late final TextEditingController _nameController;
+  late final TextEditingController _descController;
+
+  @override
+  void initState() {
+    super.initState();
+    _nameController = TextEditingController(text: widget.initialName);
+    _descController = TextEditingController(text: widget.initialDesc);
+  }
 
   // Hàm thêm thành viên với gọi Gemini API
   Future<void> _addMember() async {
@@ -30,17 +39,12 @@ class _MemberFunnyGameScreenV5State extends State<MemberFunnyGameScreenV5> {
     final desc = _descController.text.trim();
 
     if (name.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Vui lòng nhập tên!')),
-      );
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Vui lòng nhập tên!')));
       return;
     }
 
     if (desc.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-            content: Text('Vui lòng nhập đặc điểm để AI phân tích!')),
-      );
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Vui lòng nhập đặc điểm để AI phân tích!')));
       return;
     }
 
@@ -57,11 +61,7 @@ class _MemberFunnyGameScreenV5State extends State<MemberFunnyGameScreenV5> {
                 padding: EdgeInsets.all(20),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
-                  children: [
-                    CircularProgressIndicator(),
-                    SizedBox(height: 16),
-                    Text('Đang phân tích với AI...'),
-                  ],
+                  children: [CircularProgressIndicator(), SizedBox(height: 16), Text('Đang phân tích với AI...')],
                 ),
               ),
             ),
@@ -72,10 +72,7 @@ class _MemberFunnyGameScreenV5State extends State<MemberFunnyGameScreenV5> {
 
     try {
       // Gọi Gemini API để gợi ý ngành học
-      final suggestion = await GeminiService.suggestMajor(
-        name: name,
-        description: desc,
-      );
+      final suggestion = await GeminiService.suggestMajor(name: name, description: desc);
 
       // Kiểm tra widget còn mounted không
       if (!mounted) return;
@@ -84,11 +81,7 @@ class _MemberFunnyGameScreenV5State extends State<MemberFunnyGameScreenV5> {
       Navigator.of(context).pop();
 
       // Tạo member mới với idealJob là kết quả từ AI
-      final newMember = Member(
-        name: name,
-        description: desc,
-        idealJob: suggestion,
-      );
+      final newMember = Member(name: name, description: desc, idealJob: suggestion);
 
       // Cập nhật danh sách
       setState(() {
@@ -102,9 +95,7 @@ class _MemberFunnyGameScreenV5State extends State<MemberFunnyGameScreenV5> {
       // Đóng loading nếu có lỗi
       if (mounted) {
         Navigator.of(context).pop();
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Lỗi: $e')),
-        );
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Lỗi: $e')));
       }
     }
   }
@@ -133,11 +124,7 @@ class _MemberFunnyGameScreenV5State extends State<MemberFunnyGameScreenV5> {
             // 1. Form nhập thông tin
             TextField(
               controller: _nameController,
-              decoration: const InputDecoration(
-                labelText: 'Tên',
-                hintText: 'Nhập tên học sinh',
-                border: OutlineInputBorder(),
-              ),
+              decoration: const InputDecoration(labelText: 'Tên', hintText: 'Nhập tên học sinh', border: OutlineInputBorder()),
             ),
             const SizedBox(height: 12),
             TextField(
@@ -164,18 +151,13 @@ class _MemberFunnyGameScreenV5State extends State<MemberFunnyGameScreenV5> {
             const SizedBox(height: 24),
 
             // 2. Tiêu đề danh sách
-            const Text(
-              'Kết quả phân tích:',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
+            const Text('Kết quả phân tích:', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
             const SizedBox(height: 8),
 
             // 3. Danh sách kết quả - Dùng ListTile giống V4
             Expanded(
               child: _members.isEmpty
-                  ? const Center(
-                      child: Text('Nhập thông tin và nhấn "Phân tích với AI"'),
-                    )
+                  ? const Center(child: Text('Nhập thông tin và nhấn "Phân tích với AI"'))
                   : SingleChildScrollView(
                       child: Column(
                         children: [
@@ -185,16 +167,10 @@ class _MemberFunnyGameScreenV5State extends State<MemberFunnyGameScreenV5> {
                               child: ListTile(
                                 leading: CircleAvatar(
                                   backgroundColor: const Color(0xFF7E57C2),
-                                  child: Text(
-                                    member.name[0].toUpperCase(),
-                                    style: const TextStyle(color: Colors.white),
-                                  ),
+                                  child: Text(member.name[0].toUpperCase(), style: const TextStyle(color: Colors.white)),
                                 ),
-                                title: Text(
-                                    '${member.name} - ${member.description}'),
-                                subtitle: Text(
-                                  member.idealJob ?? 'Đang chờ phân tích...',
-                                ),
+                                title: Text('${member.name} - ${member.description}'),
+                                subtitle: Text(member.idealJob ?? 'Đang chờ phân tích...'),
                               ),
                             ),
                         ],
