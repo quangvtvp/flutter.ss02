@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class LightBulb extends StatefulWidget {
   const LightBulb({super.key});
 
@@ -27,7 +29,7 @@ class _LightBulbState extends State<LightBulb> {
             Icon(
               _isOn ? Icons.lightbulb : Icons.lightbulb_outline,
               size: 100,
-              color: _isOn ? Colors.yellow : Colors.grey,
+              color: _isOn ? Colors.blue : Colors.grey,
             ),
             const SizedBox(height: 20),
             Text(
