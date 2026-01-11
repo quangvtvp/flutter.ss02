@@ -73,27 +73,6 @@ class _CardGridStep2State extends State<CardGridStep2> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            // Hướng dẫn
-            Container(
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: Colors.deepPurple.shade50,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: const Row(
-                children: [
-                  Icon(Icons.info_outline, color: Colors.deepPurple),
-                  SizedBox(width: 8),
-                  Expanded(
-                    child: Text(
-                      'Tap vào thẻ để lật. Đây là preview cho game Memory Card!',
-                      style: TextStyle(color: Colors.deepPurple),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-
             const SizedBox(height: 16),
 
             // Số thẻ đã lật
@@ -130,7 +109,7 @@ class _CardGridStep2State extends State<CardGridStep2> {
                         ),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
+                            color: Colors.black.withAlpha(10),
                             blurRadius: 4,
                             offset: const Offset(0, 2),
                           ),
