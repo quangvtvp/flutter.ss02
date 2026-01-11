@@ -1,4 +1,11 @@
 import 'package:flutter/material.dart';
+<<<<<<<<< Temporary merge branch 1
+import 'package:lesson14_member_funny_game/PhamVanDuong/color.dart';
+import 'package:lesson14_member_funny_game/PhamVanDuong/light.dart';
+import 'package:lesson14_member_funny_game/PhamVanDuong/minigame2.dart';
+import 'package:lesson14_member_funny_game/PhamVanDuong/minigame1.dart';
+import 'package:lesson14_member_funny_game/PhamVanDuong/simplelistview.dart';
+=========
 <<<<<<< HEAD
 <<<<<<< HEAD
 import 'package:lesson14_member_funny_game/nguyenvietthuc/member_screen_v1_stateless_form.dart';
@@ -31,6 +38,7 @@ import 'package:lesson14_member_funny_game/thuannd/lesson-15-mini-game/memory_ga
 
 import 'thuannd/lesson-14-listview-gridview/simplelistview.dart';
 >>>>>>> 0789a158551e6eaabfeece14e00477e1eec76dc6
+>>>>>>>>> Temporary merge branch 2
 
 // HÀM main là điểm bắt đầu của ứng dụng Flutter
 void main() {
@@ -53,13 +61,18 @@ class MemberFunnyGameApp extends StatelessWidget {
       // ),
       // home trỏ tới màn hình game chính đã tách riêng trong folder screens
 <<<<<<< HEAD
-      home: const ThucMemberFunnyGameScreenV1(),
-=======
       home: Scaffold(
+<<<<<<<<< Temporary merge branch 1
+        appBar: AppBar(title: const Text('Flutter demo')),
+        body: MyWidget(), // Thay đổi
+=========
         appBar: AppBar(title: const Text('Flutter Demo')),
         body: const MemoryGameV3Animation(),
+>>>>>>>>> Temporary merge branch 2
       ),
->>>>>>> 0c7db0626eb59dfbe499e904b3fa0bf31969fb8a
+=======
+      home: const MyWidget(),
+>>>>>>> 71a1b24f8d68356ef627d4f4a10c7476b175e91f
     );
   }
 }
