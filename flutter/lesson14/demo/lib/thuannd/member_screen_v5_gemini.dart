@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lesson14_member_funny_game/services/gemini_service.dart';
 
 import '../models/member.dart';
 import '../services/gemini_service.dart';

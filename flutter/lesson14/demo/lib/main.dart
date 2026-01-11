@@ -1,7 +1,24 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:lesson14_member_funny_game/nguyenvietthuc/member_screen_v1_stateless_form.dart';
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+import 'package:lesson14_member_funny_game/PhamVanDuong/member_screen_v1_stateless_form.dart';
+import 'package:lesson14_member_funny_game/thuannd/member_screen_v1_stateless_form.dart'
+    hide MemberFunnyGameScreenV1;
+=======
+import 'package:lesson14_member_funny_game/thuannd/lesson-13-stateful/color_picker.dart';
+import 'package:lesson14_member_funny_game/thuannd/lesson-13-stateful/lightbuld.dart';
+import 'package:lesson14_member_funny_game/thuannd/lesson-14-listview-gridview/color-selector.dart';
+import 'package:lesson14_member_funny_game/thuannd/lesson-14-listview-gridview/grid-game.dart';
+import 'package:lesson14_member_funny_game/thuannd/lesson-14-listview-gridview/simple_grid.dart';
+import 'package:lesson14_member_funny_game/thuannd/lesson-14-listview-gridview/simple_horizontal_list.dart';
+>>>>>>> 0c7db0626eb59dfbe499e904b3fa0bf31969fb8a
 import 'package:lesson14_member_funny_game/thuannd/member_screen_v1_stateless_form.dart';
 import 'package:lesson14_member_funny_game/thuannd/member_screen_v2_stateless_list.dart';
+>>>>>>> 7dd4b014e98195ab1484d14944c75eb05c7f46c7
 import 'package:lesson14_member_funny_game/thuannd/member_screen_v5_gemini.dart';
 
 // HÀM main là điểm bắt đầu của ứng dụng Flutter
@@ -24,7 +41,14 @@ class MemberFunnyGameApp extends StatelessWidget {
       //   useMaterial3: true,
       // ),
       // home trỏ tới màn hình game chính đã tách riêng trong folder screens
+<<<<<<< HEAD
       home: const ThucMemberFunnyGameScreenV1(),
+=======
+      home: Scaffold(
+        appBar: AppBar(title: const Text('Flutter Demo')),
+        body: const CardGridStep2(),
+      ),
+>>>>>>> 0c7db0626eb59dfbe499e904b3fa0bf31969fb8a
     );
   }
 }
