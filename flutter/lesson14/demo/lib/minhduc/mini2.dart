@@ -10,22 +10,10 @@ class CardGridStep2 extends StatefulWidget {
 class _CardGridStep2State extends State<CardGridStep2> {
   // 8 cặp emoji (16 thẻ)
   final List<String> _emojis = [
-    '🎯',
-    '🎯',
-    '🌟',
-    '🌟',
-    '🎨',
-    '🎨',
-    '🎭',
-    '🎭',
-    '🎪',
-    '🎪',
-    '🎢',
-    '🎢',
-    '🎡',
-    '🎡',
-    '🎠',
-    '🎠',
+    '🎯', '🎯', '🌟', '🌟', 
+    '🎨', '🎨', '🎭', '🎭',
+    '🎪', '🎪', '🎢', '🎢', 
+    '🎡', '🎡', '🎠', '🎠',
   ];
 
   // Lưu các thẻ đã được "lật" (dùng Set để không trùng lặp)
@@ -73,16 +61,40 @@ class _CardGridStep2State extends State<CardGridStep2> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
+            // Hướng dẫn
+            Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: Colors.deepPurple.shade50,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: const Row(
+                children: [
+                  Icon(Icons.info_outline, color: Colors.deepPurple),
+                  SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      'Tap vào thẻ để lật. Đây là preview cho game Memory Card!',
+                      style: TextStyle(color: Colors.deepPurple),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            
             const SizedBox(height: 16),
-
+            
             // Số thẻ đã lật
             Text(
               'Đã lật: ${_flippedCards.length} / 16 thẻ',
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-
+            
             const SizedBox(height: 16),
-
+            
             // Grid thẻ bài
             Expanded(
               child: GridView.builder(
@@ -95,7 +107,7 @@ class _CardGridStep2State extends State<CardGridStep2> {
                 itemCount: _emojis.length,
                 itemBuilder: (context, index) {
                   final isFlipped = _flippedCards.contains(index);
-
+                  
                   return GestureDetector(
                     onTap: () => _onCardTap(index),
                     child: Container(
@@ -109,7 +121,7 @@ class _CardGridStep2State extends State<CardGridStep2> {
                         ),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withAlpha(10),
+                            color: Colors.black.withOpacity(0.1),
                             blurRadius: 4,
                             offset: const Offset(0, 2),
                           ),

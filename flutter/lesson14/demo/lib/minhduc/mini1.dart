@@ -30,10 +30,10 @@ class _SelectableListScreenState extends State<SelectableListScreen> {
         foregroundColor: Colors.white,
       ),
       body: ListView.builder(
-        itemCount: 200,
+        itemCount: 20,
         itemBuilder: (context, index) {
           final isSelected = _selectedItems.contains(index);
-
+          
           return ListTile(
             leading: Icon(
               isSelected ? Icons.check_circle : Icons.circle_outlined,
