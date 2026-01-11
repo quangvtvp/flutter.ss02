@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lesson14_member_funny_game/thuannd/lesson-14-listview-gridview/grid-game.dart';
 import 'package:lesson14_member_funny_game/thuannd/lesson-14-listview-gridview/simple_grid.dart';
+import 'package:lesson14_member_funny_game/thuannd/lesson-15-mini-game/cardgame.dart';
 import 'package:lesson14_member_funny_game/thuannd/lesson-15-mini-game/memory_game_v1_basic.dart';
 import 'package:lesson14_member_funny_game/thuannd/lesson-15-mini-game/memory_game_v2_match.dart';
 import 'package:lesson14_member_funny_game/thuannd/lesson-15-mini-game/memory_game_v3_animation.dart';
@@ -30,7 +31,7 @@ class MemberFunnyGameApp extends StatelessWidget {
       // home trỏ tới màn hình game chính đã tách riêng trong folder screens
       home: Scaffold(
         appBar: AppBar(title: const Text('Flutter Demo')),
-        body: const MemoryGameV3Animation(),
+        body: const MyWidget(),
       ),
     );
   }
