@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:lesson14_member_funny_game/minhduc/mini1.dart';
+import 'package:lesson14_member_funny_game/minhduc/gridview.dart';
+
 
 
 void main() {
@@ -22,7 +23,7 @@ class MemberFunnyGameApp extends StatelessWidget {
       //   useMaterial3: true,
       // ),
       // home trỏ tới màn hình game chính đã tách riêng trong folder screens
-      home: const SelectableListScreen(),
+      home: const MyWidget(),
     );
   }
 }
