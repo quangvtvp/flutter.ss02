@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import 'package:lesson14_member_funny_game/nguyenvietthuc/member_screen_v1_stateless_form.dart';
 =======
 <<<<<<< HEAD
@@ -20,6 +21,16 @@ import 'package:lesson14_member_funny_game/thuannd/member_screen_v1_stateless_fo
 import 'package:lesson14_member_funny_game/thuannd/member_screen_v2_stateless_list.dart';
 >>>>>>> 7dd4b014e98195ab1484d14944c75eb05c7f46c7
 import 'package:lesson14_member_funny_game/thuannd/member_screen_v5_gemini.dart';
+=======
+import 'package:lesson14_member_funny_game/thuannd/lesson-14-listview-gridview/grid-game.dart';
+import 'package:lesson14_member_funny_game/thuannd/lesson-14-listview-gridview/simple_grid.dart';
+import 'package:lesson14_member_funny_game/thuannd/lesson-15-mini-game/memory_game_v1_basic.dart';
+import 'package:lesson14_member_funny_game/thuannd/lesson-15-mini-game/memory_game_v2_match.dart';
+import 'package:lesson14_member_funny_game/thuannd/lesson-15-mini-game/memory_game_v3_animation.dart';
+import 'package:lesson14_member_funny_game/thuannd/lesson-15-mini-game/memory_game_v4_sound.dart';
+
+import 'thuannd/lesson-14-listview-gridview/simplelistview.dart';
+>>>>>>> 0789a158551e6eaabfeece14e00477e1eec76dc6
 
 // HÀM main là điểm bắt đầu của ứng dụng Flutter
 void main() {
@@ -46,7 +57,7 @@ class MemberFunnyGameApp extends StatelessWidget {
 =======
       home: Scaffold(
         appBar: AppBar(title: const Text('Flutter Demo')),
-        body: const CardGridStep2(),
+        body: const MemoryGameV3Animation(),
       ),
 >>>>>>> 0c7db0626eb59dfbe499e904b3fa0bf31969fb8a
     );
