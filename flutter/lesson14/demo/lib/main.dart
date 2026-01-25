@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lesson14_member_funny_game/thuannd/lesson-14-listview-gridview/simplelistview.dart';
+import 'package:lesson14_member_funny_game/thuannd/lesson-15-mini-game/memory_game_v4_sound.dart';
 import 'package:lesson14_member_funny_game/thuannd/lesson-15-mini-game/student-name/my_card_game.dart';
-import 'package:lesson14_member_funny_game/thuannd/sqlight/todo.dart';
-import 'package:lesson14_member_funny_game/thuannd/sqlight/todo_v2.dart';
 
 // HÀM main là điểm bắt đầu của ứng dụng Flutter
 void main() {
@@ -24,7 +23,7 @@ class MemberFunnyGameApp extends StatelessWidget {
       //   useMaterial3: true,
       // ),
       // home trỏ tới màn hình game chính đã tách riêng trong folder screens
-      home: const TodoListV2(),
+      home: const MemoryGameV4Sound(),
     );
   }
 }
