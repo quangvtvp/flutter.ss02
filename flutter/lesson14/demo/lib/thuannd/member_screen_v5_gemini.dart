@@ -9,7 +9,10 @@ import '../services/gemini_service.dart';
 // Khi nhấn nút, gọi Gemini API để phân tích và gợi ý ngành học
 
 class MemberFunnyGameScreenV5 extends StatefulWidget {
-  const MemberFunnyGameScreenV5({super.key});
+  MemberFunnyGameScreenV5({super.key, this.name, this.desc});
+
+  String? name;
+  String? desc;
 
   @override
   State<MemberFunnyGameScreenV5> createState() =>
@@ -23,6 +26,18 @@ class _MemberFunnyGameScreenV5State extends State<MemberFunnyGameScreenV5> {
   // Controller để lấy giá trị từ TextField
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _descController = TextEditingController();
+
+  // init state để gán giá trị ban đầu nếu có
+  @override
+  void initState() {
+    super.initState();
+    if (widget.name != null) {
+      _nameController.text = widget.name!;
+    }
+    if (widget.desc != null) {
+      _descController.text = widget.desc!;
+    }
+  }
 
   // Hàm thêm thành viên với gọi Gemini API
   Future<void> _addMember() async {
