@@ -23,6 +23,7 @@ class _ColorPickerState extends State<ColorPicker> {
   void _changeColor(Color color) {
     setState(() {
       _selectedColor = color;
+      Navigator.pop(context, color); // tra bien 'color' ve cho screen truoc, khong co thi ham van chay binh thuong
     });
   }
 
