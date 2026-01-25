@@ -9,10 +9,16 @@ import '../services/gemini_service.dart';
 // Khi nhấn nút, gọi Gemini API để phân tích và gợi ý ngành học
 
 class MemberFunnyGameScreenV5 extends StatefulWidget {
+<<<<<<< HEAD
+  final String? name;
+  final String? desc;
+  const MemberFunnyGameScreenV5({super.key, this.name, this.desc});
+=======
   MemberFunnyGameScreenV5({super.key, this.name, this.desc});
 
   String? name;
   String? desc;
+>>>>>>> ea081d3bb7771c067f5661af63d39388019e8c25
 
   @override
   State<MemberFunnyGameScreenV5> createState() =>
@@ -27,9 +33,13 @@ class _MemberFunnyGameScreenV5State extends State<MemberFunnyGameScreenV5> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _descController = TextEditingController();
 
+<<<<<<< HEAD
+  initState() {
+=======
   // init state để gán giá trị ban đầu nếu có
   @override
   void initState() {
+>>>>>>> ea081d3bb7771c067f5661af63d39388019e8c25
     super.initState();
     if (widget.name != null) {
       _nameController.text = widget.name!;
@@ -38,23 +48,29 @@ class _MemberFunnyGameScreenV5State extends State<MemberFunnyGameScreenV5> {
       _descController.text = widget.desc!;
     }
   }
+<<<<<<< HEAD
+=======
 
+>>>>>>> ea081d3bb7771c067f5661af63d39388019e8c25
   // Hàm thêm thành viên với gọi Gemini API
   Future<void> _addMember() async {
+    
+
     final name = _nameController.text.trim();
     final desc = _descController.text.trim();
 
     if (name.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Vui lòng nhập tên!')),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text('Vui lòng nhập tên!')));
       return;
     }
 
     if (desc.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-            content: Text('Vui lòng nhập đặc điểm để AI phân tích!')),
+          content: Text('Vui lòng nhập đặc điểm để AI phân tích!'),
+        ),
       );
       return;
     }
@@ -117,9 +133,9 @@ class _MemberFunnyGameScreenV5State extends State<MemberFunnyGameScreenV5> {
       // Đóng loading nếu có lỗi
       if (mounted) {
         Navigator.of(context).pop();
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Lỗi: $e')),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('Lỗi: $e')));
       }
     }
   }
@@ -206,7 +222,8 @@ class _MemberFunnyGameScreenV5State extends State<MemberFunnyGameScreenV5> {
                                   ),
                                 ),
                                 title: Text(
-                                    '${member.name} - ${member.description}'),
+                                  '${member.name} - ${member.description}',
+                                ),
                                 subtitle: Text(
                                   member.idealJob ?? 'Đang chờ phân tích...',
                                 ),
