@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lesson14_member_funny_game/thuannd/http-request/Minhbao/todo.dart';
 
 import 'package:lesson14_member_funny_game/thuannd/lesson-15-mini-game/memory_game_v4_sound.dart';
 import 'package:lesson14_member_funny_game/thuannd/lesson-14-listview-gridview/simplelistview.dart';
@@ -31,9 +32,9 @@ class MemberFunnyGameApp extends StatelessWidget {
       // ),
       // home trỏ tới màn hình game chính đã tách riêng trong folder screens
 <<<<<<< HEAD
-      home: const Cardsgame(),
+      home: todolist(),
 =======
-      home: const MemoryGameV4Sound(),
+      home: (),
 >>>>>>> ea081d3bb7771c067f5661af63d39388019e8c25
     );
   }
